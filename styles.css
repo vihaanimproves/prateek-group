@@ -345,7 +345,7 @@ button {
   z-index: 1;
   background-color: #C8CCD2;
   background-image:
-    url('Images/hero.jpg'),
+    url('images/hero.jpg'),
     linear-gradient(to bottom, #F0F2F5 0%, #DEE1E6 30%, #C8CCD2 70%, #A8ACB3 100%);
   background-size: cover;
   background-position: center;
