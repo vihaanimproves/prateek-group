@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prateek Group — Integrated yarn manufacturing built on scale, backed by trust. Spinning, fancy yarns, and dyeing across India." />
+  <title>Prateek Group — Integrated Yarn Manufacturing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Prateek Group home">
+        <svg class="logo-mark" aria-hidden="true" width="42" height="48" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg">
+          <!-- Vertical stem -->
+          <rect x="2" y="2" width="13" height="56" fill="#E63027"/>
+          <!-- Upper triangular bowl (slants from top-right down to mid-left) -->
+          <path d="M 15,2 L 47,2 L 15,33 Z" fill="#E63027"/>
+          <!-- Lower triangular bowl (smaller, below the upper one) -->
+          <path d="M 15,38 L 36,38 L 15,56 Z" fill="#E63027"/>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-text-main">PRATEEK</span>
+          <span class="logo-text-sub">GROUP</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list" id="primary-menu">
+          <li><a href="index.html" class="active">HOME</a></li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="prateek.html">Prateek</a></li>
+              <li><a href="kk-spintex.html">KK Spintex</a></li>
+              <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
+            </ul>
+          </li>
+          <li><a href="#about">ABOUT US</a></li>
+          <li><a href="#careers">CAREERS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <a href="contact.html" class="btn btn-primary header-cta">
+        GET IN TOUCH
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="hero-visual" aria-hidden="true">
+        <!-- The photo is a separate CSS background-image layer (NOT inside
+             the SVG) so it can use background-size:cover for a normal,
+             non-stretched crop. It's clipped to the same chevron shape via
+             CSS clip-path with matching percentage coordinates. The SVG only
+             draws the gradient fallback, fine lines, and the red wedge. -->
+        <div class="hero-photo"></div>
+
+        <!-- SVG with the chevron cut going from BOTTOM-LEFT up to TOP-RIGHT,
+             with the 165° kink at the bulge. Cut shifted right by ~40px, and a
+             semi-transparent red shape sits over the photo, parallel to the
+             cut, offset further to the right of it.
+             x=0 in SVG = 18% of hero, x=1000 = 100% of hero.
+             At ~1440px viewport, .hero-visual ≈ 1181px wide, so 1 viewBox unit
+             ≈ 1.181px → 20px ≈ 17 units, 30px ≈ 25 units.
+
+             LAYER ORDER (back to front):
+               1. hero-photo (CSS background, clipped to the cut) - lowest
+               2. red parallel shape (offset further right)       - above photo
+               3. white background + text content (.hero-content, separate
+                  element with higher z-index) - highest, on top of both -->
+        <svg class="hero-svg" viewBox="0 0 1000 750" preserveAspectRatio="none">
+          <!-- The SVG now only draws the red wedge overlay. The photo and its
+               gradient fallback live in .hero-photo (CSS), underneath. -->
+
+          <!-- Semi-transparent red wedge matching the reference sketch,
+               shifted right by 100px (≈85 viewBox units) from its previous
+               position:
+                 (495,263) top-right corner, sits on the upper arm
+                 (441,337) bulge
+                 (319,750) bottom-left (on lower arm)
+                 (359,750) bottom-right -->
+          <path d="M 495,263 L 441,337 L 319,750 L 359,750 Z"
+                fill="#E63027" opacity="0.85"/>
+        </svg>
+      </div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Integrated Yarn<br/>
+            Manufacturing <span class="accent">Group</span>
+          </h1>
+          <p class="hero-subhead">
+            For Shirting, Suiting &amp; Furnishing Manufacturers
+          </p>
+
+          <div class="hero-divider" aria-hidden="true"></div>
+
+          <div class="hero-stat">
+            <div class="hero-stat-number">900+ MT</div>
+            <div class="hero-stat-label">Monthly Capacity</div>
+            <div class="hero-stat-detail">Across 3 Specialized Manufacturing Facilities</div>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#companies" class="btn btn-primary">
+              EXPLORE COMPANIES <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="contact.html" class="btn btn-outline">
+              CONTACT US <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATS BAR ===================== -->
+    <section class="stats-bar" aria-label="Company statistics">
+      <div class="container stats-grid">
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="9" r="5" />
+              <path d="M8 13l-2 8 6-3 6 3-2-8" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Years<br />Experience</span>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 2h6v4l-2 14h-2L9 6z" />
+              <path d="M9 6h6" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">38,000+</span>
+            <span class="stat-label">Spindles</span>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4" />
+              <path d="M18 6l2-2 2 2" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">900+ MT</span>
+            <span class="stat-label">Monthly<br />Capacity</span>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">300+</span>
+            <span class="stat-label">Product<br />Variants</span>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 21V9l5-3 5 3v3h8v9z" />
+              <path d="M8 13v8M13 17v4M17 17v4M21 17v4" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Manufacturing<br />Facilities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== OUR COMPANIES ===================== -->
+    <section class="companies" id="companies">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-left">
+            <span class="eyebrow">Our Companies</span>
+            <h2 class="section-title">
+              Three Strengths.<br />
+              One Promise.
+            </h2>
+            <span class="title-rule" aria-hidden="true"></span>
+          </div>
+          <p class="section-head-right">
+            Each company within Prateek Group brings deep expertise
+            and advanced capabilities to deliver the best for fabric
+            manufacturers across the country.
+          </p>
+        </div>
+
+        <div class="company-grid">
+
+          <!-- Card 1: Prateek -->
+          <article class="company-card">
+            <div class="company-card-image">
+              <span class="placeholder-label">Image</span>
+            </div>
+            <div class="company-card-body">
+              <div class="company-card-header">
+                <span class="company-mark" aria-hidden="true">P</span>
+                <h3 class="company-name">PRATEEK</h3>
+              </div>
+              <p class="company-sub">Fancy Yarns &amp; Value-Added Yarns</p>
+              <ul class="company-list">
+                <li>2-ply and 3-ply yarns</li>
+                <li>300+ product variants</li>
+                <li>Fancy yarn specialist</li>
+                <li>Bhiwandi, Maharashtra</li>
+              </ul>
+              <a href="prateek.html" class="company-link">
+                DISCOVER PRATEEK <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: KK Spintex -->
+          <article class="company-card">
+            <div class="company-card-image">
+              <span class="placeholder-label">Image</span>
+            </div>
+            <div class="company-card-body">
+              <div class="company-card-header">
+                <span class="company-mark" aria-hidden="true">K</span>
+                <h3 class="company-name">KK SPINTEX</h3>
+              </div>
+              <p class="company-sub">PV Yarn Manufacturing</p>
+              <ul class="company-list">
+                <li>38,000+ spindles</li>
+                <li>500+ MT monthly capacity</li>
+                <li>Micro-denier expertise</li>
+                <li>Guntur, Andhra Pradesh</li>
+              </ul>
+              <a href="kk-spintex.html" class="company-link">
+                DISCOVER KK SPINTEX <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: GB Dyed Yarn -->
+          <article class="company-card">
+            <div class="company-card-image">
+              <span class="placeholder-label">Image</span>
+            </div>
+            <div class="company-card-body">
+              <div class="company-card-header">
+                <span class="company-mark" aria-hidden="true">GB</span>
+                <h3 class="company-name">GB DYED YARN</h3>
+              </div>
+              <p class="company-sub">Yarn Dyeing &amp; Texturizing</p>
+              <ul class="company-list">
+                <li>400+ MT monthly capacity</li>
+                <li>Advanced dyeing lab</li>
+                <li>Texturizing unit</li>
+                <li>Palsana, Gujarat</li>
+              </ul>
+              <a href="gb-dyed-yarn.html" class="company-link">
+                DISCOVER GB DYED YARN <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHY CHOOSE US ===================== -->
+    <section class="why">
+      <div class="container">
+        <div class="why-head">
+          <span class="eyebrow">Why Leading Fabric</span>
+          <h2 class="section-title">Manufacturers<br />Choose Us</h2>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <h3 class="why-title">Integrated Manufacturing</h3>
+            <p class="why-desc">From spinning to dyeing, critical processes remain in-house.</p>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" />
+              </svg>
+            </div>
+            <h3 class="why-title">Scale &amp; Capacity</h3>
+            <p class="why-desc">Advanced infrastructure and large-scale production capabilities.</p>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2l8 4v6c0 5-4 9-8 10-4-1-8-5-8-10V6z" />
+              </svg>
+            </div>
+            <h3 class="why-title">Quality First</h3>
+            <p class="why-desc">In-house labs, strict quality controls and colour consistency.</p>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="9" r="5" /><path d="M8 13l-2 8 6-3 6 3-2-8" />
+              </svg>
+            </div>
+            <h3 class="why-title">15+ Years Experience</h3>
+            <p class="why-desc">Deep expertise in shirting, suiting and furnishing yarns.</p>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 12l4 2 4-4 4 4 4-2v6H3zM3 8h18" />
+              </svg>
+            </div>
+            <h3 class="why-title">Complaint-Free Reputation</h3>
+            <p class="why-desc">Consistency, reliability and long-term trust built over the years.</p>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </div>
+            <h3 class="why-title">Strategic Locations</h3>
+            <p class="why-desc">Well-connected facilities ensuring efficient supply and service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRESENCE ===================== -->
+    <section class="presence">
+      <div class="container presence-grid">
+        <div class="presence-intro">
+          <span class="eyebrow eyebrow-on-dark">Our Presence</span>
+          <h2 class="section-title section-title-on-dark">
+            Manufacturing<br />
+            Presence<br />
+            Across India
+          </h2>
+          <p class="presence-desc">
+            Three strategically located facilities enabling us to serve customers
+            across the country with efficiency and reliability.
+          </p>
+        </div>
+
+        <div class="presence-map" aria-hidden="true">
+          <div class="map-placeholder">
+            <span class="placeholder-label placeholder-label-dark">India Map</span>
+            <span class="map-pin map-pin-1"></span>
+            <span class="map-pin map-pin-2"></span>
+            <span class="map-pin map-pin-3"></span>
+          </div>
+        </div>
+
+        <div class="presence-locations">
+          <div class="location">
+            <span class="location-pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /></svg>
+            </span>
+            <div>
+              <h4 class="location-city">BHIWANDI, MAHARASHTRA</h4>
+              <p class="location-company">Prateek</p>
+              <p class="location-type">Fancy Yarn Manufacturing</p>
+            </div>
+          </div>
+
+          <div class="location">
+            <span class="location-pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /></svg>
+            </span>
+            <div>
+              <h4 class="location-city">GUNTUR, ANDHRA PRADESH</h4>
+              <p class="location-company">KK Spintex</p>
+              <p class="location-type">PV Yarn Production</p>
+            </div>
+          </div>
+
+          <div class="location">
+            <span class="location-pin" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /></svg>
+            </span>
+            <div>
+              <h4 class="location-city">PALSANA, GUJARAT</h4>
+              <p class="location-company">GB Dyed Yarn</p>
+              <p class="location-type">Dyeing &amp; Texturizing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BY THE NUMBERS ===================== -->
+    <section class="numbers">
+      <div class="container">
+        <div class="numbers-head">
+          <span class="eyebrow">Prateek Group</span>
+          <h2 class="section-title">By The Numbers</h2>
+        </div>
+        <div class="numbers-grid">
+          <div class="number-item">
+            <span class="number-value">3</span>
+            <span class="number-label">Manufacturing<br />Units</span>
+          </div>
+          <div class="number-item">
+            <span class="number-value">900+ MT</span>
+            <span class="number-label">Monthly<br />Capacity</span>
+          </div>
+          <div class="number-item">
+            <span class="number-value">38,000+</span>
+            <span class="number-label">Spindles</span>
+          </div>
+          <div class="number-item">
+            <span class="number-value">300+</span>
+            <span class="number-label">Product<br />Variants</span>
+          </div>
+          <div class="number-item">
+            <span class="number-value">15+</span>
+            <span class="number-label">Years<br />Experience</span>
+          </div>
+          <div class="number-item">
+            <span class="number-value">100%</span>
+            <span class="number-label">Focus On<br />Yarn Manufacturing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <h2 class="cta-title">
+          Looking for a <span class="accent">reliable</span> yarn<br />
+          manufacturing partner?
+        </h2>
+        <p class="cta-desc">
+          We offer consistent quality, customized solutions and on-time delivery
+          to support your business growth.
+        </p>
+        <a href="contact.html" class="btn btn-primary cta-button">
+          GET IN TOUCH <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-on-dark" aria-label="Prateek Group home">
+          <span class="logo-mark" aria-hidden="true">P</span>
+          <span class="logo-text">
+            <span class="logo-text-main">PRATEEK</span>
+            <span class="logo-text-sub">GROUP</span>
+          </span>
+        </a>
+        <p class="footer-about">
+          Integrated yarn manufacturing group with state-of-the-art facilities
+          across India. Committed to quality, consistency and customer satisfaction.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Group Companies</h5>
+        <ul>
+          <li><a href="prateek.html">Prateek</a></li>
+          <li><a href="kk-spintex.html">KK Spintex</a></li>
+          <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#companies">Group Companies</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Manufacturing Locations</h5>
+        <ul class="footer-locations">
+          <li><span class="footer-pin" aria-hidden="true">📍</span>Bhiwandi, Maharashtra</li>
+          <li><span class="footer-pin" aria-hidden="true">📍</span>Guntur, Andhra Pradesh</li>
+          <li><span class="footer-pin" aria-hidden="true">📍</span>Palsana, Gujarat</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Contact Us</h5>
+        <ul class="footer-contact">
+          <li><span aria-hidden="true">📞</span>+91 72734 44555</li>
+          <li><span aria-hidden="true">✉️</span>info@prateekspunfab.com</li>
+          <li><span aria-hidden="true">🕒</span>Mon – Sat: 9:00 AM – 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div class="footer-social" aria-label="Social media">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+        <p class="footer-copy">© 2024 Prateek Spunfab Pvt. Ltd. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

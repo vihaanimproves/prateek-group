@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KK Spintex — Prateek Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-stub { padding: clamp(80px, 10vw, 140px) 0; text-align: center; }
+    .page-stub .eyebrow { display: inline-block; }
+    .page-stub h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .page-stub p { color: var(--color-muted); max-width: 520px; margin: 0 auto 32px; }
+  </style>
+</head>
+<body>
+  <header class="header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Prateek Group home">
+        <span class="logo-mark" aria-hidden="true">P</span>
+        <span class="logo-text">
+          <span class="logo-text-main">PRATEEK</span>
+          <span class="logo-text-sub">GROUP</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list" id="primary-menu">
+          <li><a href="index.html">HOME</a></li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="prateek.html">Prateek</a></li>
+              <li><a href="kk-spintex.html">KK Spintex</a></li>
+              <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
+            </ul>
+          </li>
+          <li><a href="kk-spintex.html" class="active">KK SPINTEX</a></li>
+          <li><a href="gb-dyed-yarn.html">GB DYED YARN</a></li>
+          <li><a href="prateek.html">PRATEEK</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="btn btn-primary header-cta">
+        GET IN TOUCH <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-stub">
+      <div class="container">
+        <span class="eyebrow">Our Companies</span>
+        <h1>KK Spintex</h1>
+        <p>PV yarn manufacturing with 38,000+ spindles and micro-denier expertise in Guntur, Andhra Pradesh. Page content coming soon.</p>
+        <a href="index.html" class="btn btn-primary">← Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copy">© 2024 Prateek Spunfab Pvt. Ltd. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
