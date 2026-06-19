@@ -154,6 +154,21 @@ button {
 .btn:hover .btn-arrow {
   transform: translateX(3px);
 }
+.btn-navbar {
+  background: transparent;
+  color: var(--color-red);
+  border: 2px solid var(--color-red);
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all .25s ease;
+}
+.btn-navbar:hover {
+  background: #fff;
+  color: var(--color-red);
+  border-color: var(--color-red);
+}
 
 /* -------------------- Logo -------------------- */
 .logo {
@@ -161,9 +176,11 @@ button {
   align-items: center;
   gap: 10px;
 }
+
+
 .logo-mark {
-  width: 42px;
-  height: 48px;
+  width: 34px;
+  height: 38px;
   flex-shrink: 0;
   display: block;
 }
@@ -176,27 +193,36 @@ button {
 .logo-text-main {
   font-size: 15px;
   letter-spacing: 0.06em;
-  color: var(--color-ink);
+  color: var(--color-red);
 }
 .logo-text-sub {
   font-size: 11px;
   letter-spacing: 0.22em;
-  color: var(--color-muted);
+  color: rgba(255,255,255,0.7);
   margin-top: 3px;
 }
 
 /* -------------------- Header -------------------- */
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background: transparent;
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  right: 24px;
+  border-radius: 8px;
+  z-index: 1000;
+  background: #0D0F12;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.header-hidden {
+  transform: translateY(-150%);
 }
 /* Header and hero use a left-aligned, full-width container so content sits
    close to the left edge instead of being centered in a 1280px max-width. */
-.header .container,
+.header .container{
+  padding-inline: 24px;
+}
 .hero .container {
   max-width: 100%;
   margin: 0;
@@ -208,24 +234,35 @@ button {
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  height: 90px;
+  gap: 28px;
+  height: 72px;
 }
 
 /* Nav */
 .nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 32px);
+  gap: clamp(16px, 1.5vw, 24px);
+}
+.nav {
+  margin-right: auto;
+}
+.nav-separator {
+  color: var(--color-red);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
 }
 .nav-list > li > a {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 12.5px;
   text-transform: uppercase;
   letter-spacing: 0;
-  color: var(--color-ink);
+  color: var(--color-red);
   padding: 8px 0;
   position: relative;
   transition: color .2s ease;
@@ -249,13 +286,24 @@ button {
 .caret { font-size: 10px; transform: translateY(1px); }
 
 /* Dropdown */
-.has-dropdown { position: relative; }
+.has-dropdown { 
+  position: relative; 
+}
+.has-dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 10px;
+}
 .dropdown {
   position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
   min-width: 180px;
-  background: #fff;
+  background: #C0C0C0;
   border: 1px solid var(--color-border);
   border-radius: var(--r-md);
   box-shadow: var(--shadow-card);
@@ -270,17 +318,18 @@ button {
   padding: 10px 16px;
   font-size: 13px;
   letter-spacing: 0.04em;
+  transition: background-color .2s ease, color .2s ease;
   color: var(--color-ink);
 }
 .dropdown li a:hover {
-  background: var(--color-bg-soft);
+  background: #000;
   color: var(--color-red);
 }
 .has-dropdown:hover .dropdown,
 .has-dropdown:focus-within .dropdown {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Mobile nav toggle */

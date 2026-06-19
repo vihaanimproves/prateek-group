@@ -35,22 +35,42 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="nav-list" id="primary-menu">
+          <li class="nav-separator">|</li>
           <li><a href="index.html" class="active">HOME</a></li>
+          <li><a href="#history">HISTORY</a></li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="#manufacturing" style="text-align: center">MANUFACTURING</a></li>
+              <li><a href="#qualitycontrol" style="text-align: center">QUALITY CONTROL</a></li>
+              <li><a href="#machinery" style="text-align: center">MACHINERY</a></li>
+              <li><a href="#capacity" style="text-align: center">CAPACITY</a></li>
+              <li><a href="#certifications" style="text-align: center">CERTIFICATIONS</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="#pvyarn" style="text-align: center">PV YARN</a></li>
+              <li><a href="#dyedyarn" style="text-align: center">DYED YARN</a></li>
+              <li><a href="#fancyyarn" style="text-align: center">FANCY YARN</a></li>
+            </ul>
+          </li>
           <li class="has-dropdown">
             <a href="#" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">▾</span></a>
             <ul class="dropdown">
-              <li><a href="prateek.html">Prateek</a></li>
-              <li><a href="kk-spintex.html">KK Spintex</a></li>
-              <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
+              <li><a href="prateek.html" style="text-align: center">PRATEEK YARN</a></li>
+              <li><a href="kk-spintex.html" style="text-align: center">KK SPINTEX</a></li>
+              <li><a href="gb-dyed-yarn.html" style="text-align: center">GB DYED YARN</a></li>
             </ul>
           </li>
-          <li><a href="#about">ABOUT US</a></li>
-          <li><a href="#careers">CAREERS</a></li>
+          <li><a href="#careers">OUR PARTNERS</a></li>
+          <li><a href="#careers">PEOPLE</a></li>
           <li><a href="contact.html">CONTACT</a></li>
         </ul>
       </nav>
 
-      <a href="contact.html" class="btn btn-primary header-cta">
+      <a href="contact.html" class="btn btn-navbar">
         GET IN TOUCH
         <span class="btn-arrow" aria-hidden="true">→</span>
       </a>
@@ -558,5 +578,31 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+  let lastScroll = 0;
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+        header.classList.remove('header-hidden');
+        return;
+    }
+
+    if (
+        currentScroll > lastScroll &&
+        !header.classList.contains('header-hidden')
+    ) {
+        header.classList.add('header-hidden');
+    } else if (
+        currentScroll < lastScroll &&
+        header.classList.contains('header-hidden')
+    ) {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
 </body>
 </html>
