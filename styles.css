@@ -187,12 +187,25 @@ button {
 
 /* -------------------- Header -------------------- */
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
   background: transparent;
+}
+/* White background + bottom border that fade in on scroll. opacity is driven
+   by --header-bg-opacity, set from JS based on scroll progress through the
+   hero. Sits behind the header content (logo/nav) via z-index. */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  opacity: var(--header-bg-opacity, 0);
+  z-index: -1;
+  pointer-events: none;
 }
 /* Header and hero use a left-aligned, full-width container so content sits
    close to the left edge instead of being centered in a 1280px max-width. */
@@ -553,182 +566,384 @@ button {
   justify-self: end;
 }
 
+/* Centered header style: small uppercase eyebrow flanked by thin rules on
+   either side, then a large bold title underneath - e.g. "THE COMPANIES
+   BEHIND" / "PRATEEK GROUP". */
+.section-head-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+.eyebrow-flanked {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+.eyebrow-flanked::before,
+.eyebrow-flanked::after {
+  content: "";
+  display: block;
+  width: clamp(40px, 8vw, 96px);
+  height: 1px;
+  background: var(--color-border-soft);
+}
+.section-title-centered {
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: 0.01em;
+}
+
+.company-grid-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
 .company-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(3, 25vw);
+  gap: 32px;
 }
 
-.company-card {
-  position: relative;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: var(--color-ink-3);
-  min-height: 540px;
-  display: flex;
-  flex-direction: column;
-}
-
-.company-card-image {
-  position: relative;
-  height: 220px;
-  background: linear-gradient(135deg, #DDE2E8 0%, #C1C7CF 100%);
+.company-nav {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-soft);
+  background: #fff;
+  color: var(--color-ink);
+  font-size: 20px;
+  line-height: 1;
   display: grid;
   place-items: center;
-  /* Slight diagonal bottom edge */
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+  position: relative;
+  z-index: 2;
+}
+.company-nav:hover { background: var(--color-red); color: #fff; border-color: var(--color-red); }
+
+/* Card is a positioned shell containing a full-background photo, an SVG
+   that paints the diagonal "slash" panel (dark or white) plus the red curve
+   accent, and a content body positioned in the lower-left panel area. */
+.company-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  border-radius: 6px;
+  background: #0D0F12;
+  cursor: pointer;
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+}
+.company-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
 }
 
+/* Photo (or gradient placeholder) fills the entire card; the SVG panel sits
+   on top of it and reveals the photo only in the upper-right area outside
+   the curve. */
+.company-card-photo {
+  position: absolute;
+  inset: 0;
+  background-color: #6A6F78;
+  background-image: linear-gradient(135deg, #8A8F98 0%, #5A5E66 100%);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.card-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Body sits inside the lower-left panel area. max-width keeps text inside
+   the panel even at the narrowest part of the curve. */
 .company-card-body {
   position: relative;
-  flex: 1;
-  padding: 32px 28px 28px;
-  color: #fff;
-  /* Diagonal top edge to match image bottom */
-  margin-top: -28px;
-  background: var(--color-ink-3);
-  clip-path: polygon(0 16%, 100% 4%, 100% 100%, 0 100%);
+  z-index: 2;
+  height: 100%;
+  min-height: 560px;
+  padding: 165px 32px 32px 32px;
   display: flex;
   flex-direction: column;
+  color: #fff;
+  /* Border runs from (0,75) on the left edge down 15deg to (400,182) on
+     the right edge. Body width capped so content stays clear of the line
+     at the header's vertical position. */
+  max-width: 75%;
+  box-sizing: border-box;
 }
+.company-card-light .company-card-body { color: var(--color-ink); }
 
 .company-card-header {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 18px;
-  margin-bottom: 8px;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 6px;
 }
 .company-mark {
-  display: inline-grid;
-  place-items: center;
-  min-width: 36px;
-  height: 36px;
-  padding: 0 6px;
-  background: var(--color-red);
-  color: #fff;
+  display: inline-block;
+  color: var(--color-red);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 18px;
   font-style: italic;
-  border-radius: var(--r-sm);
+  font-size: 46px;
   line-height: 1;
+  letter-spacing: -0.03em;
 }
 .company-name {
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  font-style: italic;
   letter-spacing: 0;
+  line-height: 1;
+  color: #fff;
 }
+.company-card-light .company-name { color: var(--color-ink); }
+
 .company-sub {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-dark-text);
-  margin-bottom: 22px;
+  margin: 4px 0 26px 0;
 }
+.company-card-light .company-sub { color: var(--color-muted); }
+
 .company-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
   margin-bottom: 28px;
 }
 .company-list li {
-  position: relative;
-  padding-left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 0;
   font-size: 14px;
   color: var(--color-dark-text);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.company-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 9px;
-  width: 12px;
-  height: 2px;
-  background: var(--color-red);
+.company-list li:first-child { padding-top: 4px; }
+.company-card-light .company-list li {
+  color: var(--color-ink-2);
+  border-bottom-color: rgba(13,15,18,0.08);
 }
+.company-list-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--color-red);
+}
+.company-list-icon svg { width: 100%; height: 100%; }
+
 .company-link {
   margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #fff;
   transition: color .2s ease;
 }
-.company-link:hover { color: var(--color-red); }
-.company-link .btn-arrow { font-size: 16px; }
-.company-link:hover .btn-arrow { transform: translateX(4px); }
+.company-card-light .company-link { color: var(--color-ink); }
+
+.company-link-text {
+  position: relative;
+  padding-bottom: 10px;
+}
+.company-link-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 42px;
+  height: 2px;
+  background: var(--color-red);
+}
+
+.company-link-arrow {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+.company-card-light .company-link-arrow {
+  border-color: rgba(13,15,18,0.30);
+  color: var(--color-ink);
+}
+.company-card:hover .company-link-arrow {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.why .container {
+  max-width: 100%;
+  padding-inline: clamp(20px, 10vw, 200px);
+}
 
 /* -------------------- WHY -------------------- */
 .why {
-  padding: var(--section-y) 0;
-  background: #fff;
-  border-top: 1px solid var(--color-border-soft);
+  position: relative;
+  padding: clamp(48px, 6vw, 84px) 0;
+  background: #0D0F12;
+  color: #fff;
+  overflow: hidden;
 }
+
+/* Right-side photo with a diagonal cut, behind the content. Left edge
+   shifted further left so the photo covers more of the section. */
+.why-visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 38%;
+  z-index: 0;
+}
+.why-photo {
+  position: absolute;
+  inset: 0;
+  background-color: #15181d;
+  /* Gradient now only darkens a narrow band right at the left edge, so it
+     reads as a soft border rather than covering most of the photo. */
+  background-image: linear-gradient(90deg, rgba(13,15,18,0.85) 0%, rgba(13,15,18,0) 18%), url('images/why.jpg');
+  background-size: cover, cover;
+  background-position: center, center;
+}
+
+.why-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 62%;
+}
+
 .why-head {
-  margin-bottom: 56px;
-  max-width: 320px;
+  margin-bottom: 36px;
 }
+.why-eyebrow {
+  display: inline-block;
+  color: var(--color-red);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+.why-eyebrow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  background: var(--color-red);
+}
+.why-title-main {
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.why-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 600px;
+}
+
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 4px;
 }
 .why-item {
-  text-align: left;
+  padding: 18px 22px 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+/* No right border on the last column */
+.why-item:nth-child(3n) {
+  border-right: none;
+}
+/* No bottom border on the last row */
+.why-item:nth-child(n + 4) {
+  border-bottom: none;
+  padding-bottom: 6px;
+}
+/* First column flush-left so icons align with the heading */
+.why-item:nth-child(3n + 1) {
+  padding-left: 0;
+}
+
 .why-icon {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: grid;
   place-items: center;
-  color: var(--color-ink);
-  margin-bottom: 20px;
+  color: var(--color-red);
+  margin-bottom: 14px;
 }
-.why-icon svg { width: 36px; height: 36px; }
+.why-icon svg {
+  width: 26px;
+  height: 26px;
+}
 .why-title {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
+  color: #fff;
   margin-bottom: 10px;
+  line-height: 1.25;
   letter-spacing: -0.01em;
 }
 .why-desc {
-  font-size: 13px;
-  color: var(--color-muted);
-  line-height: 1.6;
-}
-
-/* Position the why-head and grid side by side on desktop */
-@media (min-width: 900px) {
-  .why .container {
-    display: grid;
-    grid-template-columns: minmax(200px, 260px) 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-  .why-head {
-    margin-bottom: 0;
-    max-width: none;
-  }
-  .why-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 28px;
-  }
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
 }
 
 /* -------------------- PRESENCE -------------------- */
 .presence {
   padding: var(--section-y) 0;
-  background: var(--color-ink-3);
-  color: #fff;
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background: #fff;
+  color: var(--color-text);
 }
 .presence-grid {
   display: grid;
@@ -739,15 +954,19 @@ button {
 .presence-intro .section-title {
   margin-top: 6px;
 }
+.presence .eyebrow-on-dark { color: var(--color-red); }
+.presence .section-title-on-dark { color: var(--color-text); }
 .presence-desc {
   margin-top: 24px;
-  color: var(--color-dark-text-soft);
+  color: var(--color-muted);
   font-size: 15px;
   line-height: 1.7;
   max-width: 360px;
 }
 
-/* India map placeholder */
+/* India map (inline SVG) */
+/* India map: real JPG (state boundaries, rendered from public GeoJSON
+   boundary data) with an absolutely-positioned pin overlay on top. */
 .presence-map {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -756,24 +975,22 @@ button {
 .map-placeholder {
   position: absolute;
   inset: 0;
-  border: 1px dashed rgba(255,255,255,0.12);
-  border-radius: var(--r-lg);
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(230, 48, 39, 0.10) 0%, transparent 50%);
 }
-.map-pin {
+.india-map-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.india-pin {
   position: absolute;
   width: 12px;
   height: 12px;
-  background: var(--color-red);
+  margin: -6px 0 0 -6px; /* center the dot on its lat/lon coordinate */
+  background: #E63027;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(230,48,39,0.20), 0 0 0 10px rgba(230,48,39,0.08);
+  box-shadow: 0 0 0 5px rgba(230,48,39,0.22), 0 0 0 11px rgba(230,48,39,0.10);
 }
-.map-pin-1 { top: 50%; left: 28%; }   /* Bhiwandi area */
-.map-pin-2 { top: 65%; left: 52%; }   /* Guntur area */
-.map-pin-3 { top: 56%; left: 24%; }   /* Palsana area */
 
 .presence-locations {
   display: flex;
@@ -800,17 +1017,110 @@ button {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #fff;
+  color: var(--color-text);
   margin-bottom: 6px;
 }
 .location-company {
   font-size: 14px;
-  color: #fff;
+  color: var(--color-text);
   margin-bottom: 2px;
 }
 .location-type {
   font-size: 13px;
+  color: var(--color-muted);
+}
+
+/* -------------------- MANUFACTURING INFRASTRUCTURE -------------------- */
+.infra {
+  position: relative;
+  padding: clamp(28px, 4vw, 48px) 0;
+  background: var(--color-ink-3) url("images/infra.jpg") center center / cover no-repeat;
+  color: #fff;
+  overflow: hidden;
+}
+.infra-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13,15,18,0.88) 0%, rgba(13,15,18,0.55) 55%, rgba(13,15,18,0.35) 100%);
+  z-index: 1;
+}
+.infra-inner {
+  position: relative;
+  z-index: 2;
+}
+.infra-title {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: #fff;
+}
+.infra-divider {
+  width: 64px;
+  height: 4px;
+  background: var(--color-red);
+  margin: 14px 0 24px;
+}
+.infra-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  width: 100%;
+}
+.infra-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 32px;
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+.infra-stat:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+.infra-stat-number {
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 800;
+  color: #fff;
+}
+.infra-stat-label {
+  font-size: 14px;
   color: var(--color-dark-text-soft);
+}
+
+@media (max-width: 860px) {
+  .infra-stats {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+  }
+  .infra-stat {
+    border-left: none;
+    padding: 0 0 0 20px;
+    position: relative;
+  }
+  .infra-stat::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 1px;
+    background: rgba(255,255,255,0.25);
+  }
+  .infra-stat:nth-child(odd)::before { display: none; }
+  .infra-stat:first-child { padding-left: 0; }
+}
+
+@media (max-width: 540px) {
+  .infra-stats {
+    grid-template-columns: 1fr;
+  }
+  .infra-stat,
+  .infra-stat:nth-child(odd) {
+    padding-left: 0;
+    border-left: none;
+  }
+  .infra-stat::before { display: none; }
 }
 
 /* -------------------- BY THE NUMBERS -------------------- */
@@ -980,9 +1290,9 @@ button {
 @media (max-width: 1100px) {
   .stats-grid { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
   .stat:nth-child(3n)::after { display: none; }
-  .why-grid { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
-  .why .container { grid-template-columns: 1fr; }
-  .why-head { position: static; max-width: none; }
+  .why-inner { max-width: 100%; }
+  .why-visual { position: relative; width: 100%; height: 260px; margin-top: 48px; }
+  .why-photo { clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%); }
   .numbers .container { grid-template-columns: 1fr; }
   .numbers-grid { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
   .presence-grid { grid-template-columns: 1fr 1fr; }
