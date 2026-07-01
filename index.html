@@ -7,7 +7,7 @@
   <title>Prateek Group — Integrated Yarn Manufacturing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -121,20 +121,19 @@
 
       <div class="container hero-grid">
         <div class="hero-content">
-          <h1 class="hero-title">
-            Integrated Yarn<br/>
-            Manufacturing <span class="accent">Group</span>
+          <h1 class="hero-title">PRATEEK <span class="accent">GROUP</span>
           </h1>
           <p class="hero-subhead">
-            Spinning, dyeing and specialty yarn &mdash; for shirting, suiting, dress material and home furnishings.
+            Across three specialized facilities &mdash; Spinning, Dyeing & Specialty Yarn, for Shirting, Suiting, Dress Materials and Home Furnishing.</p>
           </p>
 
           <div class="hero-divider" aria-hidden="true"></div>
 
           <div class="hero-stat">
-            <div class="hero-stat-number">900+ MT</div>
-            <div class="hero-stat-label">Monthly Capacity</div>
-            <div class="hero-stat-detail">Across three specialized facilities &mdash; spinning, dyeing, specialty yarn</div>
+            <div class="hero-stat-label">What We Do --</div>
+            <div class="hero-stat-number">
+              <span id="typed-text"></span>  
+            </div>
           </div>
 
           <div class="hero-cta">
@@ -149,79 +148,9 @@
       </div>
     </section>
 
-    <!-- ===================== STATS BAR ===================== -->
-    <section class="stats-bar" aria-label="Company statistics">
-      <div class="container stats-grid">
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="9" r="5" />
-              <path d="M8 13l-2 8 6-3 6 3-2-8" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Years<br />Experience</span>
-          </div>
-        </div>
 
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M9 2h6v4l-2 14h-2L9 6z" />
-              <path d="M9 6h6" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">38,000+</span>
-            <span class="stat-label">Spindles</span>
-          </div>
-        </div>
+      <!-- ===================== OUR COMPANIES ===================== -->
 
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4" />
-              <path d="M18 6l2-2 2 2" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">900+ MT</span>
-            <span class="stat-label">Monthly<br />Capacity</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">300+</span>
-            <span class="stat-label">Product<br />Variants</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 21V9l5-3 5 3v3h8v9z" />
-              <path d="M8 13v8M13 17v4M17 17v4M21 17v4" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Manufacturing<br />Facilities</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== OUR COMPANIES ===================== -->
     <section class="companies" id="companies">
       <div class="container">
         <div class="section-head">
@@ -233,84 +162,298 @@
             </h2>
             <span class="title-rule" aria-hidden="true"></span>
           </div>
-          <p class="section-head-right">
-            Each company within Prateek Group brings deep expertise
-            and advanced capabilities to deliver the best for fabric
-            manufacturers across the country.
-          </p>
+          <p class="section-head-right"></p>
         </div>
 
-        <div class="company-grid">
+        <div class="company-grid" id="company-grid">
 
           <!-- Card 1: Prateek -->
-          <article class="company-card">
+          <article class="company-card" data-pos="left">
             <div class="company-card-image">
-              <span class="placeholder-label">Image</span>
+              <img src="images/stock photo 1.jpg" alt="Prateek facility" loading="lazy" />
             </div>
             <div class="company-card-body">
               <div class="company-card-header">
                 <span class="company-mark" aria-hidden="true">P</span>
                 <h3 class="company-name">PRATEEK</h3>
               </div>
-              <p class="company-sub">Fancy Yarns &amp; Value-Added Yarns</p>
-              <ul class="company-list">
-                <li>2-ply and 3-ply yarns</li>
-                <li>300+ product variants</li>
-                <li>Fancy yarn specialist</li>
-                <li>Bhiwandi, Maharashtra</li>
-              </ul>
-              <a href="prateek.html" class="company-link">
-                DISCOVER PRATEEK <span class="btn-arrow" aria-hidden="true">→</span>
+              <p class="company-location">Bhiwandi, Maharashtra</p>
+              <span class="company-divider" aria-hidden="true"></span>
+              <p class="company-desc">
+                Specialists in fancy and value-added yarns — 
+                2-ply and 3-ply constructions across 300+ product variants specializing in custom textures, colours, and performance features beyond standard commodities.
+              </p>
+              <a href="prateek.html" class="btn btn-card">
+                DISCOVER PRATEEK<span class="btn-arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
 
           <!-- Card 2: KK Spintex -->
-          <article class="company-card">
+          <article class="company-card" data-pos="center">
             <div class="company-card-image">
-              <span class="placeholder-label">Image</span>
+              <img src="images/stock photo 2.jpg" alt="KK Spintex facility" loading="lazy" />
             </div>
             <div class="company-card-body">
               <div class="company-card-header">
                 <span class="company-mark" aria-hidden="true">K</span>
                 <h3 class="company-name">KK SPINTEX</h3>
               </div>
-              <p class="company-sub">PV Yarn Manufacturing</p>
-              <ul class="company-list">
-                <li>38,000+ spindles</li>
-                <li>500+ MT monthly capacity</li>
-                <li>Micro-denier expertise</li>
-                <li>Guntur, Andhra Pradesh</li>
-              </ul>
-              <a href="kk-spintex.html" class="company-link">
+              <p class="company-location">Guntur, Andhra Pradesh</p>
+              <span class="company-divider" aria-hidden="true"></span>
+              <p class="company-desc">
+                High-capacity PV yarn manufacturing with focus on maintaining Polyester's durability with viscose's silk-like drape.
+                Value addition includes custom blend ratio's like 65/35 or 50/50, multi-color space-dying and specialized textures.
+              </p>
+              <a href="kk-spintex.html" class="btn btn-card">
                 DISCOVER KK SPINTEX <span class="btn-arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
 
-          <!-- Card 3: GB Dyed Yarn -->
-          <article class="company-card">
+          <!-- Card 3: GB Yarn -->
+          <article class="company-card" data-pos="right">
             <div class="company-card-image">
-              <span class="placeholder-label">Image</span>
+              <img src="images/stock photo 3.jpg" alt="GB Yarn facility" loading="lazy" />
             </div>
             <div class="company-card-body">
               <div class="company-card-header">
                 <span class="company-mark" aria-hidden="true">GB</span>
-                <h3 class="company-name">GB DYED YARN</h3>
+                <h3 class="company-name">GB YARN</h3>
               </div>
-              <p class="company-sub">Yarn Dyeing &amp; Texturizing</p>
-              <ul class="company-list">
-                <li>400+ MT monthly capacity</li>
-                <li>Advanced dyeing lab</li>
-                <li>Texturizing unit</li>
-                <li>Palsana, Gujarat</li>
-              </ul>
-              <a href="gb-dyed-yarn.html" class="company-link">
-                DISCOVER GB DYED YARN <span class="btn-arrow" aria-hidden="true">→</span>
+              <p class="company-location">Palsana, Gujarat</p>
+              <span class="company-divider" aria-hidden="true"></span>
+              <p class="company-desc">
+                Engineered to introduce intentional structural irregularities, unique tactile textures, & distinct color patterns. 
+                Unlike standard uniform threads, fancy yarns prioritize aesthetic appeal. And have various methods of manufacturing.
+              </p>
+              <a href="gb-dyed-yarn.html" class="btn btn-card">
+                DISCOVER GB YARN <span class="btn-arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </article>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATS BAR ===================== -->
+    <section class="stats-bar" aria-label="Company statistics">
+      <div class="container stats-grid">
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 21V9l5-3 5 3v3h8v9z" />
+              <path d="M8 13v8M13 17v4M17 17v4M21 17v4" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number" data-target="3">3</span>
+            <span class="stat-label">Manufacturing Facilities</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="9" r="5" />
+              <path d="M8 13l-2 8 6-3 6 3-2-8" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number" data-target="15" data-suffix="+">15+</span>
+            <span class="stat-label">Years Of Experience</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number" data-target="300" data-suffix="+">300+</span>
+            <span class="stat-label">Product Variants</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4" />
+              <path d="M18 6l2-2 2 2" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number" data-target="900" data-suffix="+ MT">900</span>
+            <span class="stat-label">Monthly Capacity</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 2h6v4l-2 14h-2L9 6z" />
+              <path d="M9 6h6" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number" data-target="38000" data-suffix="+">38,000+</span>
+            <span class="stat-label">Yarn Spindles</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- ===================== Mission Vision ===================== -->
+    <section class="about-card-section" id="mission-vision">
+      <!-- Decorative backdrop: line-art icons representing yarn, spindles,
+           fabric and factories, scattered across the dark canvas. Purely
+           ambient — aria-hidden, no semantic content. -->
+      <div class="about-bg-icons" aria-hidden="true">
+        <svg class="bg-icon bg-icon-1 tint-amber" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke="currentColor" stroke-width="1.5"/></svg>
+
+        <svg class="bg-icon bg-icon-2 tint-teal" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="currentColor" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke="currentColor" stroke-width="1.5"/></svg>
+
+        <svg class="bg-icon bg-icon-3 tint-rose" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke="currentColor" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke="currentColor" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="14" r="2.5" fill="currentColor"/><circle cx="32" cy="10" r="2.5" fill="currentColor"/><circle cx="44" cy="14" r="2.5" fill="currentColor"/></svg>
+
+        <svg class="bg-icon bg-icon-4 tint-amber" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+
+        <svg class="bg-icon bg-icon-5 tint-teal" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke="currentColor" stroke-width="1.5"/></svg>
+
+        <svg class="bg-icon bg-icon-6 tint-rose" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="currentColor" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke="currentColor" stroke-width="1.5"/></svg>
+
+        <svg class="bg-icon bg-icon-7 tint-amber" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke="currentColor" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke="currentColor" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke="currentColor" stroke-width="2"/></svg>
+
+        <svg class="bg-icon bg-icon-8 tint-rose" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="container about-card-inner">
+
+        <div class="about-card">
+          <div class="about-content">
+            <span class="section-tag">ABOUT PRATEEK GROUP</span>
+            <h2 class="about-heading">
+              What drives us,<br />
+              where we stand.
+            </h2>
+
+            <div class="pillar-grid">
+              <div class="pillar-card">
+                <span class="pillar-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c5-3 8-7 8-11a8 8 0 10-16 0c0 4 3 8 8 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+                </span>
+                <h3>Mission</h3>
+                <p>
+                  Deliver high-quality yarn solutions through
+                  innovation, reliability and operational excellence.
+                </p>
+              </div>
+
+              <div class="pillar-card">
+                <span class="pillar-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3.2"/></svg>
+                </span>
+                <h3>Vision</h3>
+                <p>
+                  To be India's most trusted integrated yarn manufacturing group.
+                </p>
+              </div>
+            </div>
+
+            <div class="presence-chips">
+              <span class="presence-chips-label">Our Presence</span>
+              <div class="chip-row">
+                <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>Bhiwandi</span>
+                <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>Palsana</span>
+                <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>Guntur</span>
+              </div>
+            </div>
+
+            <blockquote>
+              <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+              Built on trust, strengthened by quality,
+              delivering excellence for generations.
+            </blockquote>
+          </div>
+
+          <div class="about-image">
+            <img src="images/management.jpg" alt="Prateek Group Leadership">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== PRODUCTS ===================== -->
+    <section class="products-section" id="products">
+      <canvas id="strandsCanvas" class="strands-canvas" aria-hidden="true"></canvas>
+
+      <div class="container products-inner">
+        <div class="products-head">
+          <span class="eyebrow eyebrow-on-dark">What We Make</span>
+          <h2 class="section-title products-title">Our Products</h2>
+          <p class="products-sub">
+            From raw spinning to finished dyed yarn — engineered for
+            shirting, suiting and home furnishing fabrics.
+          </p>
+        </div>
+
+        <div class="product-carousel" id="productCarousel">
+          <div class="carousel-track" id="carouselTrack">
+
+            <article class="product-slide" data-index="0">
+              <div class="product-slide-image">
+                <img src="images/stock photo 1.jpg" alt="PV Yarn" loading="lazy" />
+              </div>
+              <h3 class="product-slide-name">PV Yarn</h3>
+              <p class="product-slide-desc">
+                High-tenacity polyester-viscose yarns engineered for
+                consistent strength across shirting and suiting fabrics.
+              </p>
+              <a href="pv-yarn.html" class="product-slide-link">
+                View Product <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="product-slide" data-index="1">
+              <div class="product-slide-image">
+                <img src="images/stock photo 2.jpg" alt="Dyed Yarn" loading="lazy" />
+              </div>
+              <h3 class="product-slide-name">Dyed Yarn</h3>
+              <p class="product-slide-desc">
+                Precision-dyed yarns with consistent colour fastness,
+                produced in our advanced dyeing and texturizing unit.
+              </p>
+              <a href="dyed-yarn.html" class="product-slide-link">
+                View Product <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+            <article class="product-slide" data-index="2">
+              <div class="product-slide-image">
+                <img src="images/stock photo 3.jpg" alt="Fancy Yarn" loading="lazy" />
+              </div>
+              <h3 class="product-slide-name">Fancy Yarn</h3>
+              <p class="product-slide-desc">
+                2-ply and 3-ply value-added yarns across 300+ variants,
+                built for distinctive texture and finish.
+              </p>
+              <a href="fancy-yarn.html" class="product-slide-link">
+                View Product <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </article>
+
+          </div>
+
+          <button class="carousel-nav carousel-nav-prev" id="carouselPrev" aria-label="Previous product">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="carousel-nav carousel-nav-next" id="carouselNext" aria-label="Next product">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Product slides"></div>
         </div>
       </div>
     </section>
@@ -603,6 +746,486 @@
 
     lastScroll = currentScroll;
 });
+</script>
+<script>
+const phrases = [
+  "Integrated Yarn Manufacturing",
+  "Premium Dyed Yarn Solutions",
+  "Specialty Yarn Production",
+  "High-Capacity Textile Manufacturing"
+];
+
+const textElement = document.getElementById("typed-text");
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const currentPhrase = phrases[phraseIndex];
+
+  if (!isDeleting) {
+    textElement.textContent =
+      currentPhrase.substring(0, charIndex + 1);
+
+    charIndex++;
+
+    if (charIndex > currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1500);
+      return;
+    }
+  } else {
+    textElement.textContent =
+      currentPhrase.substring(0, charIndex - 1);
+
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 40 : 80);
+}
+
+typeEffect();
+</script>
+<script>
+const counters = document.querySelectorAll('.stat-number');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const counter = entry.target;
+    const target = parseInt(counter.dataset.target);
+    const suffix = counter.dataset.suffix || "";
+
+    const duration = 2000;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      const value = Math.floor(progress * target);
+
+      counter.textContent =
+        value.toLocaleString() + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent =
+          target.toLocaleString() + suffix;
+      }
+    }
+
+    requestAnimationFrame(update);
+    observer.unobserve(counter);
+  });
+}, {
+  threshold: 0.4
+});
+
+counters.forEach(counter => observer.observe(counter));
+</script>
+<script>
+// ===== Company cards: huddle → split scroll animation =====
+(function () {
+  const grid = document.getElementById('company-grid');
+  if (!grid) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    grid.classList.add('cards-revealed');
+    return;
+  }
+
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        grid.classList.add('cards-revealed');
+        cardObserver.unobserve(grid);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  cardObserver.observe(grid);
+})();
+</script>
+<script>
+// ===== Products section: Strands-style flowing background (WebGL) =====
+(function () {
+  const canvas = document.getElementById('strandsCanvas');
+  if (!canvas) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: true });
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  const MAX_STRANDS = 12;
+  const MAX_COLORS = 8;
+
+  const VERT = `#version 300 es
+  in vec2 position;
+  void main() { gl_Position = vec4(position, 0.0, 1.0); }
+  `;
+
+  const FRAG = `#version 300 es
+  precision highp float;
+  uniform float uTime;
+  uniform vec2 uResolution;
+  uniform vec3 uColors[${MAX_COLORS}];
+  uniform int uColorCount;
+  uniform int uStrandCount;
+  uniform float uSpeed;
+  uniform float uAmplitude;
+  uniform float uWaviness;
+  uniform float uThickness;
+  uniform float uGlow;
+  uniform float uTaper;
+  uniform float uSpread;
+  uniform float uHueShift;
+  uniform float uIntensity;
+  uniform float uOpacity;
+  uniform float uScale;
+  uniform float uSaturation;
+  out vec4 fragColor;
+  const float PI = 3.14159265;
+
+  vec3 samplePalette(float t) {
+    t = fract(t);
+    float scaled = t * float(uColorCount);
+    int idx = int(floor(scaled));
+    float blend = fract(scaled);
+    int nextIdx = idx + 1;
+    if (nextIdx >= uColorCount) nextIdx = 0;
+    return mix(uColors[idx], uColors[nextIdx], blend);
+  }
+
+  void main() {
+    vec2 uv = (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
+    uv /= max(uScale, 0.0001);
+    float e = 0.06 + uIntensity * 0.94;
+    float env = pow(max(cos(uv.x * PI * 1.3), 0.0), uTaper);
+    vec3 col = vec3(0.0);
+    for (int i = 0; i < ${MAX_STRANDS}; i++) {
+      if (i >= uStrandCount) break;
+      float fi = float(i);
+      float ph = fi * 1.7 * uSpread;
+      float freq = (2.0 + fi * 0.35) * uWaviness;
+      float spd = 1.4 + fi * 1.2;
+      float tt = uTime * uSpeed;
+      float w = sin(uv.x * freq + tt * spd + ph) * 0.60
+              + sin(uv.x * freq * 1.1 - tt * spd * 0.7 + ph * 1.7) * 0.40;
+      float amp = (0.1 + 0.02 * e) * env * uAmplitude;
+      float y = w * amp;
+      float d = abs(uv.y - y);
+      float thick = (0.001 + 0.05 * e) * (0.35 + env) * uThickness;
+      float g = thick / (d + thick * 0.45);
+      g = g * g;
+      float h = fi / float(uStrandCount) + uv.x * 0.30 + uTime * 0.04 + uHueShift;
+      col += samplePalette(h) * g * env;
+    }
+    col *= 0.45 + 0.7 * e;
+    col = 1.0 - exp(-col * uGlow);
+    float gray = dot(col, vec3(0.2126, 0.7152, 0.0722));
+    col = max(mix(vec3(gray), col, uSaturation), 0.0);
+    float lum = max(max(col.r, col.g), col.b);
+    float alpha = clamp(lum, 0.0, 1.0) * uOpacity;
+    fragColor = vec4(col * uOpacity, alpha);
+  }
+  `;
+
+  const GLASS_FRAG = `#version 300 es
+  precision highp float;
+  uniform sampler2D uScene;
+  uniform vec2 uResolution;
+  uniform float uRadius;
+  uniform float uRefraction;
+  uniform float uDispersion;
+  out vec4 fragColor;
+
+  vec2 toUv(vec2 p) { return p * (uResolution.y / uResolution) + 0.5; }
+
+  void main() {
+    vec2 p = (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
+    float d = length(p);
+    float r = uRadius;
+    float edge = fwidth(d) * 1.5;
+    float mask = 1.0 - smoothstep(r - edge, r + edge, d);
+    if (mask <= 0.0) { fragColor = vec4(0.0); return; }
+    float z = sqrt(max(r * r - d * d, 0.0)) / r;
+    float nd = d / r;
+    vec2 dir = d > 0.0 ? p / d : vec2(0.0);
+    float lens = smoothstep(0.85, 1.0, nd) * pow(nd, 6.0);
+    vec2 offset = -dir * lens * uRefraction * 0.15;
+    vec2 disp = -dir * lens * uDispersion * 0.012;
+    vec3 light;
+    light.r = texture(uScene, toUv(p + offset - disp)).r;
+    light.g = texture(uScene, toUv(p + offset)).g;
+    light.b = texture(uScene, toUv(p + offset + disp)).b;
+    float fres = pow(1.0 - z, 3.0);
+    vec3 rim = vec3(1.0) * fres * 0.18;
+    vec2 lightDir = normalize(vec2(-0.55, 0.6));
+    float spec = pow(max(dot(p / max(r, 1e-4), lightDir), 0.0), 6.0);
+    spec *= smoothstep(r, r * 0.55, d);
+    vec3 emissive = light + rim + vec3(spec) * 0.4;
+    float emissiveA = clamp(max(max(emissive.r, emissive.g), emissive.b), 0.0, 1.0);
+    float bodyA = 0.05 + fres * 0.05;
+    float outA = emissiveA + bodyA * (1.0 - emissiveA);
+    vec3 outRGB = emissive * mask;
+    fragColor = vec4(outRGB, outA * mask);
+  }
+  `;
+
+  function hexToRgb(hex) {
+    hex = hex.replace('#', '');
+    return [parseInt(hex.substring(0,2),16)/255, parseInt(hex.substring(2,4),16)/255, parseInt(hex.substring(4,6),16)/255];
+  }
+  function buildPalette(colors) {
+    const filled = colors && colors.length ? colors : ['#ffffff'];
+    const out = [];
+    for (let i = 0; i < MAX_COLORS; i++) out.push(...hexToRgb(filled[i] ?? filled[filled.length - 1]));
+    return out;
+  }
+  function compileShader(type, source) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, source);
+    gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(s));
+    return s;
+  }
+  function createProgram(vertSrc, fragSrc) {
+    const p = gl.createProgram();
+    gl.attachShader(p, compileShader(gl.VERTEX_SHADER, vertSrc));
+    gl.attachShader(p, compileShader(gl.FRAGMENT_SHADER, fragSrc));
+    gl.linkProgram(p);
+    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) console.error(gl.getProgramInfoLog(p));
+    return p;
+  }
+
+  // Strands(colors=["#ff0404","#000000","#ffffff"], glass, ...) per spec
+  const CONFIG = {
+    colors: ['#ff0404', '#000000', '#ffffff'],
+    count: 3, speed: 0.3, amplitude: 1, waviness: 1, thickness: 0.7,
+    glow: 2.6, taper: 3, spread: 1, hueShift: 0, intensity: 0.6,
+    saturation: 1.5, opacity: 1, scale: 1.5,
+    glass: true, refraction: 1, dispersion: 1, glassSize: 2.6,
+  };
+
+  gl.clearColor(0, 0, 0, 0);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+  const program = createProgram(VERT, FRAG);
+  const glassProgram = createProgram(VERT, GLASS_FRAG);
+
+  const quadBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  const posLoc = gl.getAttribLocation(program, 'position');
+  const glassPosLoc = gl.getAttribLocation(glassProgram, 'position');
+
+  const U = {}; ['uTime','uResolution','uColors','uColorCount','uStrandCount','uSpeed','uAmplitude','uWaviness','uThickness','uGlow','uTaper','uSpread','uHueShift','uIntensity','uOpacity','uScale','uSaturation'].forEach(n => U[n] = gl.getUniformLocation(program, n));
+  const GU = {}; ['uScene','uResolution','uRadius','uRefraction','uDispersion'].forEach(n => GU[n] = gl.getUniformLocation(glassProgram, n));
+
+  let fbo, fboTexture, W, H, DPR;
+  function setupFBO(w, h) {
+    if (fboTexture) gl.deleteTexture(fboTexture);
+    if (fbo) gl.deleteFramebuffer(fbo);
+    fboTexture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, fboTexture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, w, h, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    fbo = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, fboTexture, 0);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+  }
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    W = Math.max(1, Math.floor(rect.width * DPR));
+    H = Math.max(1, Math.floor(rect.height * DPR));
+    canvas.width = W; canvas.height = H;
+    setupFBO(W, H);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function drawQuad(loc) {
+    gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+  }
+  function setStrandUniforms(t) {
+    const palette = buildPalette(CONFIG.colors);
+    gl.uniform1f(U.uTime, t);
+    gl.uniform2f(U.uResolution, W, H);
+    gl.uniform3fv(U.uColors, new Float32Array(palette));
+    gl.uniform1i(U.uColorCount, Math.min(CONFIG.colors.length, MAX_COLORS));
+    gl.uniform1i(U.uStrandCount, Math.min(CONFIG.count, MAX_STRANDS));
+    gl.uniform1f(U.uSpeed, CONFIG.speed);
+    gl.uniform1f(U.uAmplitude, CONFIG.amplitude);
+    gl.uniform1f(U.uWaviness, CONFIG.waviness);
+    gl.uniform1f(U.uThickness, CONFIG.thickness);
+    gl.uniform1f(U.uGlow, CONFIG.glow);
+    gl.uniform1f(U.uTaper, CONFIG.taper);
+    gl.uniform1f(U.uSpread, CONFIG.spread);
+    gl.uniform1f(U.uHueShift, CONFIG.hueShift);
+    gl.uniform1f(U.uIntensity, CONFIG.intensity);
+    gl.uniform1f(U.uOpacity, CONFIG.opacity);
+    gl.uniform1f(U.uScale, CONFIG.scale);
+    gl.uniform1f(U.uSaturation, CONFIG.saturation);
+  }
+
+  let rafId = 0;
+  function render(time) {
+    const t = time * 0.001;
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+    gl.viewport(0, 0, W, H);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.useProgram(program);
+    setStrandUniforms(t);
+    drawQuad(posLoc);
+
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+    gl.viewport(0, 0, W, H);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    if (CONFIG.glass) {
+      gl.useProgram(glassProgram);
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, fboTexture);
+      gl.uniform1i(GU.uScene, 0);
+      gl.uniform2f(GU.uResolution, W, H);
+      gl.uniform1f(GU.uRadius, 0.46 * CONFIG.glassSize);
+      gl.uniform1f(GU.uRefraction, CONFIG.refraction);
+      gl.uniform1f(GU.uDispersion, CONFIG.dispersion);
+      drawQuad(glassPosLoc);
+    } else {
+      gl.useProgram(program);
+      setStrandUniforms(t);
+      drawQuad(posLoc);
+    }
+    rafId = requestAnimationFrame(render);
+  }
+
+  // Only animate while the section is visible, to save battery/CPU.
+  const section = document.getElementById('products');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !reduceMotion) {
+        if (!rafId) rafId = requestAnimationFrame(render);
+      } else if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    });
+  }, { threshold: 0.01 });
+  if (section) io.observe(section);
+
+  if (reduceMotion) {
+    // Render a single static frame so the background isn't blank.
+    render(0);
+    cancelAnimationFrame(rafId);
+    rafId = 0;
+  }
+})();
+</script>
+<script>
+// ===== Product carousel: Deraille-style single-focus auto-rotating slider =====
+(function () {
+  const track = document.getElementById('carouselTrack');
+  const dotsWrap = document.getElementById('carouselDots');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const carousel = document.getElementById('productCarousel');
+  if (!track || !carousel) return;
+
+  const slides = Array.from(track.children);
+  const count = slides.length;
+  let index = 0;
+  let autoTimer = null;
+  const AUTO_MS = 3000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Build dot indicators
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i, true));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function render() {
+    slides.forEach((slide, i) => {
+      // offset relative to current index, wrapped to the shortest direction
+      let offset = i - index;
+      if (offset > count / 2) offset -= count;
+      if (offset < -count / 2) offset += count;
+      slide.style.setProperty('--offset', offset);
+      slide.classList.toggle('is-active', offset === 0);
+      slide.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+    });
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+  }
+
+  function goTo(i, manual) {
+    index = ((i % count) + count) % count;
+    render();
+    if (manual) restartAuto();
+  }
+
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  function startAuto() {
+    if (reduceMotion) return;
+    stopAuto();
+    autoTimer = setInterval(next, AUTO_MS);
+  }
+  function stopAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = null;
+  }
+  function restartAuto() { stopAuto(); startAuto(); }
+
+  prevBtn.addEventListener('click', () => { prev(); restartAuto(); });
+  nextBtn.addEventListener('click', () => { next(); restartAuto(); });
+
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', startAuto);
+
+  // Basic swipe support
+  let touchStartX = 0;
+  carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  carousel.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (dx > 40) prev();
+    else if (dx < -40) next();
+    startAuto();
+  }, { passive: true });
+
+  render();
+  startAuto();
+})();
 </script>
 </body>
 </html>

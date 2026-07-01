@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prateek Group — Group Companies. Three integrated manufacturing facilities across Bhiwandi, Guntur, and Palsana." />
+  <title>Group Companies — Prateek Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* =============================================
+       GROUP COMPANIES PAGE — ADDITIONAL STYLES
+       ============================================= */
+
+    /* ---------- Page Hero ---------- */
+    .gc-hero {
+      position: relative;
+      background: var(--color-ink-3);
+      overflow: hidden;
+      padding: clamp(140px, 16vh, 200px) 0 clamp(80px, 9vh, 120px);
+    }
+    .gc-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(230,48,39,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(230,48,39,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .gc-hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    #hero-shapegrid {
+      width: 100%;
+      height: 100%;
+      display: block;
+      opacity: 0.55;
+    }
+    .gc-hero-content {
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .gc-hero-content > * {
+      pointer-events: auto;
+    }
+    .gc-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      margin-bottom: 20px;
+    }
+    .gc-hero-eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--color-red);
+      border-radius: 2px;
+    }
+    .gc-hero-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(38px, 5vw, 72px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .gc-hero-title .accent { color: var(--color-red); }
+    .gc-hero-sub {
+      font-size: clamp(15px, 1.3vw, 18px);
+      color: rgba(255,255,255,0.55);
+      max-width: 540px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    .gc-hero-location-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .gc-loc-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+    .gc-loc-chip:hover,
+    .gc-loc-chip.active {
+      border-color: var(--color-red);
+      color: #fff;
+      background: rgba(230,48,39,0.1);
+    }
+    .gc-loc-chip svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-red);
+      flex-shrink: 0;
+    }
+    .gc-loc-chip .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-red);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(230,48,39,0.25);
+    }
+
+    /* ---------- Location Sections ---------- */
+    .location-section {
+      padding: clamp(80px, 9vw, 130px) 0;
+      border-bottom: 1px solid var(--color-border-soft);
+      position: relative;
+    }
+    .location-section:nth-child(even) {
+      background: var(--color-bg-soft);
+    }
+    .location-section:nth-child(odd) {
+      background: #fff;
+    }
+
+    /* ---------- Location Header — two column ---------- */
+    .loc-header {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      align-items: start;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    /* LEFT: identity block */
+    /*.loc-identity{} */
+    .loc-number {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(56px, 7vw, 88px);
+      font-weight: 800;
+      color: var(--color-border);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: -12px;
+    }
+    .loc-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      margin-bottom: 10px;
+    }
+    .loc-eyebrow svg { width: 14px; height: 14px; }
+
+    .loc-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--color-ink);
+      line-height: 1.05;
+      white-space: nowrap;        /* single line */
+      margin-bottom: 14px;
+    }
+    .loc-desc {
+      font-size: 15px;
+      color: var(--color-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+    .loc-place {
+      font-size: 14px;
+      color: var(--color-muted);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .loc-place svg { width: 14px; height: 14px; color: var(--color-red); }
+
+    /* RIGHT: hoverable info card */
+    .loc-info-card {
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-soft);
+      padding: 28px 28px 24px;
+      overflow: hidden;
+      cursor: default;
+      transition: box-shadow .4s cubic-bezier(.22,1,.36,1), transform .4s cubic-bezier(.22,1,.36,1), border-color .3s ease;
+      box-shadow: 0 2px 12px rgba(17,19,22,0.05);
+    }
+    .location-section:nth-child(even) .loc-info-card { background: #fff; }
+    .loc-info-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 20px 56px rgba(17,19,22,0.12);
+      border-color: rgba(230,48,39,0.35);
+    }
+    /* shimmer sweep */
+    .loc-info-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.28) 50%, transparent 100%);
+      transform: translateX(-140%);
+      transition: transform .6s ease;
+      pointer-events: none;
+      border-radius: 16px;
+    }
+    .loc-info-card:hover::after { transform: translateX(140%); }
+    /* red border glow */
+    .loc-info-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      border: 1.5px solid transparent;
+      transition: border-color .35s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .loc-info-card:hover::before { border-color: rgba(230,48,39,0.45); }
+
+    .loc-card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted-2);
+      margin-bottom: 16px;
+    }
+    .loc-bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 24px;
+    }
+    .loc-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 13.5px;
+      color: var(--color-text);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+    .loc-bullet-dot {
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--color-red);
+      margin-top: 5px;
+      box-shadow: 0 0 0 3px rgba(230,48,39,0.15);
+    }
+    .loc-card-divider {
+      height: 1px;
+      background: var(--color-border);
+      margin: 18px 0;
+    }
+    .loc-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      border-bottom: 1.5px solid var(--color-red);
+      padding-bottom: 2px;
+      transition: color .2s ease, gap .2s ease;
+      position: relative;
+      z-index: 3;
+    }
+    .loc-card-btn:hover { color: var(--color-red); gap: 12px; }
+    .loc-card-company-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .loc-card-type {
+      font-size: 12px;
+      color: var(--color-muted);
+      margin-bottom: 18px;
+    }
+
+    /* subsection label used before process block — needs visit-btn above it */
+    .process-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .process-block-header .subsection-label {
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    /* ---------- Manufacturing Process (Video — full width wavy) ---------- */
+    .process-block {
+      margin-bottom: 64px;
+      position: relative;
+    }
+
+    /* Wavy wrapper — dark panel full bleed */
+    .process-video-wrap {
+      position: relative;
+      margin: 0 calc(-1 * var(--container-px));
+      background: #111316;
+      overflow: visible;
+    }
+
+    .video-wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .video-wave svg {
+      display: block;
+      width: 100%;
+      height: 52px;
+    }
+    .video-wave-top svg { transform: scaleY(-1); }
+
+    .video-frame {
+      position: relative;
+      margin: 0 clamp(20px, 4vw, 64px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid rgba(230,48,39,0.22);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 32px 80px rgba(0,0,0,0.5),
+        0 0 60px rgba(230,48,39,0.08);
+      aspect-ratio: 16 / 5.5;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #1A1D21 0%, #111316 60%, #1a0f0e 100%);
+    }
+    .video-placeholder::before {
+      content: "";
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230,48,39,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .video-placeholder-icon {
+      position: relative;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(230,48,39,0.14);
+      border: 1.5px solid rgba(230,48,39,0.35);
+      display: grid; place-items: center;
+      color: var(--color-red);
+      cursor: pointer;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .video-placeholder-icon:hover { background: rgba(230,48,39,0.25); transform: scale(1.08); }
+    .video-placeholder-icon svg { width: 30px; height: 30px; }
+    .video-placeholder p {
+      font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      position: relative;
+    }
+    .video-badge {
+      position: absolute; top: 20px; left: 20px;
+      padding: 6px 14px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      font-size: 11px; font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 0 clamp(20px, 4vw, 64px) 32px;
+    }
+    .process-step {
+      display: flex; flex-direction: column; gap: 10px;
+      padding: 20px 24px 20px 0;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .process-step:last-child { border-right: none; }
+    .step-num {
+      flex-shrink: 0; width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(230,48,39,0.14);
+      border: 1px solid rgba(230,48,39,0.25);
+      display: grid; place-items: center;
+      font-size: 10px; font-weight: 700; color: var(--color-red);
+    }
+    .step-icon {
+      flex-shrink: 0; width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid; place-items: center;
+      color: rgba(255,255,255,0.4);
+    }
+    .step-icon svg { width: 18px; height: 18px; }
+    .step-body h5 { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 4px; letter-spacing: -0.01em; }
+    .step-body p { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.55; }
+
+    /* Give the dark panel a top/bottom padding so waves don't clip content */
+    .process-video-wrap { padding-top: 4px; padding-bottom: 4px; }
+    .subsection-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .subsection-label h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+    .subsection-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .subsection-label svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-red);
+      flex-shrink: 0;
+    }
+
+    /* --- Full-width video with wavy border --- */
+    .video-outer-wrap {
+      position: relative;
+      margin-bottom: 64px;
+    }
+    /* SVG wavy top and bottom borders */
+    .video-wave {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .video-wave svg {
+      display: block;
+      width: 100%;
+    }
+    .video-wave-top svg { transform: scaleY(-1); }
+
+    .video-inner {
+      position: relative;
+      width: 100%;
+      background: var(--color-ink-3);
+      /* subtle ambient glow */
+      box-shadow: inset 0 0 80px rgba(230,48,39,0.06);
+    }
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 6;
+      width: calc(100% - 48px);
+      margin: 32px 24px;
+      background: var(--color-ink-2);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.07);
+      box-shadow:
+        0 0 0 1px rgba(230,48,39,0.08),
+        0 32px 80px rgba(0,0,0,0.45);
+    }
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #1A1D21 0%, #111316 60%, #1a0f0e 100%);
+    }
+    /* Ambient radial behind play button */
+    .video-placeholder::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230,48,39,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .video-placeholder-icon {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(230, 48, 39, 0.14);
+      border: 1.5px solid rgba(230, 48, 39, 0.35);
+      display: grid;
+      place-items: center;
+      color: var(--color-red);
+      cursor: pointer;
+      transition: background .25s ease, transform .25s ease;
+    }
+    .video-placeholder-icon:hover {
+      background: rgba(230,48,39,0.25);
+      transform: scale(1.08);
+    }
+    .video-placeholder-icon svg { width: 30px; height: 30px; }
+    .video-placeholder p {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .video-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 6px 14px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    /* Steps row below the video, horizontal */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 0 24px 28px;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px 20px 20px 0;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      padding-right: 24px;
+      margin-right: 24px;
+    }
+    .process-step:last-child {
+      border-right: none;
+      margin-right: 0;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(230,48,39,0.14);
+      border: 1px solid rgba(230,48,39,0.25);
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-red);
+    }
+    .step-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.4);
+    }
+    .step-icon svg { width: 18px; height: 18px; }
+    .step-body h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .step-body p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.55;
+    }
+
+    /* ---------- Final Products ---------- */
+    .products-block {
+      margin-bottom: 64px;
+      position: relative;
+    }
+
+    /* Textile icon background layer */
+    .products-bg-icons {
+      position: absolute;
+      inset: -20px;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .pbi {
+      position: absolute;
+      opacity: 0.10;
+    }
+
+    /* ---- 4 equal cards grid ---- */
+    .products-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .product-card {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(17,19,22,0.07);
+      transition: box-shadow .4s ease, transform .4s cubic-bezier(.22,1,.36,1);
+    }
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 24px 56px rgba(17,19,22,0.18);
+    }
+
+    /* Shimmer slide */
+    .product-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+      transform: translateX(-140%);
+      transition: transform .6s ease;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .product-card:hover::after { transform: translateX(140%); }
+
+    /* Inner image zoom */
+    .product-card:hover .product-img-placeholder { transform: scale(1.06); }
+
+    /* Footer lifts on hover */
+    .product-card:hover .product-card-footer {
+      background: linear-gradient(to top, rgba(17,19,22,0.95) 0%, rgba(17,19,22,0.2) 100%);
+      padding-bottom: 22px;
+    }
+    .product-card:hover .pc-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Red border glow on hover */
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      border: 1.5px solid transparent;
+      transition: border-color .35s ease;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .product-card:hover::before { border-color: rgba(230,48,39,0.5); }
+
+    .product-img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform .5s cubic-bezier(.22,1,.36,1);
+    }
+
+    /* Location 1 — warm amber/cream */
+    .loc-1 .product-card:nth-child(1) .product-img-placeholder { background: linear-gradient(150deg, #F5EFE6 0%, #E8D9C4 100%); }
+    .loc-1 .product-card:nth-child(2) .product-img-placeholder { background: linear-gradient(150deg, #EDE4D8 0%, #D9C9B4 100%); }
+    .loc-1 .product-card:nth-child(3) .product-img-placeholder { background: linear-gradient(150deg, #F2E8DC 0%, #E0CEBA 100%); }
+    .loc-1 .product-card:nth-child(4) .product-img-placeholder { background: linear-gradient(150deg, #F7F0E8 0%, #EAD9C6 100%); }
+    /* Location 2 — cool blue/slate */
+    .loc-2 .product-card:nth-child(1) .product-img-placeholder { background: linear-gradient(150deg, #E8EEF5 0%, #C8D7E8 100%); }
+    .loc-2 .product-card:nth-child(2) .product-img-placeholder { background: linear-gradient(150deg, #DDE6F0 0%, #BFD0E4 100%); }
+    .loc-2 .product-card:nth-child(3) .product-img-placeholder { background: linear-gradient(150deg, #E4EBF3 0%, #C4D4E6 100%); }
+    .loc-2 .product-card:nth-child(4) .product-img-placeholder { background: linear-gradient(150deg, #EBF0F6 0%, #CDDAEC 100%); }
+    /* Location 3 — sage green */
+    .loc-3 .product-card:nth-child(1) .product-img-placeholder { background: linear-gradient(150deg, #EAF2E8 0%, #C8DEAD 100%); }
+    .loc-3 .product-card:nth-child(2) .product-img-placeholder { background: linear-gradient(150deg, #E2EEE0 0%, #BED9B8 100%); }
+    .loc-3 .product-card:nth-child(3) .product-img-placeholder { background: linear-gradient(150deg, #EDF3EB 0%, #CCDEC5 100%); }
+    .loc-3 .product-card:nth-child(4) .product-img-placeholder { background: linear-gradient(150deg, #E7F0E5 0%, #C5DAC0 100%); }
+
+    .product-img-placeholder svg {
+      width: 44px;
+      height: 44px;
+      color: rgba(107,114,128,0.28);
+    }
+    .product-img-placeholder span {
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(107,114,128,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .product-card-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 52px 18px 18px;
+      background: linear-gradient(to top, rgba(17,19,22,0.78) 0%, 100% transparent);
+      transition: background .35s ease, padding-bottom .35s ease;
+      z-index: 2;
+    }
+    .product-card-footer h5 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .product-card-footer p {
+      font-size: 11px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 8px;
+    }
+    .pc-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      border: 1px solid rgba(230,48,39,0.4);
+      border-radius: 999px;
+      padding: 3px 9px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .3s ease .05s, transform .3s ease .05s;
+    }
+
+    /* ---------- Location Metrics ---------- */
+    /* .metrics-block {} */
+      /* no bottom margin — sits at the bottom of a location section */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--color-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .metric-cell {
+      background: #fff;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background .2s ease;
+      position: relative;
+    }
+    .location-section:nth-child(even) .metric-cell {
+      background: var(--color-bg-soft);
+    }
+    .metric-cell:hover {
+      background: var(--color-red-soft);
+    }
+    .metric-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--color-red-soft);
+      display: grid;
+      place-items: center;
+      color: var(--color-red);
+      margin-bottom: 4px;
+    }
+    .metric-icon svg { width: 18px; height: 18px; }
+    .metric-value {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 800;
+      color: var(--color-ink);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .metric-label {
+      font-size: 12px;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    /* ---------- Partners Section ---------- */
+    .partners-section {
+      padding: clamp(80px, 9vw, 120px) 0;
+      background: var(--color-ink-3);
+      position: relative;
+      overflow: hidden;
+    }
+    .partners-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 90% 40%, rgba(230,48,39,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .partners-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .partners-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      margin-bottom: 16px;
+    }
+    .partners-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .partners-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .partners-regions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .partner-region-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: border-color .3s ease, background .3s ease;
+    }
+    .partner-region-card:hover {
+      border-color: rgba(230,48,39,0.3);
+      background: rgba(230,48,39,0.04);
+    }
+    .partner-region-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .partner-region-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(230,48,39,0.12);
+      border: 1px solid rgba(230,48,39,0.2);
+      display: grid;
+      place-items: center;
+      color: var(--color-red);
+    }
+    .partner-region-icon svg { width: 20px; height: 20px; }
+    .partner-region-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 3px;
+    }
+    .partner-region-company {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.04em;
+    }
+    .partner-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .partner-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .partner-logo-box {
+      flex-shrink: 0;
+      align-self: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.03em;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+    .partner-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .partner-info h6 {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0 0 2px;
+    }
+    .partner-info p {
+      font-size: 12px;
+      line-height: 1.2;
+      color: rgba(255,255,255,0.35);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0;
+    }
+    .partner-badge {
+      flex-shrink: 0;
+      align-self: center;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--color-red);
+      border: 1px solid rgba(230,48,39,0.3);
+      border-radius: 999px;
+      padding: 3px 9px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .partner-see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-red);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: gap .2s ease;
+      cursor: pointer;
+    }
+    .partner-see-all:hover { gap: 10px; }
+
+    /* ---------- CTA Dual Button ---------- */
+    .gc-cta {
+      padding: clamp(80px, 9vw, 120px) 0;
+      background: #fff;
+      background-image:
+        linear-gradient(135deg, transparent 49%, rgba(230,48,39,0.03) 49%, rgba(230,48,39,0.03) 51%, transparent 51%);
+      background-size: 20px 20px;
+    }
+    .gc-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      background: var(--color-bg-soft);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(17,19,22,0.06);
+    }
+    .gc-cta-half {
+      position: relative;
+      padding: clamp(48px, 5vw, 72px) clamp(40px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    /* Red fill that radiates outward from the icon corner on hover */
+    .gc-cta-half::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--color-red);
+      clip-path: circle(0% at 76px 76px);
+      transition: clip-path .6s cubic-bezier(.22,1,.36,1);
+      z-index: -1;
+    }
+    .gc-cta-half:hover::before {
+      clip-path: circle(150% at 76px 76px);
+    }
+    /* Text flips on hover for contrast against red; icon stays as-is */
+    .gc-cta-half h3,
+    .gc-cta-half p {
+      transition: color .35s ease;
+    }
+    .gc-cta-half:hover h3 { color: #fff; }
+    .gc-cta-half:hover p { color: rgba(255,255,255,0.85); }
+    .gc-cta-half:hover .btn-customer,
+    .gc-cta-half:hover .btn-partner {
+      background: var(--color-ink);
+      color: #fff;
+    }
+
+    .gc-cta-divider {
+      width: 1px;
+      background: var(--color-border);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gc-cta-divider-or {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-red);
+      border: 1px solid var(--color-red);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      z-index: 2;
+      transition: background .3s ease, border-color .3s ease, color .3s ease;
+    }
+    /* OR badge turns black with white text when either side is hovered */
+    .gc-cta-inner:has(.gc-cta-half:hover) .gc-cta-divider-or {
+      background: var(--color-ink);
+      border-color: var(--color-ink);
+      color: #fff;
+    }
+
+    .gc-cta-icon {
+      position: relative;
+      z-index: 1;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--color-ink-2);
+      color: #fff;
+    }
+    .gc-cta-icon svg { width: 26px; height: 26px; }
+    .gc-cta-half h3 {
+      position: relative;
+      z-index: 1;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--color-ink);
+      line-height: 1.2;
+    }
+    .gc-cta-half p {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      color: var(--color-muted);
+      line-height: 1.65;
+      max-width: 360px;
+    }
+    .btn-partner,
+    .btn-customer {
+      position: relative;
+      z-index: 1;
+      background: var(--color-ink);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: var(--r-sm);
+      transition: background .25s ease, color .25s ease;
+      align-self: flex-start;
+    }
+    .gc-cta-half:not(:hover) .btn-partner:hover,
+    .gc-cta-half:not(:hover) .btn-customer:hover {
+      background: var(--color-ink-2);
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .products-gallery { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .partners-regions { grid-template-columns: 1fr; gap: 20px; }
+      .gc-cta-inner { grid-template-columns: 1fr; }
+      .gc-cta-divider { display: none; }
+      .gc-cta-half { padding: 40px 36px; }
+      .video-frame { aspect-ratio: 16 / 7; }
+    }
+    @media (max-width: 900px) {
+      .loc-header { grid-template-columns: 1fr; }
+      .loc-name { white-space: normal; }
+      .loc-info-card { max-width: 480px; }
+    }
+    @media (max-width: 768px) {
+      .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+      .gc-cta-inner { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; padding: 0 16px 20px; }
+      .video-frame { aspect-ratio: 16 / 8; border-radius: 16px; margin: 0 16px; }
+      .video-wave svg { height: 36px; }
+    }
+    @media (max-width: 520px) {
+      .products-gallery { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .video-frame { aspect-ratio: 16 / 10; }
+      .metrics-strip { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* Fix logo-text-sub color on light bg */
+    .logo-text-sub { color: var(--color-muted) !important; }
+
+    /* btn-card matching existing */
+    .btn-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      border-bottom: 1.5px solid var(--color-red);
+      padding-bottom: 2px;
+      transition: color .2s ease;
+    }
+    .btn-card:hover { color: var(--color-red); }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Prateek Group home">
+        <svg class="logo-mark" aria-hidden="true" width="42" height="48" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="13" height="56" fill="#E63027"/>
+          <path d="M 15,2 L 47,2 L 15,33 Z" fill="#E63027"/>
+          <path d="M 15,38 L 36,38 L 15,56 Z" fill="#E63027"/>
+        </svg>
+        <span class="logo-text">
+          <span class="logo-text-main">PRATEEK</span>
+          <span class="logo-text-sub">GROUP</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list" id="primary-menu">
+          <li class="nav-separator">|</li>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#history">HISTORY</a></li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="#manufacturing" style="text-align:center">MANUFACTURING</a></li>
+              <li><a href="#qualitycontrol" style="text-align:center">QUALITY CONTROL</a></li>
+              <li><a href="#machinery" style="text-align:center">MACHINERY</a></li>
+              <li><a href="#capacity" style="text-align:center">CAPACITY</a></li>
+              <li><a href="#certifications" style="text-align:center">CERTIFICATIONS</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="#pvyarn" style="text-align:center">PV YARN</a></li>
+              <li><a href="#dyedyarn" style="text-align:center">DYED YARN</a></li>
+              <li><a href="#fancyyarn" style="text-align:center">FANCY YARN</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">▾</span></a>
+            <ul class="dropdown">
+              <li><a href="#prateek" style="text-align:center">PRATEEK YARN</a></li>
+              <li><a href="#kk-spintex" style="text-align:center">KK SPINTEX</a></li>
+              <li><a href="#gb-yarn" style="text-align:center">GB DYED YARN</a></li>
+            </ul>
+          </li>
+          <li><a href="#partners">OUR PARTNERS</a></li>
+          <li><a href="#careers">PEOPLE</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <a href="contact.html" class="btn btn-navbar">
+        GET IN TOUCH
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="gc-hero">
+      <div class="gc-hero-bg" aria-hidden="true"></div>
+      <div class="gc-hero-grid-lines" aria-hidden="true">
+        <canvas id="hero-shapegrid"></canvas>
+      </div>
+      <div class="container gc-hero-content">
+        <div class="gc-hero-eyebrow">Group Companies</div>
+        <h1 class="gc-hero-title">
+          Three Facilities.<br />
+          One <span class="accent">Integrated</span> Vision.
+        </h1>
+        <p class="gc-hero-sub">
+          From fancy yarn in Bhiwandi to PV spinning in Guntur and premium dyeing in Palsana — each unit is built for excellence in its domain, unified under one group.
+        </p>
+
+        <nav class="gc-hero-location-strip" aria-label="Jump to location">
+          <a href="#prateek" class="gc-loc-chip active">
+            <span class="chip-dot"></span>
+            Prateek — Bhiwandi, MH
+          </a>
+          <a href="#kk-spintex" class="gc-loc-chip">
+            <span class="chip-dot"></span>
+            KK Spintex — Guntur, AP
+          </a>
+          <a href="#gb-yarn" class="gc-loc-chip">
+            <span class="chip-dot"></span>
+            GB Yarn — Palsana, GJ
+          </a>
+        </nav>
+      </div>
+    </section>
+
+
+    <!-- ===================== LOCATION 1: PRATEEK — BHIWANDI ===================== -->
+    <section class="location-section loc-1" id="prateek">
+      <div class="container">
+
+        <!-- Header -->
+        <div class="loc-header reveal">
+          <!-- LEFT: identity -->
+          <div class="loc-identity">
+            <div class="loc-number">01</div>
+            <div class="loc-eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Bhiwandi, Maharashtra
+            </div>
+            <h2 class="loc-name">Prateek Yarn</h2>
+            <p class="loc-desc">Established in Bhiwandi's textile heartland, Prateek Yarn specialises in fancy and value-added yarn constructions. With over 18,000 spindles and 300+ active product variants, the facility caters to premium shirting, suiting, and home furnishing markets across India and for export.</p>
+            <div class="loc-place">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l5-3 5 3v3h8v9z"/></svg>
+              Fancy &amp; Specialty Yarn Manufacturing
+            </div>
+          </div>
+
+          <!-- RIGHT: info card -->
+          <div class="loc-info-card">
+            <div class="loc-card-company-name">Prateek Yarn</div>
+            <div class="loc-card-type">Fancy &amp; Specialty Yarn · Bhiwandi, MH</div>
+            <div class="loc-card-label">Specialisations</div>
+            <ul class="loc-bullet-list">
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>2-ply &amp; 3-ply fancy constructions</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>300+ product variants across textures &amp; colours</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Slub, nep, loop &amp; space-dye effects</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Shirting, suiting &amp; home furnishing grade</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Custom blend ratios on request</li>
+            </ul>
+            <div class="loc-card-divider"></div>
+            <a href="prateek.html" class="loc-card-btn">Visit Company Page <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Manufacturing Process -->
+        <div class="process-block reveal reveal-delay-1">
+          <div class="process-block-header">
+            <div class="subsection-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+              <h4>Manufacturing Process</h4>
+            </div>
+          </div>
+          <div class="process-video-wrap">
+            <div class="video-wave video-wave-top">
+              <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,26 C180,52 360,0 540,26 C720,52 900,0 1080,26 C1260,52 1380,10 1440,26 L1440,52 L0,52 Z" fill="#111316"/></svg>
+            </div>
+            <div class="video-frame">
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p>Process Video — Coming Soon</p>
+              </div>
+              <span class="video-badge">Bhiwandi Facility</span>
+            </div>
+            <div class="process-steps">
+              <div class="process-step">
+                <span class="step-num">1</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12h6M12 9v6"/></svg></div>
+                <div class="step-body"><h5>Fibre Selection &amp; Blending</h5><p>Careful sourcing and blending of raw fibres to achieve desired texture and performance.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">2</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4c4 4 4 8 0 12M18 4c-4 4-4 8 0 12"/></svg></div>
+                <div class="step-body"><h5>Spinning &amp; Twisting</h5><p>High-speed ring-spinning converts blended sliver into yarn with precise twist-per-inch settings.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">3</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12a4 4 0 008 0"/></svg></div>
+                <div class="step-body"><h5>Fancy Effect Application</h5><p>Slub, nep, loop, and space-dye effects via specialty attachment heads — enabling 300+ variants.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">4</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg></div>
+                <div class="step-body"><h5>Quality Inspection &amp; Winding</h5><p>Electronic yarn clearers detect defects before precision-winding onto export-ready cones.</p></div>
+              </div>
+            </div>
+            <div class="video-wave video-wave-bottom">
+              <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,26 C180,0 360,52 540,26 C720,0 900,52 1080,26 C1260,0 1380,42 1440,26 L1440,0 L0,0 Z" fill="#111316"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Products -->
+        <div class="products-block reveal reveal-delay-2">
+          <div class="subsection-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            <h4>Final Products</h4>
+          </div>
+          <!-- Textile icon background -->
+          <div class="products-bg-icons" aria-hidden="true">
+            <svg class="pbi" style="top:8%;left:3%;width:72px;color:#E8A23D" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke="currentColor" stroke-width="1.5"/><line x1="4" y1="32" x2="60" y2="32" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg class="pbi" style="top:60%;left:0%;width:60px;color:#E63027;transform:rotate(20deg)" viewBox="0 0 64 64" fill="none"><path d="M32 8 L32 56 M20 14 L44 14 M16 32 L48 32 M20 50 L44 50" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="14" rx="12" ry="6" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="50" rx="12" ry="6" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="pbi" style="top:5%;right:4%;width:56px;color:#3DAE9A;transform:rotate(-12deg)" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke="currentColor" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke="currentColor" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="pbi" style="top:35%;right:2%;width:64px;color:#D9667A;transform:rotate(8deg)" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="pbi" style="bottom:8%;left:45%;width:50px;color:#7C5CBF;transform:rotate(-6deg)" viewBox="0 0 64 64" fill="none"><line x1="8" y1="8" x2="56" y2="56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="2"/><path d="M56 44 L56 56 L44 56" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="pbi" style="bottom:5%;right:8%;width:68px;color:#E8A23D;transform:rotate(15deg)" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="currentColor" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="products-gallery">
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><circle cx="32" cy="32" r="22" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="rgba(107,114,128,0.2)" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="rgba(107,114,128,0.2)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Slub Fancy Yarn</h5>
+                <p>2-ply &amp; 3-ply · Shirting &amp; Suiting</p>
+                <span class="pc-tag">Fancy</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16" stroke="rgba(107,114,128,0.3)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Space-Dyed Yarn</h5>
+                <p>Multi-colour effects</p>
+                <span class="pc-tag">Colour</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><path d="M32 8 L32 56 M20 14 L44 14 M16 32 L48 32 M20 50 L44 50" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><ellipse cx="32" cy="14" rx="12" ry="6" stroke="rgba(107,114,128,0.2)" stroke-width="2"/><ellipse cx="32" cy="50" rx="12" ry="6" stroke="rgba(107,114,128,0.2)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Loop &amp; Nep Yarn</h5>
+                <p>Texture &amp; tactile variants</p>
+                <span class="pc-tag">Texture</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><rect x="10" y="8" width="44" height="48" rx="3" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="rgba(107,114,128,0.2)" stroke-width="1.5"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Home Furnishing Yarn</h5>
+                <p>Decorative &amp; drapery</p>
+                <span class="pc-tag">Furnishing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="metrics-block reveal reveal-delay-3">
+          <div class="subsection-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/></svg>
+            <h4>Facility Metrics</h4>
+          </div>
+          <div class="metrics-strip">
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2h6v4l-2 14h-2L9 6z"/><path d="M9 6h6"/></svg></div>
+              <div class="metric-value">18,000+</div>
+              <div class="metric-label">Spindles Installed</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/><path d="M18 6l2-2 2 2"/></svg></div>
+              <div class="metric-value">300+ MT</div>
+              <div class="metric-label">Monthly Capacity</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+              <div class="metric-value">300+</div>
+              <div class="metric-label">Product Variants</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div class="metric-value">Bhiwandi</div>
+              <div class="metric-label">Maharashtra · Well-connected to Mumbai port</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== LOCATION 2: KK SPINTEX — GUNTUR ===================== -->
+    <section class="location-section loc-2" id="kk-spintex">
+      <div class="container">
+
+        <div class="loc-header reveal">
+          <!-- LEFT: identity -->
+          <div class="loc-identity">
+            <div class="loc-number">02</div>
+            <div class="loc-eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Guntur, Andhra Pradesh
+            </div>
+            <h2 class="loc-name">KK Spintex</h2>
+            <p class="loc-desc">Located in Guntur's cotton-rich belt, KK Spintex is a high-capacity PV yarn spinning facility. With 12,000+ spindles and a monthly throughput of 350+ MT, the plant specialises in polyester-viscose blends that combine synthetic durability with viscose's natural drape — serving shirting, suiting, and dress material segments.</p>
+            <div class="loc-place">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l5-3 5 3v3h8v9z"/></svg>
+              High-Capacity PV Yarn Manufacturing
+            </div>
+          </div>
+
+          <!-- RIGHT: info card -->
+          <div class="loc-info-card">
+            <div class="loc-card-company-name">KK Spintex</div>
+            <div class="loc-card-type">PV Yarn Manufacturing · Guntur, AP</div>
+            <div class="loc-card-label">Specialisations</div>
+            <ul class="loc-bullet-list">
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>65/35 &amp; 50/50 Polyester–Viscose blends</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>High-volume ring-spinning — 12,000+ spindles</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Multi-colour space-dyeing &amp; value addition</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Custom blend ratios on request</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Shirting, suiting &amp; dress material grade</li>
+            </ul>
+            <div class="loc-card-divider"></div>
+            <a href="kk-spintex.html" class="loc-card-btn">Visit Company Page <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Manufacturing Process -->
+        <div class="process-block reveal reveal-delay-1">
+          <div class="process-block-header">
+            <div class="subsection-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+              <h4>Manufacturing Process</h4>
+            </div>
+          </div>
+          <div class="process-video-wrap">
+            <div class="video-wave video-wave-top">
+              <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,26 C180,52 360,0 540,26 C720,52 900,0 1080,26 C1260,52 1380,10 1440,26 L1440,52 L0,52 Z" fill="#111316"/></svg>
+            </div>
+            <div class="video-frame">
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p>Process Video — Coming Soon</p>
+              </div>
+              <span class="video-badge">Guntur Facility</span>
+            </div>
+            <div class="process-steps">
+              <div class="process-step">
+                <span class="step-num">1</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+                <div class="step-body"><h5>Polyester–Viscose Blending</h5><p>Precise metering of PV fibres in 65/35 or 50/50 ratios — combining durability with natural drape.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">2</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                <div class="step-body"><h5>Draw Frame &amp; Combing</h5><p>Parallelisation of fibres creates an even, high-lustre sliver ready for ring-frame spinning.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">3</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 2v10l6 3"/></svg></div>
+                <div class="step-body"><h5>Ring Spinning</h5><p>High-speed ring frames deliver consistent count and twist for downstream weaving and knitting.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">4</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg></div>
+                <div class="step-body"><h5>Auto-Winding &amp; Packing</h5><p>Automated winding with splice testing ensures zero-defect cones packed to buyer specifications.</p></div>
+              </div>
+            </div>
+            <div class="video-wave video-wave-bottom">
+              <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,26 C180,0 360,52 540,26 C720,0 900,52 1080,26 C1260,0 1380,42 1440,26 L1440,0 L0,0 Z" fill="#111316"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Products -->
+        <div class="products-block reveal reveal-delay-2">
+          <div class="subsection-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            <h4>Final Products</h4>
+          </div>
+          <div class="products-bg-icons" aria-hidden="true">
+            <svg class="pbi" style="top:10%;left:2%;width:70px;color:#3DAE9A;transform:rotate(-10deg)" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke="currentColor" stroke-width="1.5"/><line x1="4" y1="32" x2="60" y2="32" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg class="pbi" style="top:55%;left:1%;width:58px;color:#7C5CBF;transform:rotate(14deg)" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="pbi" style="top:8%;right:3%;width:62px;color:#E63027;transform:rotate(10deg)" viewBox="0 0 64 64" fill="none"><path d="M32 8 L32 56 M20 14 L44 14 M16 32 L48 32 M20 50 L44 50" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="14" rx="12" ry="6" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="50" rx="12" ry="6" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="pbi" style="top:40%;right:1%;width:68px;color:#E8A23D;transform:rotate(-8deg)" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke="currentColor" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke="currentColor" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="pbi" style="bottom:6%;left:42%;width:54px;color:#D9667A;transform:rotate(5deg)" viewBox="0 0 64 64" fill="none"><line x1="8" y1="8" x2="56" y2="56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="2"/><path d="M56 44 L56 56 L44 56" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="pbi" style="bottom:4%;right:6%;width:66px;color:#3DAE9A;transform:rotate(-12deg)" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="currentColor" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="products-gallery">
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><circle cx="32" cy="32" r="22" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="rgba(107,114,128,0.2)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>65/35 PV Yarn</h5>
+                <p>Shirting &amp; Suiting · Standard &amp; Custom Counts</p>
+                <span class="pc-tag">PV Blend</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16" stroke="rgba(107,114,128,0.3)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>50/50 PV Blend</h5>
+                <p>Enhanced drape for dress material</p>
+                <span class="pc-tag">50/50</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><path d="M32 8 L32 56" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><ellipse cx="32" cy="14" rx="12" ry="6" stroke="rgba(107,114,128,0.2)" stroke-width="2"/><ellipse cx="32" cy="50" rx="12" ry="6" stroke="rgba(107,114,128,0.2)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Multi-Colour Space Dyed</h5>
+                <p>Value-added PV varieties</p>
+                <span class="pc-tag">Colour</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><rect x="10" y="8" width="44" height="48" rx="3" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><path d="M10 20h44M10 32h44" stroke="rgba(107,114,128,0.2)" stroke-width="1.5"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Textured PV Yarn</h5>
+                <p>Specialized surface finishes</p>
+                <span class="pc-tag">Texture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="metrics-block reveal reveal-delay-3">
+          <div class="subsection-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/></svg>
+            <h4>Facility Metrics</h4>
+          </div>
+          <div class="metrics-strip">
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2h6v4l-2 14h-2L9 6z"/><path d="M9 6h6"/></svg></div>
+              <div class="metric-value">12,000+</div>
+              <div class="metric-label">Spindles Installed</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/><path d="M18 6l2-2 2 2"/></svg></div>
+              <div class="metric-value">350+ MT</div>
+              <div class="metric-label">Monthly Capacity</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12a4 4 0 008 0"/></svg></div>
+              <div class="metric-value">65/35</div>
+              <div class="metric-label">Primary Blend Ratio (PV)</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div class="metric-value">Guntur</div>
+              <div class="metric-label">Andhra Pradesh · Cotton belt proximity</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== LOCATION 3: GB YARN — PALSANA ===================== -->
+    <section class="location-section loc-3" id="gb-yarn">
+      <div class="container">
+
+        <div class="loc-header reveal">
+          <!-- LEFT: identity -->
+          <div class="loc-identity">
+            <div class="loc-number">03</div>
+            <div class="loc-eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              Palsana, Gujarat
+            </div>
+            <h2 class="loc-name">GB Dyed Yarn</h2>
+            <p class="loc-desc">Situated near Surat — India's textile export capital — GB Dyed Yarn is the group's colour and finishing hub. Specialising in package dyeing, the facility processes both greige yarn from within the group and third-party input, delivering 500+ shades across a broad range of fancy and standard yarn constructions for home furnishing and apparel.</p>
+            <div class="loc-place">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l5-3 5 3v3h8v9z"/></svg>
+              Premium Dyeing &amp; Texturizing
+            </div>
+          </div>
+
+          <!-- RIGHT: info card -->
+          <div class="loc-info-card">
+            <div class="loc-card-company-name">GB Dyed Yarn</div>
+            <div class="loc-card-type">Dyeing &amp; Texturizing · Palsana, GJ</div>
+            <div class="loc-card-label">Specialisations</div>
+            <ul class="loc-bullet-list">
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Package dyeing — 500+ colour shades</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>HTHP pressure dyeing for deep penetration</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Fancy &amp; structural yarn constructions</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>Home furnishing &amp; drapery yarn grade</li>
+              <li class="loc-bullet"><span class="loc-bullet-dot"></span>RF drying &amp; export-grade rewinding</li>
+            </ul>
+            <div class="loc-card-divider"></div>
+            <a href="gb-dyed-yarn.html" class="loc-card-btn">Visit Company Page <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- Manufacturing Process -->
+        <div class="process-block reveal reveal-delay-1">
+          <div class="process-block-header">
+            <div class="subsection-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+              <h4>Manufacturing Process</h4>
+            </div>
+          </div>
+          <div class="process-video-wrap">
+            <div class="video-wave video-wave-top">
+              <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,26 C180,52 360,0 540,26 C720,52 900,0 1080,26 C1260,52 1380,10 1440,26 L1440,52 L0,52 Z" fill="#111316"/></svg>
+            </div>
+            <div class="video-frame">
+              <div class="video-placeholder">
+                <div class="video-placeholder-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p>Process Video — Coming Soon</p>
+              </div>
+              <span class="video-badge">Palsana Facility</span>
+            </div>
+            <div class="process-steps">
+              <div class="process-step">
+                <span class="step-num">1</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div>
+                <div class="step-body"><h5>Greige Yarn Input</h5><p>Grey yarn sourced internally or from third-party spinners, pre-checked for count and consistency.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">2</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+                <div class="step-body"><h5>Dye Formulation &amp; Lot Prep</h5><p>Lab colour recipes matched to Pantone, shade cards, or buyer-specified references.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">3</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg></div>
+                <div class="step-body"><h5>Package Dyeing</h5><p>Pressure HTHP dyeing ensures deep, even penetration across the full yarn cone with superior wash fastness.</p></div>
+              </div>
+              <div class="process-step">
+                <span class="step-num">4</span>
+                <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg></div>
+                <div class="step-body"><h5>Drying, Softening &amp; Rewinding</h5><p>RF drying followed by softener finishing and re-winding to export-grade cones.</p></div>
+              </div>
+            </div>
+            <div class="video-wave video-wave-bottom">
+              <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,26 C180,0 360,52 540,26 C720,0 900,52 1080,26 C1260,0 1380,42 1440,26 L1440,0 L0,0 Z" fill="#111316"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Products -->
+        <div class="products-block reveal reveal-delay-2">
+          <div class="subsection-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            <h4>Final Products</h4>
+          </div>
+          <!-- Textile icon background -->
+          <div class="products-bg-icons" aria-hidden="true">
+            <svg class="pbi" style="top:9%;left:2%;width:68px;color:#D9667A;transform:rotate(-8deg)" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke="currentColor" stroke-width="1.5"/><line x1="4" y1="32" x2="60" y2="32" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg class="pbi" style="top:58%;left:1%;width:62px;color:#E8A23D;transform:rotate(18deg)" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="pbi" style="top:6%;right:3%;width:60px;color:#7C5CBF;transform:rotate(12deg)" viewBox="0 0 64 64" fill="none"><path d="M32 8 L32 56 M20 14 L44 14 M16 32 L48 32 M20 50 L44 50" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="14" rx="12" ry="6" stroke="currentColor" stroke-width="2"/><ellipse cx="32" cy="50" rx="12" ry="6" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="pbi" style="top:38%;right:2%;width:72px;color:#3DAE9A;transform:rotate(-6deg)" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke="currentColor" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke="currentColor" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke="currentColor" stroke-width="2"/></svg>
+            <svg class="pbi" style="bottom:7%;left:44%;width:52px;color:#E63027;transform:rotate(9deg)" viewBox="0 0 64 64" fill="none"><line x1="8" y1="8" x2="56" y2="56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="2"/><path d="M56 44 L56 56 L44 56" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="pbi" style="bottom:5%;right:7%;width:64px;color:#D9667A;transform:rotate(-14deg)" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke="currentColor" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="currentColor" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div class="products-gallery">
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><circle cx="32" cy="32" r="22" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke="rgba(107,114,128,0.2)" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke="rgba(107,114,128,0.2)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Dyed Fancy Yarn</h5>
+                <p>Rich colour palette · Structural textures</p>
+                <span class="pc-tag">Dyed</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><path d="M20.84 10a12 12 0 000 44M43.16 10a12 12 0 010 44M32 6v52" stroke="rgba(107,114,128,0.3)" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Solid Dyed Cone</h5>
+                <p>Precise shade matching</p>
+                <span class="pc-tag">Solid</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16" stroke="rgba(107,114,128,0.3)" stroke-width="2"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Melange Effect Yarn</h5>
+                <p>Blended colour aesthetics</p>
+                <span class="pc-tag">Melange</span>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-img-placeholder">
+                <svg viewBox="0 0 64 64" fill="none" width="44" height="44"><rect x="10" y="8" width="44" height="48" rx="3" stroke="rgba(107,114,128,0.3)" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke="rgba(107,114,128,0.2)" stroke-width="1.5"/></svg>
+                <span>Product Image</span>
+              </div>
+              <div class="product-card-footer">
+                <h5>Home Furnishing Yarn</h5>
+                <p>Drapery &amp; upholstery grade</p>
+                <span class="pc-tag">Furnishing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics -->
+        <div class="metrics-block reveal reveal-delay-3">
+          <div class="subsection-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/></svg>
+            <h4>Facility Metrics</h4>
+          </div>
+          <div class="metrics-strip">
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg></div>
+              <div class="metric-value">8,000+</div>
+              <div class="metric-label">Spindles Capacity</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/><path d="M18 6l2-2 2 2"/></svg></div>
+              <div class="metric-value">250+ MT</div>
+              <div class="metric-label">Monthly Dyeing Capacity</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+              <div class="metric-value">500+</div>
+              <div class="metric-label">Colour Shades Available</div>
+            </div>
+            <div class="metric-cell">
+              <div class="metric-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div class="metric-value">Palsana</div>
+              <div class="metric-label">Gujarat · Surat textile hub proximity</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== PARTNERS IN THE REGION ===================== -->
+    <section class="partners-section" id="partners">
+      <div class="partners-bg" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="partners-header reveal">
+          <div class="partners-eyebrow">Across All Locations</div>
+          <h2 class="partners-title">Partners in the Region</h2>
+          <p class="partners-sub">
+            Trusted relationships with suppliers, logistics providers, and trade partners across each manufacturing hub.
+          </p>
+        </div>
+
+        <div class="partners-regions">
+
+          <!-- Region 1: Bhiwandi -->
+          <div class="partner-region-card reveal reveal-delay-1">
+            <div class="partner-region-header">
+              <div class="partner-region-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </div>
+              <div>
+                <div class="partner-region-name">Bhiwandi, Maharashtra</div>
+                <div class="partner-region-company">Prateek Yarn Facility</div>
+              </div>
+            </div>
+            <div class="partner-list">
+              <div class="partner-item">
+                <div class="partner-logo-box">SN</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Raw Material Supplier</p>
+                </div>
+                <span class="partner-badge">Supplier</span>
+              </div>
+              <div class="partner-item">
+                <div class="partner-logo-box">TR</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Logistics &amp; Distribution</p>
+                </div>
+                <span class="partner-badge">Logistics</span>
+              </div>
+              <div class="partner-item">
+                <div class="partner-logo-box">MX</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Machinery &amp; Maintenance</p>
+                </div>
+                <span class="partner-badge">Technology</span>
+              </div>
+            </div>
+            <span class="partner-see-all">View all partners <span>→</span></span>
+          </div>
+
+          <!-- Region 2: Guntur -->
+          <div class="partner-region-card reveal reveal-delay-2">
+            <div class="partner-region-header">
+              <div class="partner-region-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </div>
+              <div>
+                <div class="partner-region-name">Guntur, Andhra Pradesh</div>
+                <div class="partner-region-company">KK Spintex Facility</div>
+              </div>
+            </div>
+            <div class="partner-list">
+              <div class="partner-item">
+                <div class="partner-logo-box">AP</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Fibre &amp; Raw Material</p>
+                </div>
+                <span class="partner-badge">Supplier</span>
+              </div>
+              <div class="partner-item">
+                <div class="partner-logo-box">KL</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Export &amp; Trade Agent</p>
+                </div>
+                <span class="partner-badge">Trade</span>
+              </div>
+              <div class="partner-item">
+                <div class="partner-logo-box">GV</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Quality Certification Body</p>
+                </div>
+                <span class="partner-badge">Certification</span>
+              </div>
+            </div>
+            <span class="partner-see-all">View all partners <span>→</span></span>
+          </div>
+
+          <!-- Region 3: Palsana -->
+          <div class="partner-region-card reveal reveal-delay-3">
+            <div class="partner-region-header">
+              <div class="partner-region-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </div>
+              <div>
+                <div class="partner-region-name">Palsana, Gujarat</div>
+                <div class="partner-region-company">GB Dyed Yarn Facility</div>
+              </div>
+            </div>
+            <div class="partner-list">
+              <div class="partner-item">
+                <div class="partner-logo-box">DY</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Dye &amp; Chemical Supplier</p>
+                </div>
+                <span class="partner-badge">Supplier</span>
+              </div>
+              <div class="partner-item">
+                <div class="partner-logo-box">ST</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Surat Trade Association</p>
+                </div>
+                <span class="partner-badge">Trade</span>
+              </div>
+              <div class="partner-item">
+                <div class="partner-logo-box">EX</div>
+                <div class="partner-info">
+                  <h6>Partner Company Name</h6>
+                  <p>Export &amp; Freight Partner</p>
+                </div>
+                <span class="partner-badge">Logistics</span>
+              </div>
+            </div>
+            <span class="partner-see-all">View all partners <span>→</span></span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================== DUAL CTA ===================== -->
+    <section class="gc-cta">
+      <div class="container">
+        <div class="gc-cta-inner reveal">
+
+          <!-- Customer half -->
+          <div class="gc-cta-half">
+            <div class="gc-cta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
+                <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+                <circle cx="12" cy="13" r="2"/>
+              </svg>
+            </div>
+            <h3>Looking for a<br/>reliable yarn supplier?</h3>
+            <p>
+              We supply consistent, high-quality yarn across PV, fancy, and dyed categories — on-time, to specs, with customizations at scale for your fabric needs.
+            </p>
+            <a href="contact.html" class="btn-customer">
+              Contact Us as a Customer
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Divider -->
+          <div class="gc-cta-divider" aria-hidden="true">
+            <div class="gc-cta-divider-or">OR</div>
+          </div>
+
+          <!-- Partner half -->
+          <div class="gc-cta-half">
+            <div class="gc-cta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h3>Interested in becoming<br/>a partner?</h3>
+            <p>
+              We collaborate with suppliers, logistics providers, machinery vendors, and trade organisations — certified, with 15+ years of presence in the industry.
+            </p>
+            <a href="contact.html" class="btn-partner">
+              Enquire as a Partner
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-on-dark" aria-label="Prateek Group home">
+          <svg class="logo-mark" aria-hidden="true" width="42" height="48" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="13" height="56" fill="#E63027"/>
+            <path d="M 15,2 L 47,2 L 15,33 Z" fill="#E63027"/>
+            <path d="M 15,38 L 36,38 L 15,56 Z" fill="#E63027"/>
+          </svg>
+          <span class="logo-text">
+            <span class="logo-text-main">PRATEEK</span>
+            <span class="logo-text-sub">GROUP</span>
+          </span>
+        </a>
+        <p class="footer-about">
+          Integrated yarn manufacturing group with state-of-the-art facilities across India. Committed to quality, consistency and customer satisfaction.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Group Companies</h5>
+        <ul>
+          <li><a href="#prateek">Prateek</a></li>
+          <li><a href="#kk-spintex">KK Spintex</a></li>
+          <li><a href="#gb-yarn">GB Dyed Yarn</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="group-companies.html">Group Companies</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Manufacturing Locations</h5>
+        <ul class="footer-locations">
+          <li><span class="footer-pin" aria-hidden="true">📍</span>Bhiwandi, Maharashtra</li>
+          <li><span class="footer-pin" aria-hidden="true">📍</span>Guntur, Andhra Pradesh</li>
+          <li><span class="footer-pin" aria-hidden="true">📍</span>Palsana, Gujarat</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 class="footer-heading">Contact Us</h5>
+        <ul class="footer-contact">
+          <li><span aria-hidden="true">📞</span>+91 72734 44555</li>
+          <li><span aria-hidden="true">✉️</span>info@prateekspunfab.com</li>
+          <li><span aria-hidden="true">🕒</span>Mon – Sat: 9:00 AM – 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div class="footer-social" aria-label="Social media">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+        <p class="footer-copy">© 2024 Prateek Spunfab Pvt. Ltd. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <span aria-hidden="true">|</span>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll hide/show
+    let lastScroll = 0;
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) { header.classList.remove('header-hidden'); return; }
+      if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+        header.classList.add('header-hidden');
+      } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+        header.classList.remove('header-hidden');
+      }
+      lastScroll = currentScroll;
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navList = document.getElementById('primary-menu');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = navList.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', open);
+      });
+    }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Active location chip based on scroll
+    const locChips = document.querySelectorAll('.gc-loc-chip');
+    const locSections = ['prateek', 'kk-spintex', 'gb-yarn'].map(id => document.getElementById(id));
+    window.addEventListener('scroll', () => {
+      let current = 0;
+      locSections.forEach((sec, i) => {
+        if (sec && sec.getBoundingClientRect().top < window.innerHeight * 0.5) {
+          current = i;
+        }
+      });
+      locChips.forEach((chip, i) => {
+        chip.classList.toggle('active', i === current);
+      });
+    }, { passive: true });
+
+    // ===================== HERO HEXAGON SHAPE GRID =====================
+    // Vanilla-JS port of the ShapeGrid component (hexagon variant only,
+    // configured for: shape=hexagon, borderColor=#000, hoverColor=#E63027,
+    // hoverTrailAmount=0, direction=diagonal, speed=0.5
+    (function initHeroShapeGrid() {
+      const canvas = document.getElementById('hero-shapegrid');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      // ---- locked configuration (per request) ----
+      const direction = 'diagonal';
+      const speed = 0.5;
+      const borderColor = 'rgba(0,0,0,0.55)';
+      const squareSize = 50;
+      const hoverFillColor = '#E63027';
+      const hoverTrailAmount = 6;
+
+      const hexHoriz = squareSize * 1.5;
+      const hexVert = squareSize * Math.sqrt(3);
+
+      const gridOffset = { x: 0, y: 0 };
+      const hoveredSquare = { current: null };
+      const trailCells = [];
+      const cellOpacities = new Map();
+      let rafId = null;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.max(1, Math.round(rect.width * dpr));
+        canvas.height = Math.max(1, Math.round(rect.height * dpr));
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function drawHex(cx, cy, size) {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = (Math.PI / 3) * i;
+          const vx = cx + size * Math.cos(angle);
+          const vy = cy + size * Math.sin(angle);
+          if (i === 0) ctx.moveTo(vx, vy);
+          else ctx.lineTo(vx, vy);
+        }
+        ctx.closePath();
+      }
+
+      function drawGrid() {
+        const cssW = canvas.width / dpr;
+        const cssH = canvas.height / dpr;
+        ctx.clearRect(0, 0, cssW, cssH);
+
+        const colShift = Math.floor(gridOffset.x / hexHoriz);
+        const offsetX = ((gridOffset.x % hexHoriz) + hexHoriz) % hexHoriz;
+        const offsetY = ((gridOffset.y % hexVert) + hexVert) % hexVert;
+
+        const cols = Math.ceil(cssW / hexHoriz) + 3;
+        const rows = Math.ceil(cssH / hexVert) + 3;
+
+        for (let col = -2; col < cols; col++) {
+          for (let row = -2; row < rows; row++) {
+            const cx = col * hexHoriz + offsetX;
+            const cy = row * hexVert + ((col + colShift) % 2 !== 0 ? hexVert / 2 : 0) + offsetY;
+
+            const cellKey = col + ',' + row;
+            const alpha = cellOpacities.get(cellKey);
+            if (alpha) {
+              ctx.globalAlpha = alpha;
+              drawHex(cx, cy, squareSize);
+              ctx.fillStyle = hoverFillColor;
+              ctx.fill();
+              ctx.globalAlpha = 1;
+            }
+
+            drawHex(cx, cy, squareSize);
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      function updateCellOpacities() {
+        const targets = new Map();
+
+        if (hoveredSquare.current) {
+          targets.set(hoveredSquare.current.x + ',' + hoveredSquare.current.y, 1);
+        }
+
+        if (hoverTrailAmount > 0) {
+          for (let i = 0; i < trailCells.length; i++) {
+            const t = trailCells[i];
+            const key = t.x + ',' + t.y;
+            if (!targets.has(key)) {
+              targets.set(key, (trailCells.length - i) / (trailCells.length + 1));
+            }
+          }
+        }
+
+        for (const [key] of targets) {
+          if (!cellOpacities.has(key)) cellOpacities.set(key, 0);
+        }
+
+        for (const [key, opacity] of cellOpacities) {
+          const target = targets.get(key) || 0;
+          const next = opacity + (target - opacity) * 0.15;
+          if (next < 0.005) cellOpacities.delete(key);
+          else cellOpacities.set(key, next);
+        }
+      }
+
+      function updateAnimation() {
+        const effectiveSpeed = Math.max(speed, 0.1);
+        const wrapX = hexHoriz * 2;
+        const wrapY = hexVert;
+
+        switch (direction) {
+          case 'right':
+            gridOffset.x = (gridOffset.x - effectiveSpeed + wrapX) % wrapX;
+            break;
+          case 'left':
+            gridOffset.x = (gridOffset.x + effectiveSpeed + wrapX) % wrapX;
+            break;
+          case 'up':
+            gridOffset.y = (gridOffset.y + effectiveSpeed + wrapY) % wrapY;
+            break;
+          case 'down':
+            gridOffset.y = (gridOffset.y - effectiveSpeed + wrapY) % wrapY;
+            break;
+          case 'diagonal':
+            gridOffset.x = (gridOffset.x - effectiveSpeed + wrapX) % wrapX;
+            gridOffset.y = (gridOffset.y - effectiveSpeed + wrapY) % wrapY;
+            break;
+        }
+
+        updateCellOpacities();
+        drawGrid();
+        rafId = requestAnimationFrame(updateAnimation);
+      }
+
+      function handleMouseMove(event) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        const colShift = Math.floor(gridOffset.x / hexHoriz);
+        const offsetX = ((gridOffset.x % hexHoriz) + hexHoriz) % hexHoriz;
+        const offsetY = ((gridOffset.y % hexVert) + hexVert) % hexVert;
+        const adjustedX = mouseX - offsetX;
+        const adjustedY = mouseY - offsetY;
+
+        const col = Math.round(adjustedX / hexHoriz);
+        const rowOffset = (col + colShift) % 2 !== 0 ? hexVert / 2 : 0;
+        const row = Math.round((adjustedY - rowOffset) / hexVert);
+
+        if (!hoveredSquare.current || hoveredSquare.current.x !== col || hoveredSquare.current.y !== row) {
+          if (hoveredSquare.current && hoverTrailAmount > 0) {
+            trailCells.unshift({ x: hoveredSquare.current.x, y: hoveredSquare.current.y });
+            if (trailCells.length > hoverTrailAmount) trailCells.length = hoverTrailAmount;
+          }
+          hoveredSquare.current = { x: col, y: row };
+        }
+      }
+
+      function handleMouseLeave() {
+        if (hoveredSquare.current && hoverTrailAmount > 0) {
+          trailCells.unshift({ x: hoveredSquare.current.x, y: hoveredSquare.current.y });
+          if (trailCells.length > hoverTrailAmount) trailCells.length = hoverTrailAmount;
+        }
+        hoveredSquare.current = null;
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      canvas.addEventListener('mousemove', handleMouseMove);
+      canvas.addEventListener('mouseleave', handleMouseLeave);
+      // The canvas's parent has pointer-events:none on its container per CSS,
+      // but we want hover to work — enable pointer events on canvas itself.
+      canvas.style.pointerEvents = 'auto';
+
+      rafId = requestAnimationFrame(updateAnimation);
+
+      // Pause animation when hero is off-screen for performance
+      const heroSection = document.querySelector('.gc-hero');
+      if (heroSection && 'IntersectionObserver' in window) {
+        const heroObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!rafId) rafId = requestAnimationFrame(updateAnimation);
+            } else if (rafId) {
+              cancelAnimationFrame(rafId);
+              rafId = null;
+            }
+          });
+        }, { threshold: 0 });
+        heroObserver.observe(heroSection);
+      }
+    })();
+  </script>
+</body>
+</html>
