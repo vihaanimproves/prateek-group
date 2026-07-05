@@ -1,636 +1,2073 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Prateek Group — Integrated yarn manufacturing built on scale, backed by trust. Spinning, fancy yarns, and dyeing across India." />
-  <title>Prateek Group — Integrated Yarn Manufacturing</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prateek Group — Integrated Yarn Manufacturing</title>
+<meta name="description" content="Prateek Group — Integrated yarn manufacturing built on scale, backed by trust. Spinning, fancy yarns, and dyeing across India.">
 
-  <!-- ===================== HEADER ===================== -->
-  <header class="header" id="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo" aria-label="Prateek Group home">
-        <svg class="logo-mark" aria-hidden="true" width="42" height="48" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg">
-          <!-- Vertical stem -->
-          <rect x="2" y="2" width="13" height="56" fill="#E63027"/>
-          <!-- Upper triangular bowl (slants from top-right down to mid-left) -->
-          <path d="M 15,2 L 47,2 L 15,33 Z" fill="#E63027"/>
-          <!-- Lower triangular bowl (smaller, below the upper one) -->
-          <path d="M 15,38 L 36,38 L 15,56 Z" fill="#E63027"/>
+<!-- ============================================================
+  IMAGES REQUIRED  (create an /images folder next to this file)
+  ------------------------------------------------------------
+  images/stock photo 1.jpg  -> Prateek company card + PV Yarn slide
+  images/stock photo 2.jpg  -> KK Spintex company card + Dyed Yarn slide
+  images/stock photo 3.jpg  -> GB Yarn company card + Fancy Yarn slide
+  images/management.jpg     -> About / leadership photo
+
+  NOTE: photos are rendered black & white via CSS filter:grayscale(1)
+  to match the design. Remove the filter rules if you want colour.
+============================================================= -->
+
+<!-- Font: Manrope (site-wide). Swap the family in --font below if needed. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================
+   1. TOKENS / RESET
+========================================================== */
+:root{
+  --font        : 'Manrope', 'Inter', -apple-system, 'Segoe UI', sans-serif;
+
+  --bg-dark     : #0b0b0c;
+  --bg-dark-2   : #0d0d0f;   /* dark sections */
+  --bg-card     : #121214;
+  --bg-light    : #f2f1ef;   /* light sections */
+
+  --red         : #d22c2c;   /* accent text */
+  --red-btn     : #c1252b;   /* buttons / logo */
+  --red-btn-h   : #a91d23;
+  --red-card    : #b23a34;   /* red band (CTA) */
+
+  --white       : #ffffff;
+  --grey-on-dark: #b3b3b8;
+  --grey-soft   : #98989d;
+  --ink         : #161616;
+  --grey-on-lt  : #5c5c5c;
+  --line-dark   : rgba(255,255,255,.12);
+  --line-light  : rgba(0,0,0,.1);
+
+  --wave-h      : 74px;      /* height of the flowing wave dividers */
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg-light);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit}
+ul{list-style:none}
+button{font-family:inherit}
+svg{display:block}
+img{max-width:100%;display:block}
+::selection{background:var(--red);color:#fff}
+
+/* Containers */
+.container       {width:min(100% - 96px, 1270px);margin-inline:auto}
+.container--slim {width:min(100% - 96px, 1206px);margin-inline:auto}
+.container--wide {width:min(100% - 104px, 1336px);margin-inline:auto}
+
+/* Shared bits */
+.accent{color:var(--red)}
+.icon-arrow{width:15px;height:15px;flex:0 0 auto}
+
+.eyebrow{
+  font-size:12.5px;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--red);
+}
+.eyebrow--line{display:inline-flex;align-items:center;gap:16px}
+.eyebrow--line::after{content:"";width:54px;height:1px;background:var(--red)}
+
+.h2{font-weight:600;line-height:1.32;letter-spacing:-.005em}
+.title-rule{display:block;width:56px;height:3px;background:var(--red);margin-top:22px;border-radius:2px}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  background:var(--red-btn);color:#fff;text-decoration:none;
+  font-weight:600;border:0;cursor:pointer;
+  transition:background .25s ease, transform .25s ease, color .25s ease, border-color .25s ease;
+}
+.btn:hover{background:var(--red-btn-h);transform:translateY(-1px)}
+.btn--pill {padding:12px 25px;border-radius:999px;font-size:12.5px;letter-spacing:.08em}
+.btn--solid{padding:15px 26px;border-radius:5px;font-size:13px;letter-spacing:.08em}
+.btn--outline{
+  background:transparent;color:var(--ink);
+  border:1px solid rgba(0,0,0,.35);
+  padding:14px 25px;border-radius:5px;font-size:13px;letter-spacing:.08em;
+}
+.btn--outline:hover{background:transparent;color:var(--red);border-color:var(--red)}
+.btn--outline .icon-arrow{color:var(--red)}
+.btn--invert{background:#fff;color:var(--red-btn)}
+.btn--invert:hover{background:#f6ebe9;color:var(--red-btn-h)}
+
+/* Flowing, irregular sine-wave dividers between sections.
+   Each divider is a self-contained band: its SVG paints the upper
+   section's colour above the wave line and the lower section's colour
+   below it, so the two sections meet along an organic wave.          */
+.wave-sep{
+  position:relative;
+  width:100%;
+  height:var(--wave-h, 74px);
+  margin:0;
+  line-height:0;
+  font-size:0;
+  z-index:1;
+  pointer-events:none;
+}
+.wave-sep svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.section-light{background:var(--bg-light);color:var(--ink)}
+.section-dark {background:var(--bg-dark-2);color:var(--white)}
+.section-red  {background:var(--red-card);color:#fff}
+
+/* Scroll-reveal (only active when JS runs) */
+.js .reveal{opacity:0;transform:translateY(26px);
+  transition:opacity .75s ease var(--d,0s), transform .75s ease var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ==========================================================
+   2. HEADER
+========================================================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 0;
+  transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+}
+.site-header.is-scrolled{
+  background:rgba(10,10,11,.92);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  padding:13px 0;
+  box-shadow:0 1px 0 rgba(255,255,255,.06);
+}
+.site-header.is-scrolled .brand-name{color:#fff}
+.site-header.is-scrolled .brand-sub{color:#b8b8bd}
+.site-header.is-scrolled .nav > li > a{color:#cdcdd2}
+.site-header.is-scrolled .nav > li > a:hover,
+.site-header.is-scrolled .nav > li > a.active{color:#fff}
+.site-header.is-scrolled .nav-toggle span{background:#fff}
+
+.header-inner{display:flex;align-items:center;gap:30px}
+
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:36px;height:41px;flex:0 0 auto}
+.brand-name{font-size:19px;font-weight:800;letter-spacing:.07em;line-height:1;color:var(--ink)}
+.brand-sub{display:block;font-size:9.5px;font-weight:700;letter-spacing:.3em;color:#5c5c5c;margin-top:4px}
+
+.nav{display:flex;align-items:center;gap:24px;margin-inline:auto}
+.nav > li{position:relative}
+.nav > li > a{
+  display:inline-flex;align-items:center;gap:6px;
+  color:#4a4a4a;font-size:12px;font-weight:600;letter-spacing:.09em;
+  text-decoration:none;position:relative;padding:8px 0;transition:color .25s;
+  white-space:nowrap;
+}
+.nav > li > a:hover, .nav > li > a.active{color:var(--ink)}
+.nav > li > a.active::after{
+  content:"";position:absolute;left:0;bottom:-1px;
+  width:24px;height:2px;background:var(--red);
+}
+.caret{font-size:9px;line-height:1;transform:translateY(1px);transition:transform .25s}
+.has-dropdown:hover .caret{transform:translateY(1px) rotate(180deg)}
+
+/* Dropdown panels */
+.dropdown{
+  position:absolute;top:100%;left:50%;
+  transform:translate(-50%, 8px);
+  min-width:196px;padding:10px 0;
+  background:#fff;border-radius:9px;
+  box-shadow:0 22px 44px -16px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.05);
+  opacity:0;visibility:hidden;
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+  z-index:10;
+}
+.has-dropdown:hover > .dropdown,
+.has-dropdown.open  > .dropdown{
+  opacity:1;visibility:visible;transform:translate(-50%, 2px);
+}
+.dropdown a{
+  display:block;padding:9px 20px;text-align:center;
+  font-size:11.5px;font-weight:600;letter-spacing:.1em;
+  color:#4a4a4a;text-decoration:none;transition:background .2s, color .2s;
+}
+.dropdown a:hover{background:#f4f2ef;color:var(--ink)}
+
+/* Mobile hamburger */
+.nav-toggle{
+  display:none;background:none;border:0;cursor:pointer;
+  width:40px;height:40px;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;
+}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
+.nav-open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.nav-open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ==========================================================
+   3. HERO
+========================================================== */
+.hero{
+  position:relative;min-height:780px;
+  padding-top:208px;overflow:hidden;
+  background:var(--bg-light);
+  color:var(--ink);
+}
+/* NOTE: the interactive yarn string is currently DISABLED (commented out
+   in the HTML + JS below). This rule is kept so re-enabling it is a
+   simple uncomment. */
+.hero-yarn{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  z-index:1;
+  pointer-events:none;
+  display:block;
+}
+.hero-content{position:relative;z-index:2}
+.hero h1{
+  font-size:clamp(46px, 5vw, 72px);
+  font-weight:800;line-height:1.12;letter-spacing:.015em;
+}
+.hero-subhead{
+  max-width:560px;margin-top:28px;
+  color:#5c5c5c;font-size:15px;line-height:1.82;
+}
+.hero-divider{width:64px;height:3px;background:var(--red);margin-top:34px;border-radius:2px}
+
+.hero-what{margin-top:30px}
+.hero-what-label{
+  font-size:12px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:#8a8a8a;
+}
+.hero-what-line{
+  margin-top:10px;min-height:38px;
+  font-size:clamp(19px, 2vw, 26px);font-weight:700;color:var(--ink);
+  display:flex;align-items:center;gap:3px;
+}
+.typed-caret{
+  display:inline-block;width:2px;height:1.15em;background:var(--red);
+  animation:caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.typed-caret{display:none}}
+
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+
+.scroll-indicator{
+  position:absolute;right:46px;bottom:108px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:15px;
+}
+.scroll-indicator span{
+  writing-mode:vertical-rl;
+  font-size:10.5px;font-weight:600;letter-spacing:.34em;
+  text-transform:uppercase;color:#6a6a6a;
+}
+.scroll-indicator i{width:1px;height:52px;background:#9a9a9a}
+
+/* Load-in animation for hero */
+@keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.js .hero h1,
+.js .hero-subhead,
+.js .hero-divider,
+.js .hero-what,
+.js .hero-cta{animation:riseIn .9s cubic-bezier(.22,.7,.3,1) both}
+.js .hero-subhead {animation-delay:.1s}
+.js .hero-divider {animation-delay:.18s}
+.js .hero-what    {animation-delay:.26s}
+.js .hero-cta     {animation-delay:.34s}
+@media (prefers-reduced-motion:reduce){
+  .js .hero h1,.js .hero-subhead,.js .hero-divider,.js .hero-what,.js .hero-cta{animation:none}
+}
+
+/* ==========================================================
+   4. OUR COMPANIES  (dark)
+========================================================== */
+.companies{position:relative;padding:118px 0 132px;overflow:hidden}
+.companies::before{ /* faint arc behind the cards */
+  content:"";position:absolute;left:50%;top:196px;
+  transform:translateX(-50%);
+  width:1660px;height:1660px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);
+  pointer-events:none;
+}
+.companies-head{position:relative;z-index:1}
+.companies-head .h2{font-size:clamp(28px, 2.7vw, 38px);margin-top:18px}
+
+.companies-slider{position:relative;margin-top:58px}
+.companies-track{
+  display:flex;gap:22px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.companies-track::-webkit-scrollbar{display:none}
+
+.company-card{
+  position:relative;flex:0 0 calc((100% - 44px) / 3);
+  background:var(--bg-card);color:#fff;
+  border:1px solid var(--line-dark);border-radius:10px;
+  display:flex;flex-direction:column;
+  overflow:hidden;scroll-snap-align:start;
+  transition:transform .35s ease, border-color .35s ease;
+  box-shadow:0 28px 54px -30px rgba(0,0,0,.5);
+}
+.company-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.3)}
+.company-card-image{height:208px;overflow:hidden;background:#1a1a1d}
+.company-card-image img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%);opacity:.82;
+  transition:transform .5s ease;
+}
+.company-card:hover .company-card-image img{transform:scale(1.045)}
+.company-card-body{
+  display:flex;flex-direction:column;flex:1;
+  padding:26px 26px 28px;
+}
+.company-card-header{display:flex;align-items:center;gap:12px}
+.company-mark{
+  width:34px;height:34px;flex:0 0 auto;
+  background:var(--red-btn);color:#fff;border-radius:7px;
+  display:grid;place-items:center;
+  font-size:12.5px;font-weight:800;letter-spacing:.02em;
+}
+.company-name{
+  font-size:16.5px;font-weight:700;letter-spacing:.03em;
+  text-transform:uppercase;line-height:1.3;
+}
+.company-location{
+  margin-top:12px;font-size:12px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--grey-soft);
+}
+.company-divider{display:block;width:34px;height:2px;background:rgba(255,255,255,.25);margin:15px 0}
+.company-desc{font-size:13.5px;color:#b7b7bc;line-height:1.78;margin-bottom:26px}
+.btn-card{
+  margin-top:auto;display:inline-flex;align-items:center;gap:11px;
+  background:none;color:#fff;font-size:12px;font-weight:700;
+  letter-spacing:.09em;text-decoration:none;
+  transition:gap .25s ease;
+}
+.btn-card:hover{background:none;transform:none;gap:15px}
+.btn-card .icon-arrow{color:var(--red)}
+
+.slider-btn{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid #3b3b40;background:rgba(18,18,20,.55);
+  color:var(--red);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s, border-color .25s;
+}
+.slider-btn:hover{background:var(--red-btn);border-color:var(--red-btn);color:#fff}
+.slider-btn svg{width:17px;height:17px}
+.slider-btn--prev{left:-74px}
+.slider-btn--next{right:-74px}
+
+/* ==========================================================
+   5. STATS BAR  (light)
+========================================================== */
+.stats{padding:100px 0 112px}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr)}
+.stat{position:relative;text-align:center;padding:8px 14px}
+.stat + .stat::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:94px;background:#dcd9d4;
+}
+.stat-icon{width:44px;height:44px;color:var(--red);margin:0 auto 19px}
+.stat-num{
+  display:block;font-size:31px;font-weight:800;
+  color:#141414;letter-spacing:-.01em;line-height:1.15;
+}
+.stat-label{display:block;margin-top:10px;font-size:12.5px;font-weight:500;color:#6a6a6a}
+
+/* ==========================================================
+   6. MISSION / VISION  (dark)
+========================================================== */
+.mission{position:relative;padding:126px 0 148px;overflow:hidden}
+.mission-bg{position:absolute;inset:0;pointer-events:none;color:rgba(255,255,255,.05)}
+.mission-bg svg{position:absolute;stroke:currentColor}
+.bg-icon-1{width:84px;top:9%;left:6%;transform:rotate(-9deg)}
+.bg-icon-2{width:70px;top:16%;right:9%;transform:rotate(7deg)}
+.bg-icon-3{width:96px;bottom:12%;left:10%;transform:rotate(5deg)}
+.bg-icon-4{width:76px;bottom:22%;right:6%;transform:rotate(-6deg)}
+.bg-icon-5{width:58px;top:52%;left:2.5%;transform:rotate(12deg)}
+.bg-icon-6{width:64px;top:6%;left:44%;transform:rotate(-14deg)}
+.bg-icon-7{width:72px;bottom:5%;right:32%;transform:rotate(9deg)}
+.bg-icon-8{width:60px;top:44%;right:2.5%;transform:rotate(-11deg)}
+
+.mission-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.08fr .92fr;
+  gap:70px;align-items:center;
+}
+.mission-copy .h2{font-size:clamp(30px, 2.8vw, 40px);margin-top:20px}
+
+.pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.pillar-card{
+  background:var(--bg-card);border:1px solid var(--line-dark);
+  border-radius:10px;padding:25px 23px;
+}
+.pillar-icon{display:block;width:38px;height:38px;color:var(--red);margin-bottom:17px}
+.pillar-card h3{font-size:15.5px;font-weight:700;margin-bottom:9px}
+.pillar-card p{font-size:13px;color:#b7b7bc;line-height:1.72}
+
+.presence-chips{margin-top:32px}
+.presence-chips-label{
+  display:block;font-size:11.5px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--grey-soft);margin-bottom:13px;
+}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 15px;border:1px solid var(--line-dark);border-radius:999px;
+  font-size:12.5px;font-weight:600;color:#e2e2e5;
+}
+.chip svg{width:12px;height:12px;color:var(--red)}
+
+.mission blockquote{
+  margin-top:34px;padding-left:20px;
+  border-left:2px solid var(--red);
+  font-size:15.5px;font-weight:600;line-height:1.62;color:#e8e8ea;
+}
+.quote-mark{color:var(--red);font-size:28px;line-height:0;vertical-align:-8px;margin-right:5px}
+
+.mission-image{justify-self:end;width:min(100%, 470px)}
+.photo-frame{
+  width:100%;height:560px;object-fit:cover;border-radius:8px;
+  filter:grayscale(100%);
+  box-shadow:0 32px 60px -28px rgba(0,0,0,.6);
+  outline:1px solid rgba(255,255,255,.08);
+  outline-offset:-1px;
+  background:#1a1a1d;
+}
+
+/* ==========================================================
+   7. PRODUCTS  (light)
+========================================================== */
+.products{position:relative;padding:112px 0 128px;overflow:hidden}
+.products-head{text-align:center;position:relative;z-index:1}
+.products-head .h2{font-size:clamp(28px, 2.7vw, 38px);margin-top:17px}
+.products-sub{max-width:520px;margin:18px auto 0;font-size:14.5px;color:#5c5c5c;line-height:1.8}
+
+.product-carousel{position:relative;margin-top:64px;height:512px}
+.product-slide{
+  position:absolute;top:0;left:50%;
+  width:min(420px, 84%);
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 30px 60px -28px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.05);
+  transform:translateX(calc(-50% + var(--offset, 0) * var(--shift, 470px))) scale(.86);
+  opacity:.45;
+  transition:transform .55s cubic-bezier(.25,.7,.3,1), opacity .55s ease;
+  display:flex;flex-direction:column;
+}
+.product-slide.is-active{
+  transform:translateX(calc(-50% + var(--offset, 0) * var(--shift, 470px))) scale(1);
+  opacity:1;z-index:2;
+}
+.product-slide-image{height:252px;overflow:hidden;background:#dedcd7}
+.product-slide-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
+.product-slide-name{font-size:18.5px;font-weight:800;margin:22px 26px 9px}
+.product-slide-desc{font-size:13.5px;color:#5c5c5c;line-height:1.75;margin:0 26px}
+.product-slide-link{
+  display:inline-flex;align-items:center;gap:11px;
+  margin:19px 26px 27px;
+  color:var(--ink);font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  text-decoration:none;transition:gap .25s ease;
+}
+.product-slide-link:hover{gap:15px}
+.product-slide-link .icon-arrow{color:var(--red)}
+
+.slider-btn--light{
+  border-color:#cfccc6;background:rgba(255,255,255,.75);
+}
+.slider-btn--light:hover{background:var(--red-btn);border-color:var(--red-btn);color:#fff}
+.carousel-nav-prev{left:calc(50% - 560px)}
+.carousel-nav-next{right:calc(50% - 560px)}
+
+.carousel-dots{display:flex;justify-content:center;gap:9px;margin-top:30px}
+.carousel-dot{
+  width:8px;height:8px;border-radius:50%;
+  border:0;background:#cfccc6;cursor:pointer;
+  transition:background .25s, transform .25s;
+}
+.carousel-dot.is-active{background:var(--red);transform:scale(1.25)}
+
+/* ==========================================================
+   8. WHY CHOOSE US  (dark)
+========================================================== */
+.why{padding:118px 0 132px}
+.why-head .h2{font-size:clamp(28px, 2.7vw, 38px);margin-top:18px}
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:24px;margin-top:56px;
+}
+.why-item{
+  background:rgba(255,255,255,.025);
+  border:1px solid var(--line-dark);border-radius:10px;
+  padding:30px 27px 32px;
+  transition:border-color .3s ease, transform .3s ease;
+}
+.why-item:hover{border-color:rgba(255,255,255,.28);transform:translateY(-4px)}
+.why-icon{width:40px;height:40px;color:var(--red);margin-bottom:21px}
+.why-title{font-size:15.5px;font-weight:700;margin-bottom:10px}
+.why-desc{font-size:13.5px;color:#b7b7bc;line-height:1.75}
+
+/* ==========================================================
+   9. PRESENCE  (light)
+========================================================== */
+.presence{padding:112px 0 128px}
+.presence-grid{
+  display:grid;grid-template-columns:.92fr 1.06fr .92fr;
+  gap:54px;align-items:center;
+}
+.presence-intro .h2{font-size:clamp(28px, 2.7vw, 38px);margin-top:18px}
+.presence-desc{margin-top:22px;font-size:14px;color:#5c5c5c;line-height:1.85;max-width:340px}
+
+.map-placeholder{
+  position:relative;height:440px;
+  background:#faf9f7;
+  border:1px dashed #ccc8c1;border-radius:14px;
+  overflow:hidden;
+}
+.map-placeholder::before{
+  content:"";position:absolute;left:50%;top:50%;
+  width:520px;height:520px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(0,0,0,.05);
+}
+.placeholder-label{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-size:12px;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:#b5b1aa;
+}
+.map-pin{
+  position:absolute;width:12px;height:12px;border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 0 5px rgba(210,44,44,.16);
+}
+.map-pin::after{
+  content:"";position:absolute;inset:-9px;border-radius:50%;
+  border:1px solid rgba(210,44,44,.5);
+  animation:pinPulse 2.2s ease-out infinite;
+}
+@keyframes pinPulse{
+  0%{transform:scale(.55);opacity:.9}
+  100%{transform:scale(1.7);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){.map-pin::after{animation:none;opacity:.35}}
+.map-pin-1{left:26%;top:56%}   /* Bhiwandi, Maharashtra */
+.map-pin-2{left:56%;top:70%}   /* Guntur, Andhra Pradesh */
+.map-pin-3{left:22%;top:44%}   /* Palsana, Gujarat */
+
+.presence-locations{display:flex;flex-direction:column;gap:30px}
+.location{display:flex;gap:15px}
+.location-pin{width:20px;height:20px;flex:0 0 auto;color:var(--red);margin-top:2px}
+.location-pin svg{width:100%;height:100%}
+.location-city{font-size:13.5px;font-weight:800;letter-spacing:.06em}
+.location-company{margin-top:4px;font-size:13px;font-weight:700;color:var(--red)}
+.location-type{margin-top:2px;font-size:12.5px;color:#6a6a6a}
+
+/* ==========================================================
+   10. BY THE NUMBERS  (dark)
+========================================================== */
+.numbers{padding:118px 0 132px}
+.numbers-head .h2{font-size:clamp(28px, 2.7vw, 38px);margin-top:18px}
+.numbers-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:44px 40px;margin-top:58px;
+}
+.number-item{border-left:1px solid var(--line-dark);padding-left:26px}
+.number-value{
+  display:block;font-size:clamp(32px, 3.2vw, 44px);
+  font-weight:800;letter-spacing:-.01em;color:var(--red);line-height:1.1;
+}
+.number-label{
+  display:block;margin-top:10px;
+  font-size:12.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--grey-on-dark);line-height:1.6;
+}
+
+/* ==========================================================
+   11. CTA  (red band)
+========================================================== */
+.cta{position:relative;padding:104px 0 118px;text-align:center;overflow:hidden}
+.cta::before, .cta::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(255,255,255,.1);
+}
+.cta::before{width:820px;height:820px;left:-300px;top:-430px}
+.cta::after {width:1060px;height:1060px;right:-420px;bottom:-640px;border-color:rgba(255,255,255,.07)}
+.cta-inner{position:relative;z-index:1}
+.cta-title{font-size:clamp(28px, 3vw, 41px);font-weight:700;line-height:1.3}
+.cta .accent{color:#ffdcd6;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px;text-decoration-color:rgba(255,255,255,.55)}
+.cta-desc{max-width:520px;margin:21px auto 0;font-size:14.5px;color:rgba(255,255,255,.86);line-height:1.8}
+.cta .btn{margin-top:38px}
+
+/* ==========================================================
+   12. FOOTER  (light)
+========================================================== */
+.footer{position:relative;padding-top:96px;overflow:hidden}
+.footer::before, .footer::after{ /* faint arcs bottom-left */
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(0,0,0,.05);
+}
+.footer::before{width:920px;height:920px;left:-330px;bottom:-560px}
+.footer::after {width:1340px;height:1340px;left:-540px;bottom:-830px;border-color:rgba(0,0,0,.035)}
+
+.footer-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.45fr .85fr .85fr 1.05fr 1.05fr;
+  gap:44px;padding-bottom:84px;
+}
+.footer-about{
+  margin-top:22px;color:#5c5c5c;
+  font-size:13.5px;line-height:1.9;max-width:300px;
+}
+.footer-heading{
+  font-size:12px;font-weight:800;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:21px;
+}
+.footer-col li + li{margin-top:12px}
+.footer-col a{
+  color:#5c5c5c;font-size:13.5px;text-decoration:none;transition:color .2s;
+}
+.footer-col a:hover{color:var(--ink)}
+.footer-locations li, .footer-contact li{
+  display:flex;align-items:flex-start;gap:9px;
+  color:#5c5c5c;font-size:13.5px;line-height:1.55;
+}
+.footer-icon{width:14px;height:14px;flex:0 0 auto;color:var(--red);margin-top:3px}
+
+.footer-bottom{
+  position:relative;z-index:2;
+  border-top:1px solid var(--line-light);
+  padding:22px 0 26px;
+}
+.footer-bottom-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;
+  font-size:12.5px;color:#5c5c5c;
+}
+.socials{display:flex;gap:12px}
+.socials a{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s, color .25s, transform .25s;
+}
+.socials a:hover{background:var(--red-btn);color:#fff;transform:translateY(-2px)}
+.socials svg{width:15px;height:15px}
+.footer-legal{display:flex;align-items:center;gap:12px}
+.footer-legal a{color:#5c5c5c;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:var(--ink)}
+.footer-legal .sep{color:#bdbdbd}
+
+.to-top{
+  position:absolute;right:54px;bottom:118px;z-index:3;
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid #d5d1ca;background:#fff;color:var(--ink);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s, border-color .25s, transform .25s, color .25s;
+}
+.to-top:hover{background:var(--red-btn);border-color:var(--red-btn);color:#fff;transform:translateY(-3px)}
+.to-top svg{width:17px;height:17px}
+
+/* ==========================================================
+   13. RESPONSIVE
+========================================================== */
+@media (max-width:1380px){
+  .slider-btn--prev{left:-14px}
+  .slider-btn--next{right:-14px}
+  .carousel-nav-prev{left:2%}
+  .carousel-nav-next{right:2%}
+}
+@media (max-width:1200px){
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:-1;
+    flex-direction:column;align-items:flex-start;gap:2px;
+    padding:96px 32px 30px;margin:0;
+    background:rgba(10,10,11,.97);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transform:translateY(-105%);transition:transform .4s ease;
+    max-height:100vh;overflow-y:auto;
+  }
+  .nav > li{width:100%}
+  .nav > li > a{padding:11px 0;font-size:14px;color:#cdcdd2;letter-spacing:.06em}
+  .nav > li > a:hover, .nav > li > a.active{color:#fff}
+  .nav-open .nav{transform:none}
+  .nav-toggle{display:flex}
+  .header-inner{justify-content:space-between}
+  .header-inner .btn--pill{margin-left:auto;margin-right:6px}
+
+  /* dropdowns become inline lists on mobile */
+  .dropdown{
+    position:static;transform:none;min-width:0;
+    background:transparent;box-shadow:none;border-radius:0;
+    padding:0 0 6px 16px;display:none;
+    opacity:1;visibility:visible;transition:none;
+  }
+  .has-dropdown.open > .dropdown{display:block}
+  .dropdown a{text-align:left;padding:8px 0;color:#9a9aa0;font-size:12.5px}
+  .dropdown a:hover{background:none;color:#fff}
+
+  .mission-grid{grid-template-columns:1fr;gap:60px}
+  .mission-image{justify-self:start}
+  .presence-grid{grid-template-columns:1fr;gap:56px}
+  .presence-desc{max-width:520px}
+  .company-card{flex-basis:calc((100% - 22px) / 2)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:44px}
+  .stats-grid{grid-template-columns:repeat(3,1fr);row-gap:48px}
+  .stat + .stat::before{display:none}
+}
+@media (max-width:900px){
+  .why-grid{grid-template-columns:1fr 1fr}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .product-slide{--shift:300px}
+}
+@media (max-width:720px){
+  .container, .container--slim{width:calc(100% - 44px)}
+  .container--wide{width:calc(100% - 44px)}
+  :root{--wave-h:46px}
+
+  .hero{padding-top:150px;padding-bottom:120px;min-height:0}
+  .hero-subhead{font-size:14px}
+  .scroll-indicator{display:none}
+
+  .companies{padding:96px 0 110px}
+  .company-card{flex-basis:86%}
+  .slider-btn--prev{left:-8px}
+  .slider-btn--next{right:-8px}
+
+  .stats{padding:88px 0 100px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+
+  .mission{padding:100px 0 120px}
+  .pillar-grid{grid-template-columns:1fr}
+  .photo-frame{height:440px}
+
+  .products{padding:92px 0 108px}
+  .product-carousel{height:540px}
+  .product-slide{--shift:105vw}
+
+  .why{padding:96px 0 110px}
+  .why-grid{grid-template-columns:1fr}
+
+  .presence{padding:92px 0 108px}
+  .map-placeholder{height:360px}
+
+  .numbers{padding:96px 0 110px}
+  .numbers-grid{grid-template-columns:1fr 1fr;gap:36px 26px}
+  .number-item{padding-left:18px}
+
+  .cta{padding:92px 0 104px}
+
+  .footer-grid{grid-template-columns:1fr;gap:44px;padding-bottom:66px}
+  .footer-bottom-inner{justify-content:center;text-align:center}
+  .to-top{right:22px;bottom:150px}
+}
+</style>
+</head>
+
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container--wide header-inner">
+
+    <a href="index.html" class="brand js-top" aria-label="Prateek Group home">
+      <svg class="brand-mark" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="13" height="56" fill="var(--red-btn)"/>
+        <path d="M 15,2 L 47,2 L 15,33 Z" fill="var(--red-btn)"/>
+        <path d="M 15,38 L 36,38 L 15,56 Z" fill="var(--red-btn)"/>
+      </svg>
+      <span>
+        <span class="brand-name">PRATEEK</span>
+        <span class="brand-sub">GROUP</span>
+      </span>
+    </a>
+
+    <ul class="nav" id="siteNav" aria-label="Primary">
+      <li><a href="index.html" class="active js-top">HOME</a></li>
+      <li><a href="#history">HISTORY</a></li>
+      <li class="has-dropdown">
+        <a href="#" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="#manufacturing">MANUFACTURING</a></li>
+          <li><a href="#qualitycontrol">QUALITY CONTROL</a></li>
+          <li><a href="#machinery">MACHINERY</a></li>
+          <li><a href="#capacity">CAPACITY</a></li>
+          <li><a href="#certifications">CERTIFICATIONS</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="#pvyarn">PV YARN</a></li>
+          <li><a href="#dyedyarn">DYED YARN</a></li>
+          <li><a href="#fancyyarn">FANCY YARN</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="group-companies.html" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="prateek.html">PRATEEK YARN</a></li>
+          <li><a href="kk-spintex.html">KK SPINTEX</a></li>
+          <li><a href="gb-dyed-yarn.html">GB DYED YARN</a></li>
+        </ul>
+      </li>
+      <li><a href="#careers">OUR PARTNERS</a></li>
+      <li><a href="#careers">PEOPLE</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+
+    <a href="contact.html" class="btn btn--pill">
+      GET IN TOUCH
+      <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="home">
+
+  <!-- Interactive yarn string: DISABLED for now. Uncomment the canvas
+       below (and the yarn module at the bottom of the page script)
+       to bring it back.
+  <canvas class="hero-yarn" id="yarnCanvas" aria-hidden="true"></canvas>
+  -->
+
+  <div class="container--wide hero-content">
+    <h1>PRATEEK <span class="accent">GROUP</span></h1>
+    <p class="hero-subhead">
+      Across three specialized facilities &mdash; Spinning, Dyeing &amp; Specialty Yarn,
+      for Shirting, Suiting, Dress Materials and Home Furnishing.
+    </p>
+
+    <div class="hero-divider" aria-hidden="true"></div>
+
+    <div class="hero-what">
+      <div class="hero-what-label">What We Do --</div>
+      <div class="hero-what-line">
+        <span id="typedText"></span><span class="typed-caret" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="group-companies.html" class="btn btn--solid">
+        EXPLORE COMPANIES
+        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="contact.html" class="btn btn--outline">
+        CONTACT US
+        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span><i></i>
+  </div>
+</section>
+
+<!-- flowing divider: hero (light) -> companies (dark) -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#f2f1ef"/>
+    <path fill="#0d0d0f" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ==================== OUR COMPANIES ==================== -->
+<section class="companies section-dark" id="companies">
+  <div class="container--slim">
+    <div class="companies-head reveal">
+      <span class="eyebrow eyebrow--line">Our Companies</span>
+      <h2 class="h2">Three Strengths.<br>One Promise.</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="companies-slider">
+      <div class="companies-track" id="companiesTrack">
+
+        <!-- Card 1: Prateek -->
+        <article class="company-card reveal" style="--d:.05s">
+          <div class="company-card-image">
+            <img src="images/stock photo 1.jpg" alt="Prateek facility" loading="lazy">
+          </div>
+          <div class="company-card-body">
+            <div class="company-card-header">
+              <span class="company-mark" aria-hidden="true">P</span>
+              <h3 class="company-name">PRATEEK</h3>
+            </div>
+            <p class="company-location">Bhiwandi, Maharashtra</p>
+            <span class="company-divider" aria-hidden="true"></span>
+            <p class="company-desc">
+              Specialists in fancy and value-added yarns &mdash;
+              2-ply and 3-ply constructions across 300+ product variants specializing in
+              custom textures, colours, and performance features beyond standard commodities.
+            </p>
+            <a href="prateek.html" class="btn-card">
+              DISCOVER PRATEEK
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2: KK Spintex -->
+        <article class="company-card reveal" style="--d:.15s">
+          <div class="company-card-image">
+            <img src="images/stock photo 2.jpg" alt="KK Spintex facility" loading="lazy">
+          </div>
+          <div class="company-card-body">
+            <div class="company-card-header">
+              <span class="company-mark" aria-hidden="true">K</span>
+              <h3 class="company-name">KK SPINTEX</h3>
+            </div>
+            <p class="company-location">Guntur, Andhra Pradesh</p>
+            <span class="company-divider" aria-hidden="true"></span>
+            <p class="company-desc">
+              High-capacity PV yarn manufacturing with focus on maintaining Polyester's
+              durability with viscose's silk-like drape. Value addition includes custom
+              blend ratio's like 65/35 or 50/50, multi-color space-dying and specialized textures.
+            </p>
+            <a href="kk-spintex.html" class="btn-card">
+              DISCOVER KK SPINTEX
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: GB Yarn -->
+        <article class="company-card reveal" style="--d:.25s">
+          <div class="company-card-image">
+            <img src="images/stock photo 3.jpg" alt="GB Yarn facility" loading="lazy">
+          </div>
+          <div class="company-card-body">
+            <div class="company-card-header">
+              <span class="company-mark" aria-hidden="true">GB</span>
+              <h3 class="company-name">GB YARN</h3>
+            </div>
+            <p class="company-location">Palsana, Gujarat</p>
+            <span class="company-divider" aria-hidden="true"></span>
+            <p class="company-desc">
+              Engineered to introduce intentional structural irregularities, unique tactile
+              textures, &amp; distinct color patterns. Unlike standard uniform threads, fancy
+              yarns prioritize aesthetic appeal. And have various methods of manufacturing.
+            </p>
+            <a href="gb-dyed-yarn.html" class="btn-card">
+              DISCOVER GB YARN
+              <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="slider-btn slider-btn--prev" id="prevBtn" aria-label="Previous company">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="slider-btn slider-btn--next" id="nextBtn" aria-label="Next company">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- flowing divider: companies (dark) -> stats (light) -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#0d0d0f"/>
+    <path fill="#f2f1ef" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ======================= STATS BAR ======================= -->
+<section class="stats section-light" aria-label="Company statistics">
+  <div class="container--slim">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 21V9l5-3 5 3v3h8v9z"/>
+            <path d="M8 13v8M13 17v4M17 17v4M21 17v4"/>
+          </svg>
+        </div>
+        <span class="stat-num" data-target="3">3</span>
+        <span class="stat-label">Manufacturing Facilities</span>
+      </div>
+      <div class="stat reveal" style="--d:.08s">
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="9" r="5"/>
+            <path d="M8 13l-2 8 6-3 6 3-2-8"/>
+          </svg>
+        </div>
+        <span class="stat-num" data-target="15" data-suffix="+">15+</span>
+        <span class="stat-label">Years Of Experience</span>
+      </div>
+      <div class="stat reveal" style="--d:.16s">
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <span class="stat-num" data-target="300" data-suffix="+">300+</span>
+        <span class="stat-label">Product Variants</span>
+      </div>
+      <div class="stat reveal" style="--d:.24s">
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/>
+            <path d="M18 6l2-2 2 2"/>
+          </svg>
+        </div>
+        <span class="stat-num" data-target="900" data-suffix="+ MT">900+ MT</span>
+        <span class="stat-label">Monthly Capacity</span>
+      </div>
+      <div class="stat reveal" style="--d:.32s">
+        <div class="stat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 2h6v4l-2 14h-2L9 6z"/>
+            <path d="M9 6h6"/>
+          </svg>
+        </div>
+        <span class="stat-num" data-target="38000" data-suffix="+">38,000+</span>
+        <span class="stat-label">Yarn Spindles</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- flowing divider: stats (light) -> mission (dark) -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#f2f1ef"/>
+    <path fill="#0d0d0f" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ==================== MISSION / VISION ==================== -->
+<section class="mission section-dark" id="mission-vision">
+
+  <!-- Ambient line-art icons: yarn, looms, mills and thread waves -->
+  <div class="mission-bg" aria-hidden="true">
+    <svg class="bg-icon-1" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke-width="1.5"/></svg>
+    <svg class="bg-icon-2" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke-width="1.5"/></svg>
+    <svg class="bg-icon-3" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke-width="2"/><circle cx="20" cy="14" r="2.5" fill="currentColor"/><circle cx="32" cy="10" r="2.5" fill="currentColor"/><circle cx="44" cy="14" r="2.5" fill="currentColor"/></svg>
+    <svg class="bg-icon-4" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke-width="2" stroke-linecap="round"/></svg>
+    <svg class="bg-icon-5" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" stroke-width="2"/><circle cx="32" cy="32" r="14" stroke-width="2"/><circle cx="32" cy="32" r="6" stroke-width="2"/><line x1="32" y1="4" x2="32" y2="60" stroke-width="1.5"/></svg>
+    <svg class="bg-icon-6" viewBox="0 0 64 64" fill="none"><rect x="10" y="8" width="44" height="48" rx="3" stroke-width="2"/><path d="M10 20h44M10 32h44M10 44h44" stroke-width="1.5"/><path d="M22 8v48M42 8v48" stroke-width="1.5"/></svg>
+    <svg class="bg-icon-7" viewBox="0 0 64 64" fill="none"><path d="M8 50V22l12-10h24l12 10v28" stroke-width="2"/><path d="M16 50V30h8v20M40 50V30h8v20" stroke-width="2"/><rect x="26" y="36" width="12" height="14" stroke-width="2"/></svg>
+    <svg class="bg-icon-8" viewBox="0 0 64 64" fill="none"><path d="M6 14c6 6 6 10 0 16s-6 10 0 16M22 14c6 6 6 10 0 16s-6 10 0 16M38 14c6 6 6 10 0 16s-6 10 0 16M54 14c6 6 6 10 0 16s-6 10 0 16" stroke-width="2" stroke-linecap="round"/></svg>
+  </div>
+
+  <div class="container mission-grid">
+    <div class="mission-copy reveal">
+      <span class="eyebrow eyebrow--line">About Prateek Group</span>
+      <h2 class="h2">What drives us,<br>where we stand.</h2>
+
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <span class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c5-3 8-7 8-11a8 8 0 10-16 0c0 4 3 8 8 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          <h3>Mission</h3>
+          <p>Deliver high-quality yarn solutions through innovation, reliability and operational excellence.</p>
+        </div>
+
+        <div class="pillar-card">
+          <span class="pillar-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3.2"/></svg>
+          </span>
+          <h3>Vision</h3>
+          <p>To be India's most trusted integrated yarn manufacturing group.</p>
+        </div>
+      </div>
+
+      <div class="presence-chips">
+        <span class="presence-chips-label">Our Presence</span>
+        <div class="chip-row">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>Bhiwandi</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>Palsana</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>Guntur</span>
+        </div>
+      </div>
+
+      <blockquote>
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+        Built on trust, strengthened by quality, delivering excellence for generations.
+      </blockquote>
+    </div>
+
+    <div class="mission-image reveal" style="--d:.12s">
+      <img class="photo-frame" src="images/management.jpg" alt="Prateek Group Leadership">
+    </div>
+  </div>
+</section>
+
+<!-- flowing divider: mission (dark) -> products (light) -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#0d0d0f"/>
+    <path fill="#f2f1ef" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ======================= PRODUCTS ======================= -->
+<section class="products section-light" id="products">
+  <div class="container">
+    <div class="products-head reveal">
+      <span class="eyebrow">What We Make</span>
+      <h2 class="h2">Our Products</h2>
+      <p class="products-sub">
+        From raw spinning to finished dyed yarn &mdash; engineered for
+        shirting, suiting and home furnishing fabrics.
+      </p>
+    </div>
+
+    <div class="product-carousel reveal" id="productCarousel" style="--d:.1s">
+      <article class="product-slide" data-index="0">
+        <div class="product-slide-image">
+          <img src="images/stock photo 1.jpg" alt="PV Yarn" loading="lazy">
+        </div>
+        <h3 class="product-slide-name">PV Yarn</h3>
+        <p class="product-slide-desc">
+          High-tenacity polyester-viscose yarns engineered for
+          consistent strength across shirting and suiting fabrics.
+        </p>
+        <a href="pv-yarn.html" class="product-slide-link">
+          View Product
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="product-slide" data-index="1">
+        <div class="product-slide-image">
+          <img src="images/stock photo 2.jpg" alt="Dyed Yarn" loading="lazy">
+        </div>
+        <h3 class="product-slide-name">Dyed Yarn</h3>
+        <p class="product-slide-desc">
+          Precision-dyed yarns with consistent colour fastness,
+          produced in our advanced dyeing and texturizing unit.
+        </p>
+        <a href="dyed-yarn.html" class="product-slide-link">
+          View Product
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="product-slide" data-index="2">
+        <div class="product-slide-image">
+          <img src="images/stock photo 3.jpg" alt="Fancy Yarn" loading="lazy">
+        </div>
+        <h3 class="product-slide-name">Fancy Yarn</h3>
+        <p class="product-slide-desc">
+          2-ply and 3-ply value-added yarns across 300+ variants,
+          built for distinctive texture and finish.
+        </p>
+        <a href="fancy-yarn.html" class="product-slide-link">
+          View Product
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <button class="slider-btn slider-btn--light carousel-nav-prev" id="carouselPrev" aria-label="Previous product">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="slider-btn slider-btn--light carousel-nav-next" id="carouselNext" aria-label="Next product">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Product slides"></div>
+  </div>
+</section>
+
+<!-- flowing divider: products (light) -> why (dark), mirrored wave -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#f2f1ef"/>
+    <path fill="#0d0d0f" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ==================== WHY CHOOSE US ==================== -->
+<section class="why section-dark">
+  <div class="container">
+    <div class="why-head reveal">
+      <span class="eyebrow eyebrow--line">Why Leading Fabric</span>
+      <h2 class="h2">Manufacturers<br>Choose Us</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Integrated Manufacturing</h3>
+        <p class="why-desc">From spinning to dyeing, critical processes remain in-house.</p>
+      </div>
+
+      <div class="why-item reveal" style="--d:.08s">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Scale &amp; Capacity</h3>
+        <p class="why-desc">Advanced infrastructure and large-scale production capabilities.</p>
+      </div>
+
+      <div class="why-item reveal" style="--d:.16s">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l8 4v6c0 5-4 9-8 10-4-1-8-5-8-10V6z"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Quality First</h3>
+        <p class="why-desc">In-house labs, strict quality controls and colour consistency.</p>
+      </div>
+
+      <div class="why-item reveal">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="9" r="5"/><path d="M8 13l-2 8 6-3 6 3-2-8"/>
+          </svg>
+        </div>
+        <h3 class="why-title">15+ Years Experience</h3>
+        <p class="why-desc">Deep expertise in shirting, suiting and furnishing yarns.</p>
+      </div>
+
+      <div class="why-item reveal" style="--d:.08s">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12l4 2 4-4 4 4 4-2v6H3zM3 8h18"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Complaint-Free Reputation</h3>
+        <p class="why-desc">Consistency, reliability and long-term trust built over the years.</p>
+      </div>
+
+      <div class="why-item reveal" style="--d:.16s">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>
+          </svg>
+        </div>
+        <h3 class="why-title">Strategic Locations</h3>
+        <p class="why-desc">Well-connected facilities ensuring efficient supply and service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- flowing divider: why (dark) -> presence (light), mirrored wave -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#0d0d0f"/>
+    <path fill="#f2f1ef" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ======================= PRESENCE ======================= -->
+<section class="presence section-light">
+  <div class="container presence-grid">
+    <div class="presence-intro reveal">
+      <span class="eyebrow eyebrow--line">Our Presence</span>
+      <h2 class="h2">Manufacturing<br>Presence<br>Across India</h2>
+      <p class="presence-desc">
+        Three strategically located facilities enabling us to serve customers
+        across the country with efficiency and reliability.
+      </p>
+    </div>
+
+    <div class="presence-map reveal" style="--d:.1s" aria-hidden="true">
+      <div class="map-placeholder">
+        <span class="placeholder-label">India Map</span>
+        <span class="map-pin map-pin-1"></span>
+        <span class="map-pin map-pin-2"></span>
+        <span class="map-pin map-pin-3"></span>
+      </div>
+    </div>
+
+    <div class="presence-locations reveal" style="--d:.2s">
+      <div class="location">
+        <span class="location-pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+        </span>
+        <div>
+          <h4 class="location-city">BHIWANDI, MAHARASHTRA</h4>
+          <p class="location-company">Prateek</p>
+          <p class="location-type">Fancy Yarn Manufacturing</p>
+        </div>
+      </div>
+
+      <div class="location">
+        <span class="location-pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+        </span>
+        <div>
+          <h4 class="location-city">GUNTUR, ANDHRA PRADESH</h4>
+          <p class="location-company">KK Spintex</p>
+          <p class="location-type">PV Yarn Production</p>
+        </div>
+      </div>
+
+      <div class="location">
+        <span class="location-pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+        </span>
+        <div>
+          <h4 class="location-city">PALSANA, GUJARAT</h4>
+          <p class="location-company">GB Dyed Yarn</p>
+          <p class="location-type">Dyeing &amp; Texturizing</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- flowing divider: presence (light) -> numbers (dark), mirrored wave -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#f2f1ef"/>
+    <path fill="#0d0d0f" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ==================== BY THE NUMBERS ==================== -->
+<section class="numbers section-dark">
+  <div class="container">
+    <div class="numbers-head reveal">
+      <span class="eyebrow eyebrow--line">Prateek Group</span>
+      <h2 class="h2">By The Numbers</h2>
+      <span class="title-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="numbers-grid">
+      <div class="number-item reveal">
+        <span class="number-value">3</span>
+        <span class="number-label">Manufacturing<br>Units</span>
+      </div>
+      <div class="number-item reveal" style="--d:.07s">
+        <span class="number-value">900+ MT</span>
+        <span class="number-label">Monthly<br>Capacity</span>
+      </div>
+      <div class="number-item reveal" style="--d:.14s">
+        <span class="number-value">38,000+</span>
+        <span class="number-label">Spindles</span>
+      </div>
+      <div class="number-item reveal" style="--d:.21s">
+        <span class="number-value">300+</span>
+        <span class="number-label">Product<br>Variants</span>
+      </div>
+      <div class="number-item reveal" style="--d:.28s">
+        <span class="number-value">15+</span>
+        <span class="number-label">Years<br>Experience</span>
+      </div>
+      <div class="number-item reveal" style="--d:.35s">
+        <span class="number-value">100%</span>
+        <span class="number-label">Focus On<br>Yarn Manufacturing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- flowing divider: numbers (dark) -> cta (red), mirrored wave -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#0d0d0f"/>
+    <path fill="#b23a34" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ======================= CTA ======================= -->
+<section class="cta section-red">
+  <div class="container cta-inner reveal">
+    <h2 class="cta-title">
+      Looking for a <span class="accent">reliable</span> yarn<br>
+      manufacturing partner?
+    </h2>
+    <p class="cta-desc">
+      We offer consistent quality, customized solutions and on-time delivery
+      to support your business growth.
+    </p>
+    <a href="contact.html" class="btn btn--solid btn--invert">
+      GET IN TOUCH
+      <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- flowing divider: cta (red) -> footer (light) -->
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#b23a34"/>
+    <path fill="#f2f1ef" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer section-light" id="contact">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand js-top" aria-label="Prateek Group home">
+        <svg class="brand-mark" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="13" height="56" fill="var(--red-btn)"/>
+          <path d="M 15,2 L 47,2 L 15,33 Z" fill="var(--red-btn)"/>
+          <path d="M 15,38 L 36,38 L 15,56 Z" fill="var(--red-btn)"/>
         </svg>
-        <span class="logo-text">
-          <span class="logo-text-main">PRATEEK</span>
-          <span class="logo-text-sub">GROUP</span>
+        <span>
+          <span class="brand-name">PRATEEK</span>
+          <span class="brand-sub">GROUP</span>
         </span>
       </a>
-
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-list" id="primary-menu">
-          <li><a href="index.html" class="active">HOME</a></li>
-          <li class="has-dropdown">
-            <a href="#" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">▾</span></a>
-            <ul class="dropdown">
-              <li><a href="prateek.html">Prateek</a></li>
-              <li><a href="kk-spintex.html">KK Spintex</a></li>
-              <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
-            </ul>
-          </li>
-          <li><a href="#about">ABOUT US</a></li>
-          <li><a href="#careers">CAREERS</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-      </nav>
-
-      <a href="contact.html" class="btn btn-primary header-cta">
-        GET IN TOUCH
-        <span class="btn-arrow" aria-hidden="true">→</span>
-      </a>
+      <p class="footer-about">
+        Integrated yarn manufacturing group with state-of-the-art facilities
+        across India. Committed to quality, consistency and customer satisfaction.
+      </p>
     </div>
-  </header>
 
-  <main>
+    <div class="footer-col">
+      <h5 class="footer-heading">Group Companies</h5>
+      <ul>
+        <li><a href="prateek.html">Prateek</a></li>
+        <li><a href="kk-spintex.html">KK Spintex</a></li>
+        <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
+      </ul>
+    </div>
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
-      <div class="hero-visual" aria-hidden="true">
-        <!-- The photo is a separate CSS background-image layer (NOT inside
-             the SVG) so it can use background-size:cover for a normal,
-             non-stretched crop. It's clipped to the same chevron shape via
-             CSS clip-path with matching percentage coordinates. The SVG only
-             draws the gradient fallback, fine lines, and the red wedge. -->
-        <div class="hero-photo"></div>
+    <div class="footer-col">
+      <h5 class="footer-heading">Quick Links</h5>
+      <ul>
+        <li><a href="index.html" class="js-top">Home</a></li>
+        <li><a href="#companies">Group Companies</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
 
-        <!-- SVG with the chevron cut going from BOTTOM-LEFT up to TOP-RIGHT,
-             with the 165° kink at the bulge. Cut shifted right by ~40px, and a
-             semi-transparent red shape sits over the photo, parallel to the
-             cut, offset further to the right of it.
-             x=0 in SVG = 18% of hero, x=1000 = 100% of hero.
-             At ~1440px viewport, .hero-visual ≈ 1181px wide, so 1 viewBox unit
-             ≈ 1.181px → 20px ≈ 17 units, 30px ≈ 25 units.
+    <div class="footer-col">
+      <h5 class="footer-heading">Manufacturing Locations</h5>
+      <ul class="footer-locations">
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+          Bhiwandi, Maharashtra
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+          Guntur, Andhra Pradesh
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+          Palsana, Gujarat
+        </li>
+      </ul>
+    </div>
 
-             LAYER ORDER (back to front):
-               1. hero-photo (CSS background, clipped to the cut) - lowest
-               2. red parallel shape (offset further right)       - above photo
-               3. white background + text content (.hero-content, separate
-                  element with higher z-index) - highest, on top of both -->
-        <svg class="hero-svg" viewBox="0 0 1000 750" preserveAspectRatio="none">
-          <!-- The SVG now only draws the red wedge overlay. The photo and its
-               gradient fallback live in .hero-photo (CSS), underneath. -->
+    <div class="footer-col">
+      <h5 class="footer-heading">Contact Us</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.13.96.36 1.9.7 2.8a2 2 0 01-.45 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.45c.9.34 1.84.57 2.8.7a2 2 0 011.7 2.05z"/></svg>
+          +91 72734 44555
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+          info@prateekspunfab.com
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg>
+          Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
+        </li>
+      </ul>
+    </div>
+  </div>
 
-          <!-- Semi-transparent red wedge matching the reference sketch,
-               shifted right by 100px (≈85 viewBox units) from its previous
-               position:
-                 (495,263) top-right corner, sits on the upper arm
-                 (441,337) bulge
-                 (319,750) bottom-left (on lower arm)
-                 (359,750) bottom-right -->
-          <path d="M 495,263 L 441,337 L 319,750 L 359,750 Z"
-                fill="#E63027" opacity="0.85"/>
-        </svg>
-      </div>
-      </div>
-
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Integrated Yarn<br/>
-            Manufacturing <span class="accent">Group</span>
-          </h1>
-          <p class="hero-subhead">
-            Spinning, dyeing and specialty yarn &mdash; for shirting, suiting, dress material and home furnishings.
-          </p>
-
-          <div class="hero-divider" aria-hidden="true"></div>
-
-          <div class="hero-stat">
-            <div class="hero-stat-number">900+ MT</div>
-            <div class="hero-stat-label">Monthly Capacity</div>
-            <div class="hero-stat-detail">Across three specialized facilities &mdash; spinning, dyeing, specialty yarn</div>
-          </div>
-
-          <div class="hero-cta">
-            <a href="#companies" class="btn btn-primary">
-              EXPLORE COMPANIES <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="contact.html" class="btn btn-outline">
-              CONTACT US <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== STATS BAR ===================== -->
-    <section class="stats-bar" aria-label="Company statistics">
-      <div class="container stats-grid">
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="9" r="5" />
-              <path d="M8 13l-2 8 6-3 6 3-2-8" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Years<br />Experience</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M9 2h6v4l-2 14h-2L9 6z" />
-              <path d="M9 6h6" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">38,000+</span>
-            <span class="stat-label">Spindles</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4" />
-              <path d="M18 6l2-2 2 2" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">900+ MT</span>
-            <span class="stat-label">Monthly<br />Capacity</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">300+</span>
-            <span class="stat-label">Product<br />Variants</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M3 21V9l5-3 5 3v3h8v9z" />
-              <path d="M8 13v8M13 17v4M17 17v4M21 17v4" />
-            </svg>
-          </div>
-          <div class="stat-text">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Manufacturing<br />Facilities</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== OUR COMPANIES ===================== -->
-    <section class="companies" id="companies">
-      <div class="container">
-        <div class="section-head section-head-centered">
-          <span class="eyebrow eyebrow-flanked">The Companies Behind</span>
-          <h2 class="section-title section-title-centered">PRATEEK GROUP</h2>
-        </div>
-
-        <div class="company-grid-wrap">
-          <button class="company-nav company-nav-prev" aria-label="Previous company">‹</button>
-          <div class="company-grid">
-
-          <!-- Card 1: Prateek -->
-          <article class="company-card">
-            <div class="company-card-photo"></div>
-            <svg class="card-shape" viewBox="0 0 400 560" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M 0 125 L 400 232 L 400 560 L 0 560 Z" fill="#0D0F12"/>
-              <path d="M 0 125 L 400 232" fill="none" stroke="#E63027" stroke-width="2.5"/>
-            </svg>
-            <div class="company-card-body">
-              <div class="company-card-header">
-                <span class="company-mark" aria-hidden="true">P</span>
-                <h3 class="company-name">PRATEEK</h3>
-              </div>
-              <p class="company-sub">Fancy Yarns &amp; Value-Added Yarns</p>
-              <ul class="company-list">
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M8.5 13 7 22l5-3 5 3-1.5-9"/></svg>
-                </span>2-ply and 3-ply yarns</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
-                </span>300+ product variants</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M5 9h14"/></svg>
-                </span>Fancy yarn specialist</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                </span>Bhiwandi, Maharashtra</li>
-              </ul>
-              <a href="prateek.html" class="company-link">
-                <span class="company-link-text">DISCOVER PRATEEK</span>
-                <span class="company-link-arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 2: KK Spintex (light variant) -->
-          <article class="company-card company-card-light">
-            <div class="company-card-photo" style="background-image: url('images/hero.jpg');"></div>
-            <svg class="card-shape" viewBox="0 0 400 560" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M 0 125 L 400 232 L 400 560 L 0 560 Z" fill="#FFFFFF"/>
-              <path d="M 0 125 L 400 232" fill="none" stroke="#E63027" stroke-width="2.5"/>
-            </svg>
-            <div class="company-card-body">
-              <div class="company-card-header">
-                <span class="company-mark" aria-hidden="true">K</span>
-                <h3 class="company-name">KK SPINTEX</h3>
-              </div>
-              <p class="company-sub">PV Yarn Manufacturing</p>
-              <ul class="company-list">
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 21V8l3-5h6l3 5v13"/><path d="M9 21v-6h6v6"/><path d="M6 12h12"/></svg>
-                </span>38,000+ spindles</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19h16"/><path d="M7 19v-6l4-4 3 3 5-6"/></svg>
-                </span>500+ MT monthly capacity</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9c2 -2 4 2 6 0s4 2 6 0 4 2 6 0"/><path d="M3 15c2 -2 4 2 6 0s4 2 6 0 4 2 6 0"/></svg>
-                </span>Micro-denier expertise</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                </span>Guntur, Andhra Pradesh</li>
-              </ul>
-              <a href="kk-spintex.html" class="company-link">
-                <span class="company-link-text">DISCOVER KK SPINTEX</span>
-                <span class="company-link-arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- Card 3: GB Dyed Yarn -->
-          <article class="company-card">
-            <div class="company-card-photo"></div>
-            <svg class="card-shape" viewBox="0 0 400 560" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M 0 125 L 400 232 L 400 560 L 0 560 Z" fill="#0D0F12"/>
-              <path d="M 0 125 L 400 232" fill="none" stroke="#E63027" stroke-width="2.5"/>
-            </svg>
-            <div class="company-card-body">
-              <div class="company-card-header">
-                <span class="company-mark" aria-hidden="true">GB</span>
-                <h3 class="company-name">GB DYED YARN</h3>
-              </div>
-              <p class="company-sub">Yarn Dyeing &amp; Texturizing</p>
-              <ul class="company-list">
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19h16"/><path d="M7 19v-6l4-4 3 3 5-6"/></svg>
-                </span>400+ MT monthly capacity</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-                </span>Advanced dyeing lab</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v6"/><circle cx="12" cy="13" r="7"/><path d="M9 13a3 3 0 0 1 6 0"/></svg>
-                </span>Texturizing unit</li>
-                <li><span class="company-list-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                </span>Palsana, Gujarat</li>
-              </ul>
-              <a href="gb-dyed-yarn.html" class="company-link">
-                <span class="company-link-text">DISCOVER GB DYED YARN</span>
-                <span class="company-link-arrow" aria-hidden="true">→</span>
-              </a>
-            </div>
-          </article>
-
-          </div>
-          <button class="company-nav company-nav-next" aria-label="Next company">›</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== WHY CHOOSE US ===================== -->
-    <section class="why">
-      <div class="why-visual" aria-hidden="true">
-        <div class="why-photo"></div>
-      </div>
-      <div class="container">
-        <div class="why-inner">
-          <div class="why-head">
-            <span class="why-eyebrow">WHY LEADING</span>
-            <h2 class="why-title-main">Fabric Manufacturers<br />Choose Prateek Group</h2>
-            <p class="why-sub">Built on experience, driven by quality, and trusted by fabric manufacturers across India for consistent performance and reliability.</p>
-          </div>
-
-          <div class="why-grid">
-            <div class="why-item">
-              <div class="why-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 22h20"/><path d="M4 22V9l5 3.5V9l5 3.5V9l5 3.5V22"/><path d="M7 16h.01M12 16h.01M17 16h.01"/>
-                </svg>
-              </div>
-              <h3 class="why-title">Integrated Manufacturing</h3>
-              <p class="why-desc">From spinning to fancy yarns and dyeing, critical manufacturing processes are managed in-house.</p>
-            </div>
-
-            <div class="why-item">
-              <div class="why-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/>
-                </svg>
-              </div>
-              <h3 class="why-title">Scale &amp; Capacity</h3>
-              <p class="why-desc">Advanced infrastructure and large-scale production capabilities to meet growing demands.</p>
-            </div>
-
-            <div class="why-item">
-              <div class="why-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>
-                </svg>
-              </div>
-              <h3 class="why-title">Quality First</h3>
-              <p class="why-desc">In-house labs, strict quality controls and colour consistency in every lot.</p>
-            </div>
-
-            <div class="why-item">
-              <div class="why-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/>
-                </svg>
-              </div>
-              <h3 class="why-title">15+ Years Experience</h3>
-              <p class="why-desc">Deep expertise in shirting, suiting and furnishing yarns with a strong understanding of the industry.</p>
-            </div>
-
-            <div class="why-item">
-              <div class="why-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>
-                </svg>
-              </div>
-              <h3 class="why-title">Complaint-Free Reputation</h3>
-              <p class="why-desc">Consistency, reliability and long-term trust have earned us a complaint-free track record.</p>
-            </div>
-
-            <div class="why-item">
-              <div class="why-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 10c0 4.4-5.6 9.4-7.4 11a1 1 0 0 1-1.2 0C9.6 19.4 4 14.4 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <h3 class="why-title">Strategic Locations</h3>
-              <p class="why-desc">Well-connected facilities ensuring efficient supply and on-time delivery across India.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== PRESENCE ===================== -->
-    <section class="presence">
-      <div class="container presence-grid">
-        <div class="presence-intro">
-          <span class="eyebrow eyebrow-on-dark">Our Presence</span>
-          <h2 class="section-title section-title-on-dark">
-            Manufacturing<br />
-            Presence<br />
-            Across India
-          </h2>
-          <p class="presence-desc">
-            Three strategically located facilities enabling us to serve customers
-            across the country with efficiency and reliability.
-          </p>
-        </div>
-
-        <div class="presence-map" aria-hidden="true">
-          <div class="map-placeholder">
-            <!-- Real India map (state boundaries), rendered to JPG from
-                 public GeoJSON boundary data (geohacker/india on GitHub,
-                 sourced from GADM). Pin positions below are percentages
-                 computed from each city's actual lat/lon, mapped through the
-                 exact same projection/crop used to render the JPG, so they
-                 land precisely on the right spot. -->
-            <img src="images/india-map.jpg" alt="" class="india-map-img" />
-
-            <!-- Palsana, Gujarat (21.16°N, 72.97°E) -->
-            <span class="india-pin" style="left: 18.86%; top: 49.9%;"></span>
-
-            <!-- Bhiwandi, Maharashtra (19.30°N, 73.06°E) -->
-            <span class="india-pin" style="left: 19.14%; top: 55.79%;"></span>
-
-            <!-- Guntur, Andhra Pradesh (16.31°N, 80.43°E) -->
-            <span class="india-pin" style="left: 42.49%; top: 65.26%;"></span>
-          </div>
-        </div>
-
-        <div class="presence-locations">
-          <div class="location">
-            <span class="location-pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /></svg>
-            </span>
-            <div>
-              <h4 class="location-city">BHIWANDI, MAHARASHTRA</h4>
-              <p class="location-company">Prateek</p>
-              <p class="location-type">Fancy Yarn Manufacturing</p>
-            </div>
-          </div>
-
-          <div class="location">
-            <span class="location-pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /></svg>
-            </span>
-            <div>
-              <h4 class="location-city">GUNTUR, ANDHRA PRADESH</h4>
-              <p class="location-company">KK Spintex</p>
-              <p class="location-type">PV Yarn Production</p>
-            </div>
-          </div>
-
-          <div class="location">
-            <span class="location-pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z" /></svg>
-            </span>
-            <div>
-              <h4 class="location-city">PALSANA, GUJARAT</h4>
-              <p class="location-company">GB Dyed Yarn</p>
-              <p class="location-type">Dyeing &amp; Texturizing</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== MANUFACTURING INFRASTRUCTURE ===================== -->
-    <section class="infra">
-      <div class="infra-overlay"></div>
-      <div class="container infra-inner">
-        <h2 class="infra-title">Trusted Manufacturing Infrastructure</h2>
-        <div class="infra-divider" aria-hidden="true"></div>
-
-        <div class="infra-stats">
-          <div class="infra-stat">
-            <span class="infra-stat-number">38,000+</span>
-            <span class="infra-stat-label">Spindles</span>
-          </div>
-
-          <div class="infra-stat">
-            <span class="infra-stat-number">900+ MT</span>
-            <span class="infra-stat-label">Monthly Capacity</span>
-          </div>
-
-          <div class="infra-stat">
-            <span class="infra-stat-number">Advanced</span>
-            <span class="infra-stat-label">Dyeing &amp; Texturizing</span>
-          </div>
-
-          <div class="infra-stat">
-            <span class="infra-stat-number">300+</span>
-            <span class="infra-stat-label">Product Variants</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== BY THE NUMBERS ===================== -->
-    <section class="numbers">
-      <div class="container">
-        <div class="numbers-head">
-          <span class="eyebrow">Prateek Group</span>
-          <h2 class="section-title">By The Numbers</h2>
-        </div>
-        <div class="numbers-grid">
-          <div class="number-item">
-            <span class="number-value">3</span>
-            <span class="number-label">Manufacturing<br />Units</span>
-          </div>
-          <div class="number-item">
-            <span class="number-value">900+ MT</span>
-            <span class="number-label">Monthly<br />Capacity</span>
-          </div>
-          <div class="number-item">
-            <span class="number-value">38,000+</span>
-            <span class="number-label">Spindles</span>
-          </div>
-          <div class="number-item">
-            <span class="number-value">300+</span>
-            <span class="number-label">Product<br />Variants</span>
-          </div>
-          <div class="number-item">
-            <span class="number-value">15+</span>
-            <span class="number-label">Years<br />Experience</span>
-          </div>
-          <div class="number-item">
-            <span class="number-value">100%</span>
-            <span class="number-label">Focus On<br />Yarn Manufacturing</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CTA ===================== -->
-    <section class="cta">
-      <div class="container cta-inner">
-        <h2 class="cta-title">
-          Looking for a <span class="accent">reliable</span> yarn<br />
-          manufacturing partner?
-        </h2>
-        <p class="cta-desc">
-          We offer consistent quality, customized solutions and on-time delivery
-          to support your business growth.
-        </p>
-        <a href="contact.html" class="btn btn-primary cta-button">
-          GET IN TOUCH <span class="btn-arrow" aria-hidden="true">→</span>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="socials" aria-label="Social media">
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.6 4.78 6V21h-4v-5.3c0-1.27-.02-2.9-1.8-2.9-1.8 0-2.08 1.38-2.08 2.8V21H9z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 7.2a2.8 2.8 0 00-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 00-2 2A29 29 0 001 12a29 29 0 00.5 4.8 2.8 2.8 0 002 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 002-2A29 29 0 0023 12a29 29 0 00-.5-4.8zM9.8 15.1V8.9L15.7 12z"/></svg>
         </a>
       </div>
-    </section>
-
-  </main>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="logo logo-on-dark" aria-label="Prateek Group home">
-          <span class="logo-mark" aria-hidden="true">P</span>
-          <span class="logo-text">
-            <span class="logo-text-main">PRATEEK</span>
-            <span class="logo-text-sub">GROUP</span>
-          </span>
-        </a>
-        <p class="footer-about">
-          Integrated yarn manufacturing group with state-of-the-art facilities
-          across India. Committed to quality, consistency and customer satisfaction.
-        </p>
-      </div>
-
-      <div class="footer-col">
-        <h5 class="footer-heading">Group Companies</h5>
-        <ul>
-          <li><a href="prateek.html">Prateek</a></li>
-          <li><a href="kk-spintex.html">KK Spintex</a></li>
-          <li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5 class="footer-heading">Quick Links</h5>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#companies">Group Companies</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5 class="footer-heading">Manufacturing Locations</h5>
-        <ul class="footer-locations">
-          <li><span class="footer-pin" aria-hidden="true">📍</span>Bhiwandi, Maharashtra</li>
-          <li><span class="footer-pin" aria-hidden="true">📍</span>Guntur, Andhra Pradesh</li>
-          <li><span class="footer-pin" aria-hidden="true">📍</span>Palsana, Gujarat</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5 class="footer-heading">Contact Us</h5>
-        <ul class="footer-contact">
-          <li><span aria-hidden="true">📞</span>+91 72734 44555</li>
-          <li><span aria-hidden="true">✉️</span>info@prateekspunfab.com</li>
-          <li><span aria-hidden="true">🕒</span>Mon – Sat: 9:00 AM – 6:00 PM</li>
-        </ul>
+      <p class="footer-copy">&copy; 2024 Prateek Spunfab Pvt. Ltd. All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="#">Terms &amp; Conditions</a>
       </div>
     </div>
+  </div>
 
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <div class="footer-social" aria-label="Social media">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="YouTube">yt</a>
-        </div>
-        <p class="footer-copy">© 2024 Prateek Spunfab Pvt. Ltd. All Rights Reserved.</p>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <span aria-hidden="true">|</span>
-          <a href="#">Terms &amp; Conditions</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+</footer>
 
-  <script src="script.js"></script>
+<!-- ======================= SCRIPTS ======================= -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Header: solid background after scrolling ---------- */
+  var header = document.getElementById('siteHeader');
+  function onScroll() {
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Mobile navigation ---------- */
+  var toggle = document.getElementById('navToggle');
+  var body = document.body;
+  toggle.addEventListener('click', function () {
+    var open = body.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  /* Dropdown parents: toggle their submenu (mobile); hover handles desktop.
+     If the parent link has a real destination (not a "#" placeholder),
+     clicking it navigates normally — only the small caret toggles the
+     submenu open, so mobile users can still reach the sub-items. */
+  document.querySelectorAll('.has-dropdown > a').forEach(function (link) {
+    var isPlaceholder = link.getAttribute('href') === '#';
+
+    if (isPlaceholder) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleDropdown(link.parentElement);
+      });
+    } else {
+      var caret = link.querySelector('.caret');
+      if (caret) {
+        caret.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleDropdown(link.parentElement);
+        });
+      }
+    }
+  });
+  function toggleDropdown(li) {
+    var wasOpen = li.classList.contains('open');
+    document.querySelectorAll('.has-dropdown.open').forEach(function (o) {
+      o.classList.remove('open');
+    });
+    if (!wasOpen) li.classList.add('open');
+  }
+
+  /* Every other nav link closes the mobile menu */
+  document.querySelectorAll('#siteNav a').forEach(function (link) {
+    if (link.matches('.has-dropdown > a')) return;
+    link.addEventListener('click', function () {
+      body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.querySelectorAll('.has-dropdown.open').forEach(function (o) {
+        o.classList.remove('open');
+      });
+    });
+  });
+
+  /* ---------- "Home" / logo -> smooth scroll to top ---------- */
+  document.querySelectorAll('.js-top').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  /* ---------- Placeholder links (href="#") do nothing ---------- */
+  document.querySelectorAll('a[href="#"]:not(.js-top)').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); });
+  });
+
+  /* ---------- Back to top ---------- */
+  document.getElementById('toTop').addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------- Companies slider arrows ---------- */
+  var track = document.getElementById('companiesTrack');
+  function step() {
+    var card = track.querySelector('.company-card');
+    return card ? card.getBoundingClientRect().width + 22 : 320;
+  }
+  document.getElementById('prevBtn').addEventListener('click', function () {
+    track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+  document.getElementById('nextBtn').addEventListener('click', function () {
+    track.scrollBy({ left: step(), behavior: 'smooth' });
+  });
+
+  /* ---------- Scroll reveal ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Animated stat counters ---------- */
+  function animateCount(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var suffix = el.dataset.suffix || '';
+    var duration = 1400;
+    var start = null;
+    function frame(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3); /* easeOutCubic */
+      el.textContent = Math.round(eased * target).toLocaleString('en-US') + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var nums = document.querySelectorAll('.stat-num');
+  if ('IntersectionObserver' in window) {
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    nums.forEach(function (el) { countObs.observe(el); });
+  }
+
+  /* ---------- Hero: typed "What We Do" line ---------- */
+  (function typed() {
+    var el = document.getElementById('typedText');
+    if (!el) return;
+    var phrases = [
+      'Integrated Yarn Manufacturing',
+      'Premium Dyed Yarn Solutions',
+      'Specialty Yarn Production',
+      'High-Capacity Textile Manufacturing'
+    ];
+    var reduced = window.matchMedia &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) { el.textContent = phrases[0]; return; }
+
+    var phraseIndex = 0, charIndex = 0, deleting = false;
+    function tick() {
+      var current = phrases[phraseIndex];
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.substring(0, charIndex);
+        if (charIndex >= current.length) {
+          deleting = true;
+          setTimeout(tick, 1500);
+          return;
+        }
+      } else {
+        charIndex--;
+        el.textContent = current.substring(0, charIndex);
+        if (charIndex <= 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+      setTimeout(tick, deleting ? 40 : 80);
+    }
+    tick();
+  })();
+
+  /* ---------- Products: single-focus auto-rotating carousel ---------- */
+  (function carousel() {
+    var carousel = document.getElementById('productCarousel');
+    var dotsWrap = document.getElementById('carouselDots');
+    var prevBtn = document.getElementById('carouselPrev');
+    var nextBtn = document.getElementById('carouselNext');
+    if (!carousel || !dotsWrap) return;
+
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.product-slide'));
+    var count = slides.length;
+    if (!count) return;
+    var index = 0;
+    var autoTimer = null;
+    var AUTO_MS = 3000;
+    var reduced = window.matchMedia &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* dot indicators */
+    slides.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i, true); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    function render() {
+      slides.forEach(function (slide, i) {
+        var offset = i - index;
+        if (offset >  count / 2) offset -= count;
+        if (offset < -count / 2) offset += count;
+        slide.style.setProperty('--offset', offset);
+        slide.classList.toggle('is-active', offset === 0);
+        slide.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+      });
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === index);
+      });
+    }
+
+    function goTo(i, manual) {
+      index = ((i % count) + count) % count;
+      render();
+      if (manual) restartAuto();
+    }
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    function startAuto() {
+      if (reduced) return;
+      stopAuto();
+      autoTimer = setInterval(next, AUTO_MS);
+    }
+    function stopAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = null;
+    }
+    function restartAuto() { stopAuto(); startAuto(); }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restartAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); restartAuto(); });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', startAuto);
+
+    /* basic swipe support */
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+      stopAuto();
+    }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (dx > 40) prev();
+      else if (dx < -40) next();
+      startAuto();
+    }, { passive: true });
+
+    render();
+    startAuto();
+  })();
+
+  /* ---------- Interactive yarn (Verlet string) : DISABLED ----------
+     To re-enable, 1) uncomment the <canvas class="hero-yarn"> element
+     in the hero section, and 2) remove this comment wrapper so the
+     module below runs again.
+  (function yarn() {
+    var canvas = document.getElementById('yarnCanvas');
+    var hero = document.getElementById('home');
+    if (!canvas || !hero || !canvas.getContext) return;
+    var ctx = canvas.getContext('2d');
+    var reduced = window.matchMedia &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // --- tunables ---
+    var SLACK  = 1.07;   // rope length relative to the straight anchor distance (gentle drape)
+    var DAMP   = 0.985;  // velocity retained each frame (air resistance)
+    var GRAV   = 1550;   // gravity, px/s^2
+    var ITER   = 26;     // constraint relaxation passes (higher = stiffer)
+    var MAXV   = 12;     // hard speed limit, px/frame (~720px/s) — makes fly-off impossible
+
+    var W = 0, H = 0, seg = 0, N = 0;
+    var nodes = [];
+    // pin targets (recomputed on resize)
+    var ax = 0, ay = 0, bx = 0, by = 0;
+    // drag state
+    var heldIdx = -1, hx = 0, hy = 0, lastPx = 0, lastPy = 0;
+    var grabR = 34;
+    var running = true, lastT = 0, lastScroll = 0, raf = 0;
+
+    function size() {
+      var r = hero.getBoundingClientRect();
+      W = Math.max(1, Math.round(r.width));
+      H = Math.max(1, Math.round(r.height));
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      grabR = Math.max(30, W * 0.035);
+    }
+
+    function anchors() {
+      ax = W * 0.955;  ay = H * 0.235;   // top-right knot (original line start)
+      bx = W * 0.185;  by = H * 0.985;   // knot on the bottom border below
+    }
+
+    function build() {
+      size();
+      anchors();
+      var chord = Math.hypot(bx - ax, by - ay);
+      var total = chord * SLACK;
+      var target = W < 620 ? 20 : 15;    // segment length in px
+      N = Math.min(120, Math.max(24, Math.round(total / target) + 1));
+      seg = total / (N - 1);
+      nodes = [];
+      for (var i = 0; i < N; i++) {
+        var f = i / (N - 1);
+        var x = ax + (bx - ax) * f;
+        var y = ay + (by - ay) * f;
+        nodes.push({ x: x, y: y, px: x, py: y, pin: false });
+      }
+      nodes[0].pin = nodes[N - 1].pin = true;
+    }
+
+    function isFixed(i) { return nodes[i].pin || i === heldIdx; }
+
+    function step(dt) {
+      // scroll imparts a *subtle* inertia to the free part of the string
+      var sy = window.scrollY || window.pageYOffset || 0;
+      var sdy = sy - lastScroll;
+      lastScroll = sy;
+      if (!reduced && sdy !== 0) {
+        if (sdy > 20) sdy = 20; else if (sdy < -20) sdy = -20;  // clamp per-frame delta
+        var kick = sdy * 0.04;                                  // subtle nudge
+        for (var i = 0; i < N; i++) {
+          if (isFixed(i)) continue;
+          nodes[i].py -= kick;
+        }
+      }
+
+      // integrate (Verlet) with a hard speed cap so nothing can fly off
+      var g = GRAV * dt * dt;
+      var MAXV2 = MAXV * MAXV;
+      for (var i = 0; i < N; i++) {
+        if (isFixed(i)) continue;
+        var n = nodes[i];
+        var vx = (n.x - n.px) * DAMP;
+        var vy = (n.y - n.py) * DAMP;
+        var sp = vx * vx + vy * vy;
+        if (sp > MAXV2) { var sc = MAXV / Math.sqrt(sp); vx *= sc; vy *= sc; }
+        n.px = n.x; n.py = n.y;
+        n.x += vx;
+        n.y += vy + g;
+        if (n.x < 1) n.x = 1; else if (n.x > W - 1) n.x = W - 1;
+        if (n.y < 1) n.y = 1;
+        else if (n.y > H) { n.y = H; n.py = n.y; }   // rest on the section fold
+      }
+
+      // satisfy distance constraints, then re-pin the fixed points
+      for (var it = 0; it < ITER; it++) {
+        for (var i = 0; i < N - 1; i++) {
+          var a = nodes[i], b = nodes[i + 1];
+          var dx = b.x - a.x, dy = b.y - a.y;
+          var d = Math.sqrt(dx * dx + dy * dy) || 1e-4;
+          var diff = (d - seg) / d;
+          var af = isFixed(i) ? 0 : 1;
+          var bf = isFixed(i + 1) ? 0 : 1;
+          if (af && bf) {
+            var mx = dx * 0.5 * diff, my = dy * 0.5 * diff;
+            a.x += mx; a.y += my; b.x -= mx; b.y -= my;
+          } else if (af) {
+            a.x += dx * diff; a.y += dy * diff;
+          } else if (bf) {
+            b.x -= dx * diff; b.y -= dy * diff;
+          }
+        }
+        nodes[0].x = ax; nodes[0].y = ay;
+        nodes[N - 1].x = bx; nodes[N - 1].y = by;
+        if (heldIdx > 0 && heldIdx < N - 1) { nodes[heldIdx].x = hx; nodes[heldIdx].y = hy; }
+      }
+
+      // absolute containment: constraints may nudge past edges — clamp back
+      for (var i = 1; i < N - 1; i++) {
+        var n = nodes[i];
+        if (n.x < 1) n.x = 1; else if (n.x > W - 1) n.x = W - 1;
+        if (n.y < 1) n.y = 1; else if (n.y > H) n.y = H;
+      }
+    }
+
+    function knot(x, y) {
+      ctx.shadowBlur = 0;
+      ctx.beginPath(); ctx.arc(x, y, 4.6, 0, Math.PI * 2);
+      ctx.fillStyle = '#c1252b'; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y, 4.6, 0, Math.PI * 2);
+      ctx.lineWidth = 1.4; ctx.strokeStyle = 'rgba(0,0,0,.18)'; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x - 1.3, y - 1.3, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.fill();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      // smooth curve through the nodes
+      ctx.beginPath();
+      ctx.moveTo(nodes[0].x, nodes[0].y);
+      for (var i = 1; i < N - 1; i++) {
+        var xc = (nodes[i].x + nodes[i + 1].x) / 2;
+        var yc = (nodes[i].y + nodes[i + 1].y) / 2;
+        ctx.quadraticCurveTo(nodes[i].x, nodes[i].y, xc, yc);
+      }
+      ctx.lineTo(nodes[N - 1].x, nodes[N - 1].y);
+
+      var grad = ctx.createLinearGradient(ax, ay, bx, by);
+      grad.addColorStop(0, '#e63b3b');
+      grad.addColorStop(1, '#bf2626');
+
+      // glowing body
+      ctx.shadowColor = 'rgba(214,44,44,.55)';
+      ctx.shadowBlur = 12;
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // crisp highlight core (same path, no glow)
+      ctx.shadowBlur = 0;
+      ctx.strokeStyle = 'rgba(255,158,158,.5)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      knot(ax, ay);
+      knot(bx, by);
+    }
+
+    function frame(t) {
+      raf = requestAnimationFrame(frame);
+      if (!running) { lastT = t; return; }
+      var dt = (t - lastT) / 1000;
+      lastT = t;
+      if (dt > 1 / 30) dt = 1 / 30;
+      if (!(dt > 0)) dt = 1 / 60;
+      step(dt);
+      draw();
+    }
+
+    // --- pointer dragging (listen on window so the canvas never blocks clicks) ---
+    function pos(e) {
+      var r = canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    }
+
+    // A real string goes taut: node i can never be farther than i*seg from
+    // anchor A nor (N-1-i)*seg from anchor B. Clamp the drag target into
+    // that reachable region so the rope can always satisfy its constraints.
+    function clampReach(x, y, i) {
+      var la = i * seg * 0.995;
+      var lb = (N - 1 - i) * seg * 0.995;
+      for (var k = 0; k < 3; k++) {           // alternate projections
+        var dx = x - ax, dy = y - ay, d = Math.sqrt(dx * dx + dy * dy);
+        if (d > la) { x = ax + dx / d * la; y = ay + dy / d * la; }
+        dx = x - bx; dy = y - by; d = Math.sqrt(dx * dx + dy * dy);
+        if (d > lb) { x = bx + dx / d * lb; y = by + dy / d * lb; }
+      }
+      return { x: Math.max(1, Math.min(W - 1, x)), y: Math.max(1, Math.min(H, y)) };
+    }
+
+    window.addEventListener('pointerdown', function (e) {
+      if (!running || (e.button !== undefined && e.button !== 0)) return;
+      if (e.target && e.target.closest &&
+          e.target.closest('a,button,input,textarea,select')) return;
+      var p = pos(e);
+      if (p.x < 0 || p.y < 0 || p.x > W || p.y > H) return;
+      var best = -1, bd = grabR * grabR;
+      for (var i = 1; i < N - 1; i++) {   // interior nodes only (ends stay pinned)
+        var dx = nodes[i].x - p.x, dy = nodes[i].y - p.y, d = dx * dx + dy * dy;
+        if (d < bd) { bd = d; best = i; }
+      }
+      if (best < 1) return;
+      heldIdx = best;
+      var c = clampReach(p.x, p.y, heldIdx);
+      hx = c.x; hy = c.y; lastPx = p.x; lastPy = p.y;
+      e.preventDefault();
+    }, { passive: false });
+
+    window.addEventListener('pointermove', function (e) {
+      if (heldIdx < 0) return;
+      var p = pos(e);
+      var c = clampReach(p.x, p.y, heldIdx);   // string goes taut, hand "stops"
+      hx = c.x; hy = c.y;
+      var n = nodes[heldIdx];
+      n.x = hx; n.y = hy;
+      // carry the cursor's velocity (clamped) so release flings gently, never wildly
+      var cvx = p.x - lastPx, cvy = p.y - lastPy;
+      var CAP = MAXV * 1.4;
+      if (cvx > CAP) cvx = CAP; else if (cvx < -CAP) cvx = -CAP;
+      if (cvy > CAP) cvy = CAP; else if (cvy < -CAP) cvy = -CAP;
+      n.px = hx - cvx;
+      n.py = hy - cvy;
+      lastPx = p.x; lastPy = p.y;
+      e.preventDefault();
+    }, { passive: false });
+
+    function release() { heldIdx = -1; }
+    window.addEventListener('pointerup', release);
+    window.addEventListener('pointercancel', release);
+
+    // --- pause when the hero is off-screen; rebuild on resize ---
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        running = es[0].isIntersecting;
+        if (running) { lastT = performance.now(); lastScroll = window.scrollY || 0; }
+      }, { threshold: 0 }).observe(hero);
+    }
+    var rzt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rzt);
+      rzt = setTimeout(build, 150);
+    });
+
+    build();
+    lastT = performance.now();
+    lastScroll = window.scrollY || 0;
+    raf = requestAnimationFrame(frame);
+  })();
+
+  ------------------------------------------------------------------- */
+
+})();
+</script>
 </body>
 </html>
