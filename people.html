@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our People — Prateek Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* =============================================
+       PEOPLE PAGE — pp- prefixed to avoid conflicts
+       ============================================= */
+
+    /* ---- Hero ---- */
+    .pp-hero {
+      position: relative;
+      height: 100svh;
+      min-height: 560px;
+      max-height: 900px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      background: var(--color-ink-3);
+    }
+    .pp-hero-photo {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #1a1d21 0%, #2c1b18 55%, #111316 100%);
+      transform: scale(1.04);
+      transition: transform 9s ease-out;
+      will-change: transform;
+    }
+    .pp-hero:hover .pp-hero-photo { transform: scale(1); }
+    .pp-hero-vignette {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top, rgba(10,11,13,0.92) 0%, rgba(10,11,13,0.42) 44%, rgba(10,11,13,0.12) 100%),
+        radial-gradient(ellipse 80% 55% at 50% 108%, rgba(10,11,13,0.8) 0%, transparent 68%);
+      z-index: 1;
+    }
+    .pp-hero-overlay {
+      position: absolute; inset: 0;
+      background: rgba(10,11,13,0.5);
+      z-index: 2; opacity: 0;
+      transition: opacity 0.55s ease;
+      pointer-events: none;
+    }
+    .pp-hero:hover .pp-hero-overlay { opacity: 1; }
+    .pp-hero-redline {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: var(--color-red);
+      z-index: 5; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.65s cubic-bezier(.22,1,.36,1) 0.12s;
+    }
+    .pp-hero:hover .pp-hero-redline { transform: scaleX(1); }
+    .pp-hero-body {
+      position: relative; z-index: 3; width: 100%;
+      padding: 0 clamp(20px, 4vw, 56px) clamp(52px, 7vh, 88px);
+      max-width: var(--container-max); margin-inline: auto;
+    }
+    .pp-stencil {
+      display: block;
+      font-family: 'Bebas Neue', 'Impact', sans-serif;
+      font-size: clamp(88px, 13.5vw, 196px);
+      line-height: 0.88; letter-spacing: 0.05em;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.16);
+      user-select: none; pointer-events: none; margin-bottom: 32px;
+      transition: -webkit-text-stroke 0.5s ease, color 0.5s ease;
+    }
+    .pp-hero:hover .pp-stencil {
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.72);
+      color: rgba(255,255,255,0.05);
+    }
+    .pp-hero-info {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 32px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+      pointer-events: none;
+    }
+    .pp-hero:hover .pp-hero-info { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .pp-hero-tagline { font-size: clamp(14px,1.3vw,17px); color: rgba(255,255,255,0.72); line-height: 1.65; max-width: 460px; }
+    .pp-hero-tagline strong { color: #fff; font-weight: 600; }
+    .pp-hero-scroll {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); flex-shrink: 0; white-space: nowrap;
+    }
+    .pp-hero-scroll svg { width: 18px; height: 18px; animation: pp-bob 1.9s ease-in-out infinite; }
+    @keyframes pp-bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+    /* ---- Founders section ---- */
+    .pp-founders {
+      padding: clamp(80px,10vw,128px) 0 0;
+      background: var(--color-ink-3);
+      overflow: hidden; position: relative;
+    }
+    .pp-founders::before {
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(ellipse 90% 50% at 50% -5%, rgba(230,48,39,0.07) 0%, transparent 65%);
+      pointer-events:none;
+    }
+    .pp-founders-head { text-align:center; margin-bottom:clamp(52px,7vw,84px); position:relative; z-index:1; }
+    .pp-eyebrow {
+      display:inline-flex; align-items:center; gap:12px;
+      font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--color-red); margin-bottom:16px;
+    }
+    .pp-eyebrow::before,.pp-eyebrow::after { content:""; width:28px; height:1px; background:var(--color-red); }
+    .pp-founders-title {
+      font-family:'Plus Jakarta Sans',sans-serif;
+      font-size:clamp(28px,3.5vw,46px); font-weight:800;
+      letter-spacing:-0.03em; color:#fff; line-height:1.1; margin-bottom:12px;
+    }
+    .pp-founders-sub { font-size:15px; color:rgba(255,255,255,0.42); max-width:400px; margin-inline:auto; line-height:1.65; }
+
+    /* ---- Yarn canvas (sits over the carousel stage) ---- */
+    .pp-yarn-stage {
+      position: relative;
+      z-index: 1;
+    }
+    #pp-yarn-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; /* canvas only captures events we explicitly assign */
+      z-index: 20;
+    }
+
+    /* ---- Carousel ---- */
+    .pp-carousel-outer { position:relative; z-index:1; }
+    .pp-carousel-wrap {
+      overflow:hidden; cursor:grab; user-select:none; -webkit-user-select:none;
+    }
+    .pp-carousel-wrap:active { cursor:grabbing; }
+    .pp-carousel-track {
+      display:flex; gap:32px;
+      padding:48px clamp(20px,6vw,120px) 64px;
+      width:max-content; will-change:transform;
+    }
+
+    /* ---- Founder Card ---- */
+    .pp-card {
+      position:relative;
+      width:clamp(270px,24vw,340px);
+      border-radius:20px; overflow:hidden; flex-shrink:0; cursor:pointer;
+      animation: pp-float 5.4s ease-in-out infinite;
+      filter:brightness(0.68) saturate(0.6);
+      box-shadow:0 4px 20px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.04);
+      transition: filter 0.48s cubic-bezier(.22,1,.36,1), transform 0.48s cubic-bezier(.22,1,.36,1), box-shadow 0.48s ease;
+    }
+    .pp-card:nth-child(2){animation-delay:-1.8s}
+    .pp-card:nth-child(3){animation-delay:-3.6s}
+    @keyframes pp-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-11px)} }
+    .pp-card:hover {
+      filter:brightness(1) saturate(1);
+      transform:translateY(-16px) scale(1.03) !important;
+      box-shadow:0 36px 80px rgba(0,0,0,0.6), 0 0 0 1.5px rgba(230,48,39,0.55), 0 0 56px rgba(230,48,39,0.14);
+      animation-play-state:paused; z-index:10;
+    }
+    .pp-carousel-track:has(.pp-card:hover) .pp-card:not(:hover) {
+      filter:brightness(0.38) saturate(0.2);
+      transform:scale(0.972) !important;
+    }
+    .pp-card-photo { position:relative; aspect-ratio:3/4; background:var(--color-ink-2); overflow:hidden; }
+    .pp-card-placeholder {
+      position:absolute; inset:0; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:12px;
+      background:linear-gradient(155deg,#1e2226 0%,#14161a 100%);
+    }
+    .pp-card-placeholder svg { width:72px; height:72px; color:rgba(255,255,255,0.07); }
+    .pp-card-placeholder span { font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.18); }
+    .pp-card-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform 0.6s cubic-bezier(.22,1,.36,1); }
+    .pp-card:hover .pp-card-photo img { transform:scale(1.06); }
+    .pp-card-photo::after {
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(230,48,39,0.42) 0%, rgba(10,11,13,0.55) 36%, transparent 65%);
+      opacity:0; transition:opacity 0.45s ease; z-index:1;
+    }
+    .pp-card:hover .pp-card-photo::after { opacity:1; }
+    .pp-card-photo::before {
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,0.11) 50%,transparent 70%);
+      transform:translateX(-130%); transition:transform 0.65s ease; z-index:2;
+    }
+    .pp-card:hover .pp-card-photo::before { transform:translateX(130%); }
+    .pp-card-footer {
+      padding:22px 24px 26px; background:var(--color-ink-2);
+      position:relative; overflow:hidden; border-top:1px solid rgba(255,255,255,0.05);
+    }
+    .pp-card-footer::before {
+      content:""; position:absolute; top:0; left:0; right:0; height:2px;
+      background:var(--color-red); transform:scaleX(0); transform-origin:left;
+      transition:transform 0.45s cubic-bezier(.22,1,.36,1);
+    }
+    .pp-card:hover .pp-card-footer::before { transform:scaleX(1); }
+    .pp-card-name { font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:800; letter-spacing:-0.02em; color:#fff; line-height:1.2; margin-bottom:5px; }
+    .pp-card-role { font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--color-red); opacity:0.85; transition:opacity 0.3s ease; }
+    .pp-card:hover .pp-card-role { opacity:1; }
+    .pp-card-quote { font-size:13px; color:rgba(255,255,255,0.36); line-height:1.55; margin-top:0; max-height:0; overflow:hidden; opacity:0; transition:max-height 0.45s ease,opacity 0.4s ease,margin-top 0.35s ease; }
+    .pp-card:hover .pp-card-quote { max-height:80px; opacity:1; margin-top:12px; }
+
+    /* Carousel controls */
+    .pp-carousel-controls { display:flex; align-items:center; justify-content:center; gap:18px; position:relative; z-index:2; padding-bottom: 56px; }
+    .pp-carousel-btn {
+      width:44px; height:44px; border-radius:50%;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+      display:grid; place-items:center; color:rgba(255,255,255,0.55); cursor:pointer;
+      transition:background 0.22s ease,border-color 0.22s ease,color 0.22s ease,transform 0.22s ease;
+    }
+    .pp-carousel-btn:hover { background:var(--color-red); border-color:var(--color-red); color:#fff; transform:scale(1.09); }
+    .pp-carousel-btn svg { width:18px; height:18px; }
+    .pp-dots { display:flex; gap:8px; align-items:center; }
+    .pp-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.2); cursor:pointer; transition:background 0.3s ease,transform 0.3s ease; }
+    .pp-dot.active { background:var(--color-red); transform:scale(1.45); }
+
+    /* ============================================================
+       LOCATION CONTACT DIARY SECTION
+       ============================================================ */
+    .pp-contacts {
+      background: var(--color-ink-3);
+      padding: clamp(80px,10vw,128px) 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .pp-contacts-head {
+      text-align: center;
+      margin-bottom: clamp(52px,7vw,88px);
+    }
+    .pp-contacts-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(26px,3vw,42px); font-weight:800;
+      letter-spacing:-0.03em; color:#fff; line-height:1.1; margin-bottom:12px;
+    }
+    .pp-contacts-sub { font-size:15px; color:rgba(255,255,255,0.42); max-width:460px; margin-inline:auto; line-height:1.65; }
+
+    /* Location tabs */
+    /* Location panels */
+    .pp-loc-panel { display: block; }
+    .pp-loc-panel + .pp-loc-panel {
+      margin-top: 72px;
+      padding-top: 72px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* Panel header */
+    .pp-loc-label {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 32px;
+    }
+    .pp-loc-label-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(230,48,39,0.14); border: 1px solid rgba(230,48,39,0.22);
+      display: grid; place-items: center; color: var(--color-red); flex-shrink: 0;
+    }
+    .pp-loc-label-icon svg { width: 20px; height: 20px; }
+    .pp-loc-label h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; margin-bottom: 2px;
+    }
+    .pp-loc-label p { font-size:13px; color:rgba(255,255,255,0.4); }
+
+    /* 4-card contact grid */
+    .pp-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* Contact card */
+    .pp-contact-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 28px 24px 26px;
+      display: flex; flex-direction: column; gap: 0;
+      transition: border-color .35s ease, background .35s ease, transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+      position: relative; overflow: hidden; cursor: default;
+    }
+    .pp-contact-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+      transform: translateX(-140%);
+      transition: transform 0.6s ease;
+      pointer-events: none;
+    }
+    .pp-contact-card:hover {
+      border-color: rgba(230,48,39,0.35);
+      background: rgba(230,48,39,0.05);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(230,48,39,0.2);
+    }
+    .pp-contact-card:hover::after { transform: translateX(140%); }
+
+    /* Avatar */
+    .pp-cc-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid; place-items: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px; font-weight: 800;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      transition: background .35s ease, border-color .35s ease, color .35s ease;
+    }
+    .pp-contact-card:hover .pp-cc-avatar {
+      background: rgba(230,48,39,0.2);
+      border-color: rgba(230,48,39,0.4);
+      color: var(--color-red);
+    }
+
+    .pp-cc-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px; font-weight: 800; color: #fff;
+      letter-spacing: -0.01em; margin-bottom: 3px;
+    }
+    .pp-cc-role {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--color-red); margin-bottom: 18px; opacity: 0.8;
+    }
+    .pp-cc-divider {
+      height: 1px; background: rgba(255,255,255,0.07); margin-bottom: 16px;
+    }
+    .pp-cc-details { display: flex; flex-direction: column; gap: 10px; }
+    .pp-cc-detail {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; color: rgba(255,255,255,0.45);
+      line-height: 1.4;
+    }
+    .pp-cc-detail svg { width:14px; height:14px; color:rgba(230,48,39,0.7); flex-shrink:0; }
+    .pp-cc-detail a { color: inherit; transition: color .2s ease; }
+    .pp-cc-detail a:hover { color: var(--color-red); }
+
+    /* ---- Reveal ---- */
+    .pp-reveal {
+      opacity:0; transform:translateY(26px);
+      transition:opacity 0.65s ease,transform 0.65s ease;
+    }
+    .pp-reveal.pp-visible { opacity:1; transform:none; }
+    .pp-reveal-d1 { transition-delay:0.1s; }
+    .pp-reveal-d2 { transition-delay:0.22s; }
+    .pp-reveal-d3 { transition-delay:0.34s; }
+
+    /* ---- Responsive ---- */
+    @media(max-width:1024px) { .pp-contact-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px) {
+      .pp-card { width:clamp(240px,70vw,290px); }
+      .pp-hero-info { flex-direction:column; gap:16px; }
+      .pp-contact-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:520px) { .pp-contact-grid { grid-template-columns:1fr; } }
+    @media(prefers-reduced-motion:reduce) {
+      .pp-card,.pp-hero-photo { animation:none !important; transition:none !important; }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header.css">
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="logo.png" />
+</head>
+<body class="hero-dark">
+
+  <!-- ======================= HEADER ======================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+
+    <a href="index.html" class="brand" aria-label="Prateek Group home">
+      <img src="logo.png" alt="Prateek Group" class="brand-mark" width="208" height="240" />
+      <span>
+        <span class="brand-name">PRATEEK</span>
+        <span class="brand-sub">GROUP</span>
+      </span>
+    </a>
+
+    <ul class="nav" id="siteNav" aria-label="Primary">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="history.html">HISTORY</a></li>
+
+      <li class="has-dropdown">
+        <a href="index.html#manufacturing" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="index.html#manufacturing">MANUFACTURING</a></li>
+          <li><a href="index.html#qualitycontrol">QUALITY CONTROL</a></li>
+          <li><a href="index.html#manufacturing">MACHINERY</a></li>
+          <li><a href="index.html#capacity">CAPACITY</a></li>
+          <li><a href="index.html#qualitycontrol">CERTIFICATIONS</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="index.html#products" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="pv-yarn.html">PV YARN</a></li>
+          <li><a href="dyed-yarn.html">DYED YARN</a></li>
+          <li><a href="fancy-yarn.html">FANCY YARN</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="group-companies.html" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="prateek.html">PRATEEK YARN</a></li>
+          <li><a href="kk-spintex.html">KK SPINTEX</a></li>
+          <li><a href="gb-dyed-yarn.html">GB DYED YARN</a></li>
+        </ul>
+      </li>
+
+      <li><a href="group-companies.html#partners">OUR PARTNERS</a></li>
+      <li><a href="people.html" class="active">PEOPLE</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+
+    <a href="contact.html" class="btn btn--pill">
+      GET IN TOUCH
+      <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pp-hero" aria-label="Our People hero">
+      <div class="pp-hero-photo"></div>
+      <div class="pp-hero-vignette" aria-hidden="true"></div>
+      <div class="pp-hero-overlay"  aria-hidden="true"></div>
+      <div class="pp-hero-redline"  aria-hidden="true"></div>
+      <div class="pp-hero-body">
+        <span class="pp-stencil" aria-hidden="true">OUR PEOPLE</span>
+        <div class="pp-hero-info">
+          <p class="pp-hero-tagline"><strong>Three decades. Three facilities.</strong><br>One family that built it from the ground up — and the people who show up every day to keep it running.</p>
+          <span class="pp-hero-scroll">Meet the founders
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FOUNDERS + YARN STRING CAROUSEL -->
+    <section class="pp-founders" id="founders">
+      <div class="container">
+        <div class="pp-founders-head pp-reveal">
+          <div class="pp-eyebrow">Leadership</div>
+          <h2 class="pp-founders-title">The Founders</h2>
+          <p class="pp-founders-sub">The vision, drive, and decisions that have shaped Prateek Group across 30+ years in yarn manufacturing.</p>
+        </div>
+      </div>
+
+      <!-- Yarn canvas + carousel share this stage -->
+      <div class="pp-yarn-stage pp-reveal pp-reveal-d1">
+        <!-- Canvas draws the yarn/string overtop -->
+        <canvas id="pp-yarn-canvas" aria-hidden="true"></canvas>
+
+        <div class="pp-carousel-outer">
+          <div class="pp-carousel-wrap" id="pp-wrap">
+            <div class="pp-carousel-track" id="pp-track">
+
+              <!-- Card 1 -->
+              <article class="pp-card" data-index="0" tabindex="0">
+                <div class="pp-card-photo">
+                  <div class="pp-card-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>Photo</span>
+                  </div>
+                </div>
+                <div class="pp-card-footer">
+                  <div class="pp-card-name">Founder Name</div>
+                  <div class="pp-card-role">Founder &amp; Managing Director</div>
+                  <p class="pp-card-quote">"Quality is not what you inspect — it's what you build into every thread."</p>
+                </div>
+              </article>
+
+              <!-- Card 2 -->
+              <article class="pp-card" data-index="1" tabindex="0">
+                <div class="pp-card-photo">
+                  <div class="pp-card-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>Photo</span>
+                  </div>
+                </div>
+                <div class="pp-card-footer">
+                  <div class="pp-card-name">Founder Name</div>
+                  <div class="pp-card-role">Co-Founder &amp; Director</div>
+                  <p class="pp-card-quote">"Relationships built on trust are the only infrastructure that never needs repair."</p>
+                </div>
+              </article>
+
+              <!-- Card 3 -->
+              <article class="pp-card" data-index="2" tabindex="0">
+                <div class="pp-card-photo">
+                  <div class="pp-card-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>Photo</span>
+                  </div>
+                </div>
+                <div class="pp-card-footer">
+                  <div class="pp-card-name">Founder Name</div>
+                  <div class="pp-card-role">Director — Operations</div>
+                  <p class="pp-card-quote">"Scale is discipline applied consistently, across every shift, every season."</p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="pp-carousel-controls">
+            <button class="pp-carousel-btn" id="pp-prev" aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="pp-dots" id="pp-dots">
+              <span class="pp-dot active" data-i="0" tabindex="0" role="tab"></span>
+              <span class="pp-dot" data-i="1" tabindex="0" role="tab"></span>
+              <span class="pp-dot" data-i="2" tabindex="0" role="tab"></span>
+            </div>
+            <button class="pp-carousel-btn" id="pp-next" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div><!-- /pp-yarn-stage -->
+    </section>
+
+
+    <!-- LOCATION CONTACT DIARY -->
+    <section class="pp-contacts" id="contact-directory">
+      <div class="container">
+
+        <div class="pp-contacts-head pp-reveal">
+          <div class="pp-eyebrow">Contact Directory</div>
+          <h2 class="pp-contacts-title">Who to Reach at Each Location</h2>
+          <p class="pp-contacts-sub">Looking to work with us? Find the right contact for each of our three manufacturing facilities.</p>
+        </div>
+
+
+        <!-- ── BHIWANDI ── -->
+        <div class="pp-loc-panel pp-reveal pp-reveal-d2" id="panel-bhiwandi">
+          <div class="pp-loc-label">
+            <div class="pp-loc-label-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l5-3 5 3v3h8v9z"/></svg>
+            </div>
+            <div>
+              <h3>Prateek Yarn — Bhiwandi</h3>
+              <p>Fancy &amp; Specialty Yarn · Maharashtra</p>
+            </div>
+          </div>
+          <div class="pp-contact-grid">
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">SK</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">General Manager</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                  <a href="tel:+917273444555">+91 72734 44555</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <a href="mailto:gm@prateekspunfab.com">gm@prateekspunfab.com</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  General Enquiries
+                </div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">MR</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Sales Manager</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                  <a href="tel:+917273444556">+91 72734 44556</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <a href="mailto:sales.bh@prateekspunfab.com">sales.bh@prateekspunfab.com</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Yarn Orders &amp; Enquiries
+                </div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">PN</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Quality Head</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                  <a href="tel:+917273444557">+91 72734 44557</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <a href="mailto:quality.bh@prateekspunfab.com">quality.bh@prateekspunfab.com</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg>
+                  Quality &amp; Specifications
+                </div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">AR</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">HR &amp; Recruitment</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                  <a href="tel:+917273444558">+91 72734 44558</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <a href="mailto:hr.bh@prateekspunfab.com">hr.bh@prateekspunfab.com</a>
+                </div>
+                <div class="pp-cc-detail">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                  Careers &amp; Partnerships
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── GUNTUR ── -->
+        <div class="pp-loc-panel pp-reveal pp-reveal-d1" id="panel-guntur">
+          <div class="pp-loc-label">
+            <div class="pp-loc-label-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l5-3 5 3v3h8v9z"/></svg>
+            </div>
+            <div>
+              <h3>KK Spintex — Guntur</h3>
+              <p>PV Yarn Manufacturing · Andhra Pradesh</p>
+            </div>
+          </div>
+          <div class="pp-contact-grid">
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">VK</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Plant Manager</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444560">+91 72734 44560</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:plant.gn@prateekspunfab.com">plant.gn@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>General Enquiries</div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">SR</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Sales Manager</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444561">+91 72734 44561</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:sales.gn@prateekspunfab.com">sales.gn@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>PV Yarn Orders</div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">RN</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Quality Head</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444562">+91 72734 44562</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:quality.gn@prateekspunfab.com">quality.gn@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg>Quality &amp; Specs</div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">KP</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">HR &amp; Recruitment</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444563">+91 72734 44563</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:hr.gn@prateekspunfab.com">hr.gn@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Careers &amp; Partnerships</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PALSANA ── -->
+        <div class="pp-loc-panel pp-reveal pp-reveal-d2" id="panel-palsana">
+          <div class="pp-loc-label">
+            <div class="pp-loc-label-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V9l5-3 5 3v3h8v9z"/></svg>
+            </div>
+            <div>
+              <h3>GB Dyed Yarn — Palsana</h3>
+              <p>Dyeing &amp; Texturizing · Gujarat</p>
+            </div>
+          </div>
+          <div class="pp-contact-grid">
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">DJ</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Plant Manager</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444565">+91 72734 44565</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:plant.pl@prateekspunfab.com">plant.pl@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>General Enquiries</div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">HM</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Sales Manager</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444566">+91 72734 44566</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:sales.pl@prateekspunfab.com">sales.pl@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Dyed Yarn Orders</div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">NB</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">Colour Lab Head</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444567">+91 72734 44567</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:colour.pl@prateekspunfab.com">colour.pl@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/></svg>Shade Matching &amp; Specs</div>
+              </div>
+            </div>
+            <div class="pp-contact-card">
+              <div class="pp-cc-avatar">TP</div>
+              <div class="pp-cc-name">Contact Name</div>
+              <div class="pp-cc-role">HR &amp; Recruitment</div>
+              <div class="pp-cc-divider"></div>
+              <div class="pp-cc-details">
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.18 1.2a2 2 0 012-.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+917273444568">+91 72734 44568</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:hr.pl@prateekspunfab.com">hr.pl@prateekspunfab.com</a></div>
+                <div class="pp-cc-detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Careers &amp; Partnerships</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /container -->
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-on-dark"><img src="logo.png" alt="Prateek Group" class="brand-mark" width="208" height="240" /><span class="logo-text"><span class="logo-text-main">PRATEEK</span><span class="logo-text-sub">GROUP</span></span></a>
+        <p class="footer-about">Integrated yarn manufacturing group with state-of-the-art facilities across India.</p>
+      </div>
+      <div class="footer-col"><h5 class="footer-heading">Group Companies</h5><ul><li><a href="prateek.html">Prateek</a></li><li><a href="kk-spintex.html">KK Spintex</a></li><li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li></ul></div>
+      <div class="footer-col"><h5 class="footer-heading">Quick Links</h5><ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="group-companies.html">Group Companies</a></li><li><a href="index.html#products">Products</a></li><li><a href="people.html">Our People</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5 class="footer-heading">Locations</h5><ul class="footer-locations"><li><span>📍</span>Bhiwandi, Maharashtra</li><li><span>📍</span>Guntur, Andhra Pradesh</li><li><span>📍</span>Palsana, Gujarat</li></ul></div>
+      <div class="footer-col"><h5 class="footer-heading">Contact</h5><ul class="footer-contact"><li><span>📞</span>+91 72734 44555</li><li><span>✉️</span>info@prateekspunfab.com</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner"><div class="footer-social"><a href="#">in</a><a href="#">ig</a><a href="#">yt</a></div><p class="footer-copy">© 2024 Prateek Spunfab Pvt. Ltd.</p><div class="footer-legal"><a href="#">Privacy Policy</a><span>|</span><a href="#">Terms</a></div></div></div>
+  </footer>
+
+
+  <script>
+  /* ============================================================
+     HEADER + NAV
+     ============================================================ *//* Header behaviour lives in header.js */
+
+  /* ---- Scroll reveal ---- */
+  document.querySelectorAll('.pp-reveal').forEach(el => {
+    new IntersectionObserver(([e]) => { if(e.isIntersecting) el.classList.add('pp-visible'); }, {threshold:0.1}).observe(el);
+  });
+
+  /* ============================================================
+     FOUNDERS CAROUSEL
+     ============================================================ */
+  (function(){
+    const wrap  = document.getElementById('pp-wrap');
+    const track = document.getElementById('pp-track');
+    const cards = Array.from(track.querySelectorAll('.pp-card'));
+    const dots  = Array.from(document.querySelectorAll('.pp-dot'));
+    const N = cards.length;
+    let cur = 0;
+
+    function snapOffset(i){
+      const c = cards[i];
+      return c.offsetLeft - wrap.offsetWidth/2 + c.offsetWidth/2;
+    }
+    function goTo(i, animate=true){
+      cur = ((i%N)+N)%N;
+      track.style.transition = animate ? 'transform 0.72s cubic-bezier(0.32,0,0.15,1)' : 'none';
+      track.style.transform  = `translateX(${-snapOffset(cur)}px)`;
+      dots.forEach((d,j)=>{ d.classList.toggle('active',j===cur); d.setAttribute('aria-selected',j===cur); });
+    }
+    requestAnimationFrame(()=>goTo(0,false));
+    window.addEventListener('resize',()=>goTo(cur,false));
+
+    document.getElementById('pp-prev').addEventListener('click',()=>{goTo(cur-1);resetAuto();});
+    document.getElementById('pp-next').addEventListener('click',()=>{goTo(cur+1);resetAuto();});
+    dots.forEach(d=>{
+      d.addEventListener('click',()=>{goTo(+d.dataset.i);resetAuto();});
+      d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();goTo(+d.dataset.i);resetAuto();}});
+    });
+    cards.forEach((c,i)=>{ c.addEventListener('keydown',e=>{ if(e.key==='ArrowRight')goTo(i+1); if(e.key==='ArrowLeft')goTo(i-1); }); });
+
+    let isDown=false,startX=0,baseOff=0,velX=0,lastX=0;
+    wrap.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX;lastX=e.pageX;baseOff=snapOffset(cur);track.style.transition='none';velX=0;});
+    wrap.addEventListener('mousemove',e=>{if(!isDown)return;velX=e.pageX-lastX;lastX=e.pageX;track.style.transform=`translateX(${-(baseOff-(e.pageX-startX))}px)`;});
+    const endDrag=()=>{if(!isDown)return;isDown=false;if(velX<-50)goTo(cur+1);else if(velX>50)goTo(cur-1);else goTo(cur);};
+    wrap.addEventListener('mouseup',endDrag);
+    wrap.addEventListener('mouseleave',endDrag);
+    wrap.addEventListener('touchstart',e=>{startX=e.touches[0].pageX;lastX=startX;baseOff=snapOffset(cur);velX=0;track.style.transition='none';},{passive:true});
+    wrap.addEventListener('touchmove',e=>{velX=e.touches[0].pageX-lastX;lastX=e.touches[0].pageX;track.style.transform=`translateX(${-(baseOff-(e.touches[0].pageX-startX))}px)`;},{passive:true});
+    wrap.addEventListener('touchend',endDrag);
+
+    let autoId=setInterval(()=>goTo(cur+1),5000);
+    function resetAuto(){clearInterval(autoId);autoId=setInterval(()=>goTo(cur+1),5000);}
+
+    /* ---- Expose goTo for the yarn system ---- */
+    window._carouselGoTo = goTo;
+    window._carouselSnapOffset = snapOffset;
+    window._carouselCur = ()=>cur;
+    window._carouselCards = cards;
+    window._carouselWrap = wrap;
+    window._carouselTrack = track;
+    window._carouselResetAuto = resetAuto;
+  })();
+
+  /* ============================================================
+     ELASTIC YARN STRING
+     ============================================================ */
+  (function(){
+    const canvas = document.getElementById('pp-yarn-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const stage = canvas.parentElement;
+
+    /* Resize canvas to match stage */
+    function resize(){
+      const r = stage.getBoundingClientRect();
+      canvas.width  = r.width;
+      canvas.height = r.height;
+    }
+    resize();
+    new ResizeObserver(resize).observe(stage);
+
+    /* Physics state for the yarn "pull point" */
+    const yarn = {
+      x: 0, y: 0,          /* current handle position */
+      tx: 0, ty: 0,         /* target (mouse) */
+      vx: 0, vy: 0,         /* velocity */
+      restX: 0, restY: 0,   /* anchor / rest position */
+      active: false,
+      grabbed: false,
+      radius: 14,           /* grab circle radius */
+    };
+
+    /* Mid-control point for quadratic bezier (elastic sag) */
+    const ctrl = { x:0, y:0, vx:0, vy:0 };
+
+    let rafId = null;
+    let anchors = []; /* anchor dots on each card */
+
+    /* Recompute anchor positions (card center-tops) */
+    function updateAnchors(){
+      const stageRect = stage.getBoundingClientRect();
+      anchors = window._carouselCards.map(card => {
+        const r = card.getBoundingClientRect();
+        return {
+          x: r.left - stageRect.left + r.width/2,
+          y: r.top  - stageRect.top  + r.height * 0.18, /* near top of card */
+        };
+      });
+      /* Rest position: midpoint between outermost anchors (or center of stage) */
+      if(anchors.length){
+        const cIdx = window._carouselCur ? window._carouselCur() : 0;
+        const a = anchors[cIdx] || anchors[0];
+        yarn.restX = a.x;
+        yarn.restY = a.y - 40;
+        if(!yarn.grabbed){
+          yarn.tx = yarn.restX;
+          yarn.ty = yarn.restY;
+        }
+      }
+    }
+
+    /* Spring / damper physics tick */
+    function tick(){
+      const k  = 0.12;  /* spring stiffness */
+      const damp = 0.72; /* damping (lower = more bounce) */
+
+      if(!yarn.grabbed){
+        /* Spring back to rest */
+        const dx = yarn.restX - yarn.x;
+        const dy = yarn.restY - yarn.y;
+        yarn.vx += dx * k;
+        yarn.vy += dy * k;
+      }
+      yarn.vx *= damp;
+      yarn.vy *= damp;
+      yarn.x  += yarn.vx;
+      yarn.y  += yarn.vy;
+
+      /* Control point springs to midpoint with sag */
+      const mx = (yarn.restX + yarn.x) * 0.5;
+      const my = (yarn.restY + yarn.y) * 0.5 + 40; /* sag */
+      const cdx = mx - ctrl.x;
+      const cdy = my - ctrl.y;
+      ctrl.vx += cdx * 0.18;
+      ctrl.vy += cdy * 0.18;
+      ctrl.vx *= 0.65;
+      ctrl.vy *= 0.65;
+      ctrl.x  += ctrl.vx;
+      ctrl.y  += ctrl.vy;
+    }
+
+    /* Draw one frame */
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      if(!anchors.length) return;
+
+      const cIdx = window._carouselCur ? window._carouselCur() : 0;
+      const anchor = anchors[cIdx] || anchors[0];
+
+      /* Draw thin secondary "loose" strands between anchor dots */
+      anchors.forEach((a, i) => {
+        if(i === cIdx) return;
+        ctx.save();
+        ctx.globalAlpha = 0.10;
+        ctx.strokeStyle = '#E63027';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4,8]);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        /* Subtle curve toward yarn handle */
+        const cx = (a.x + yarn.x)*0.5;
+        const cy = (a.y + yarn.y)*0.5 + 20;
+        ctx.quadraticCurveTo(cx, cy, yarn.x, yarn.y);
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      /* Main yarn strand: anchor → ctrl → handle */
+      const dist = Math.hypot(yarn.x - anchor.x, yarn.y - anchor.y);
+      const tension = Math.min(dist / 300, 1); /* 0=slack, 1=taut */
+
+      /* Yarn color shifts from warm off-white to red when pulled */
+      const r = Math.round(220 + 35*tension);
+      const g = Math.round(200 - 152*tension);
+      const b = Math.round(180 - 141*tension);
+
+      /* Outer glow (elastic halo) */
+      ctx.save();
+      ctx.globalAlpha = 0.18 + tension*0.22;
+      ctx.strokeStyle = `rgba(230,48,39,1)`;
+      ctx.lineWidth   = 4 + tension*6;
+      ctx.lineCap     = 'round';
+      ctx.filter      = 'blur(6px)';
+      ctx.beginPath();
+      ctx.moveTo(anchor.x, anchor.y);
+      ctx.quadraticCurveTo(ctrl.x, ctrl.y, yarn.x, yarn.y);
+      ctx.stroke();
+      ctx.restore();
+
+      /* Core strand */
+      ctx.save();
+      ctx.globalAlpha = 0.75 + tension*0.25;
+      ctx.strokeStyle = `rgb(${r},${g},${b})`;
+      ctx.lineWidth   = 1.5 + tension*1.5;
+      ctx.lineCap     = 'round';
+      ctx.beginPath();
+      ctx.moveTo(anchor.x, anchor.y);
+      ctx.quadraticCurveTo(ctrl.x, ctrl.y, yarn.x, yarn.y);
+      ctx.stroke();
+      ctx.restore();
+
+      /* Anchor dot */
+      ctx.save();
+      ctx.fillStyle = yarn.grabbed ? '#E63027' : `rgb(${r},${g},${b})`;
+      ctx.globalAlpha = 0.9;
+      ctx.beginPath();
+      ctx.arc(anchor.x, anchor.y, 4, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+
+      /* Grab handle circle */
+      const isNearHandle = yarn.active;
+      ctx.save();
+      ctx.globalAlpha = isNearHandle ? 0.95 : 0.55;
+      /* Outer ring */
+      ctx.strokeStyle = '#E63027';
+      ctx.lineWidth   = 1.5;
+      ctx.beginPath();
+      ctx.arc(yarn.x, yarn.y, yarn.radius + (yarn.grabbed ? 3:0) + tension*2, 0, Math.PI*2);
+      ctx.stroke();
+      /* Inner fill */
+      ctx.fillStyle = yarn.grabbed ? '#E63027' : 'rgba(230,48,39,0.18)';
+      ctx.beginPath();
+      ctx.arc(yarn.x, yarn.y, yarn.radius - 2, 0, Math.PI*2);
+      ctx.fill();
+      /* Small center dot */
+      ctx.fillStyle = yarn.grabbed ? '#fff' : '#E63027';
+      ctx.globalAlpha = 1;
+      ctx.beginPath();
+      ctx.arc(yarn.x, yarn.y, 2.5, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+
+      /* "Pull to navigate" hint (fades out once pulled) */
+      if(!yarn.grabbed && tension < 0.05){
+        ctx.save();
+        ctx.globalAlpha = 0.35;
+        ctx.fillStyle = 'rgba(255,255,255,0.6)';
+        ctx.font = '600 11px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('drag to pull', yarn.x, yarn.y - yarn.radius - 10);
+        ctx.restore();
+      }
+    }
+
+    function loop(){
+      tick();
+      draw();
+      rafId = requestAnimationFrame(loop);
+    }
+
+    /* Initialise yarn position after layout settles */
+    function init(){
+      updateAnchors();
+      const cIdx = window._carouselCur ? window._carouselCur() : 0;
+      const a = anchors[cIdx] || {x: canvas.width/2, y: 120};
+      yarn.x = a.x; yarn.y = a.y - 40;
+      yarn.restX = yarn.x; yarn.restY = yarn.y;
+      ctrl.x = yarn.x; ctrl.y = yarn.y + 20;
+      if(rafId) cancelAnimationFrame(rafId);
+      loop();
+    }
+    setTimeout(init, 120);
+
+    /* Mouse interaction — canvas pointer-events enabled for handle zone */
+    canvas.style.pointerEvents = 'auto';
+    canvas.style.cursor = 'default';
+
+    function stagePos(e){
+      const r = canvas.getBoundingClientRect();
+      const touch = e.touches ? e.touches[0] : e;
+      return { x: touch.clientX - r.left, y: touch.clientY - r.top };
+    }
+
+    function isOnHandle(px,py){
+      return Math.hypot(px-yarn.x, py-yarn.y) < yarn.radius + 8;
+    }
+
+    canvas.addEventListener('mousemove', e => {
+      const p = stagePos(e);
+      yarn.active = isOnHandle(p.x,p.y);
+      canvas.style.cursor = yarn.active ? 'grab' : 'default';
+      if(yarn.grabbed){
+        yarn.tx = p.x; yarn.ty = p.y;
+        yarn.x  = p.x; yarn.y  = p.y;
+        canvas.style.cursor = 'grabbing';
+
+        /* Trigger carousel navigation based on how far we've pulled horizontally */
+        const cIdx = window._carouselCur ? window._carouselCur() : 0;
+        const anchor = anchors[cIdx] || {x:canvas.width/2};
+        const pullX = yarn.x - anchor.x;
+        if(pullX < -canvas.width * 0.18){
+          window._carouselGoTo && window._carouselGoTo(cIdx+1);
+          window._carouselResetAuto && window._carouselResetAuto();
+          releasePull();
+        } else if(pullX > canvas.width * 0.18){
+          window._carouselGoTo && window._carouselGoTo(cIdx-1);
+          window._carouselResetAuto && window._carouselResetAuto();
+          releasePull();
+        }
+      }
+    });
+
+    canvas.addEventListener('mousedown', e => {
+      const p = stagePos(e);
+      if(isOnHandle(p.x,p.y)){
+        yarn.grabbed=true;
+        canvas.style.cursor='grabbing';
+        e.preventDefault();
+      }
+    });
+
+    function releasePull(){
+      yarn.grabbed=false;
+      canvas.style.cursor='default';
+      /* Give velocity a snap-back kick */
+      const cIdx = window._carouselCur ? window._carouselCur() : 0;
+      const a = anchors[cIdx] || {x:canvas.width/2,y:120};
+      yarn.restX=a.x; yarn.restY=a.y-40;
+      updateAnchors();
+    }
+
+    window.addEventListener('mouseup', () => {
+      if(yarn.grabbed) releasePull();
+    });
+
+    canvas.addEventListener('touchstart', e => {
+      const p = stagePos(e);
+      if(isOnHandle(p.x,p.y)){ yarn.grabbed=true; e.preventDefault(); }
+    }, {passive:false});
+
+    canvas.addEventListener('touchmove', e => {
+      if(!yarn.grabbed) return;
+      const p = stagePos(e);
+      yarn.x=p.x; yarn.y=p.y;
+      const cIdx = window._carouselCur ? window._carouselCur() : 0;
+      const anchor = anchors[cIdx] || {x:canvas.width/2};
+      const pullX = yarn.x - anchor.x;
+      if(pullX < -canvas.width*0.18){
+        window._carouselGoTo && window._carouselGoTo(cIdx+1);
+        window._carouselResetAuto && window._carouselResetAuto();
+        releasePull();
+      } else if(pullX > canvas.width*0.18){
+        window._carouselGoTo && window._carouselGoTo(cIdx-1);
+        window._carouselResetAuto && window._carouselResetAuto();
+        releasePull();
+      }
+      e.preventDefault();
+    }, {passive:false});
+
+    window.addEventListener('touchend', () => { if(yarn.grabbed) releasePull(); });
+
+    /* Update anchor after carousel moves */
+    window.addEventListener('resize', ()=>{ resize(); updateAnchors(); });
+    const trackEl = document.getElementById('pp-track');
+    if(trackEl){
+      new MutationObserver(updateAnchors).observe(trackEl,{attributes:true,attributeFilter:['style']});
+    }
+    /* Also update anchors on transitionend */
+    trackEl && trackEl.addEventListener('transitionend', ()=>{
+      updateAnchors();
+      const cIdx = window._carouselCur ? window._carouselCur() : 0;
+      const a = anchors[cIdx];
+      if(a){ yarn.restX=a.x; yarn.restY=a.y-40; }
+    });
+
+  })();
+
+  </script>
+<script src="header.js"></script>
+</body>
+</html>

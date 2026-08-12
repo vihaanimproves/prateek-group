@@ -1407,19 +1407,18 @@ img{max-width:100%;display:block}
 }
 
 </style>
+<link rel="stylesheet" href="header.css">
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="logo.png" />
 </head>
-<body>
+<body class="hero-dark">
 
 <!-- ======================= HEADER ======================= -->
 <header class="site-header" id="siteHeader">
-  <div class="container header-inner">
+  <div class="header-inner">
 
-    <a href="index.html" class="brand js-top" aria-label="Prateek Group home">
-      <svg class="brand-mark" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="2" y="2" width="13" height="56" fill="var(--red-btn)"/>
-        <path d="M 15,2 L 47,2 L 15,33 Z" fill="var(--red-btn)"/>
-        <path d="M 15,38 L 36,38 L 15,56 Z" fill="var(--red-btn)"/>
-      </svg>
+    <a href="index.html" class="brand" aria-label="Prateek Group home">
+      <img src="logo.png" alt="Prateek Group" class="brand-mark" width="208" height="240" />
       <span>
         <span class="brand-name">PRATEEK</span>
         <span class="brand-sub">GROUP</span>
@@ -1428,35 +1427,39 @@ img{max-width:100%;display:block}
 
     <ul class="nav" id="siteNav" aria-label="Primary">
       <li><a href="index.html">HOME</a></li>
-      <li><a href="#history">HISTORY</a></li>
+      <li><a href="history.html">HISTORY</a></li>
+
       <li class="has-dropdown">
-        <a href="#" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <a href="index.html#manufacturing" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
         <ul class="dropdown">
-          <li><a href="#manufacturing">MANUFACTURING</a></li>
-          <li><a href="#qualitycontrol">QUALITY CONTROL</a></li>
-          <li><a href="#machinery">MACHINERY</a></li>
-          <li><a href="#capacity">CAPACITY</a></li>
-          <li><a href="#certifications">CERTIFICATIONS</a></li>
+          <li><a href="index.html#manufacturing">MANUFACTURING</a></li>
+          <li><a href="index.html#qualitycontrol">QUALITY CONTROL</a></li>
+          <li><a href="index.html#manufacturing">MACHINERY</a></li>
+          <li><a href="index.html#capacity">CAPACITY</a></li>
+          <li><a href="index.html#qualitycontrol">CERTIFICATIONS</a></li>
         </ul>
       </li>
+
       <li class="has-dropdown">
-        <a href="#" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <a href="index.html#products" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">&#9662;</span></a>
         <ul class="dropdown">
-          <li><a href="#pvyarn">PV YARN</a></li>
-          <li><a href="#dyedyarn">DYED YARN</a></li>
-          <li><a href="#fancyyarn">FANCY YARN</a></li>
+          <li><a href="pv-yarn.html">PV YARN</a></li>
+          <li><a href="dyed-yarn.html">DYED YARN</a></li>
+          <li><a href="fancy-yarn.html">FANCY YARN</a></li>
         </ul>
       </li>
+
       <li class="has-dropdown">
-        <a href="#" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <a href="group-companies.html" class="active" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">&#9662;</span></a>
         <ul class="dropdown">
-          <li><a href="#prateek">PRATEEK YARN</a></li>
-          <li><a href="#kk-spintex">KK SPINTEX</a></li>
-          <li><a href="#gb-yarn">GB DYED YARN</a></li>
+          <li><a href="prateek.html">PRATEEK YARN</a></li>
+          <li><a href="kk-spintex.html">KK SPINTEX</a></li>
+          <li><a href="gb-dyed-yarn.html">GB DYED YARN</a></li>
         </ul>
       </li>
-      <li><a href="#partners">OUR PARTNERS</a></li>
-      <li><a href="#careers">PEOPLE</a></li>
+
+      <li><a href="group-companies.html#partners">OUR PARTNERS</a></li>
+      <li><a href="people.html">PEOPLE</a></li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
 
@@ -2274,11 +2277,7 @@ img{max-width:100%;display:block}
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="brand js-top" aria-label="Prateek Group home">
-        <svg class="brand-mark" viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="2" y="2" width="13" height="56" fill="var(--red-btn)"/>
-          <path d="M 15,2 L 47,2 L 15,33 Z" fill="var(--red-btn)"/>
-          <path d="M 15,38 L 36,38 L 15,56 Z" fill="var(--red-btn)"/>
-        </svg>
+        <img src="logo.png" alt="Prateek Group" class="brand-mark" width="208" height="240" />
         <span>
           <span class="brand-name">PRATEEK</span>
           <span class="brand-sub">GROUP</span>
@@ -2292,21 +2291,12 @@ img{max-width:100%;display:block}
 
     <div class="footer-col">
       <h5 class="footer-heading">Group Companies</h5>
-      <ul>
-        <li><a href="#prateek">Prateek</a></li>
-        <li><a href="#kk-spintex">KK Spintex</a></li>
-        <li><a href="#gb-yarn">GB Dyed Yarn</a></li>
-      </ul>
+      <ul><li><a href="prateek.html">Prateek</a></li><li><a href="kk-spintex.html">KK Spintex</a></li><li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li></ul>
     </div>
 
     <div class="footer-col">
       <h5 class="footer-heading">Quick Links</h5>
-      <ul>
-        <li><a href="index.html" class="js-top">Home</a></li>
-        <li><a href="group-companies.html">Group Companies</a></li>
-        <li><a href="#careers">Careers</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="group-companies.html">Group Companies</a></li><li><a href="index.html#products">Products</a></li><li><a href="people.html">Our People</a></li><li><a href="contact.html">Contact</a></li></ul>
     </div>
 
     <div class="footer-col">
@@ -2378,56 +2368,7 @@ img{max-width:100%;display:block}
 (function () {
   'use strict';
 
-  /* Header: solid background after scrolling (theme behaviour) */
-  var header = document.getElementById('siteHeader');
-  function onScroll(){ header.classList.toggle('is-scrolled', window.scrollY > 40); }
-  window.addEventListener('scroll', onScroll, { passive:true });
-  onScroll();
-
-  /* Mobile navigation toggle */
-  var toggle = document.getElementById('navToggle');
-  var body = document.body;
-  if (toggle) {
-    toggle.addEventListener('click', function(){
-      var open = body.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-  }
-
-  /* Dropdown parents: tap to open on mobile; hover handles desktop */
-  document.querySelectorAll('.has-dropdown > a').forEach(function(link){
-    link.addEventListener('click', function(e){
-      e.preventDefault();
-      var li = link.parentElement;
-      var wasOpen = li.classList.contains('open');
-      document.querySelectorAll('.has-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
-      if (!wasOpen) li.classList.add('open');
-    });
-  });
-
-  /* Other nav links close the mobile menu */
-  document.querySelectorAll('#siteNav a').forEach(function(link){
-    if (link.matches('.has-dropdown > a')) return;
-    link.addEventListener('click', function(){
-      body.classList.remove('nav-open');
-      if (toggle) toggle.setAttribute('aria-expanded','false');
-      document.querySelectorAll('.has-dropdown.open').forEach(function(o){ o.classList.remove('open'); });
-    });
-  });
-
-  /* Logo / Home -> smooth scroll to top */
-  document.querySelectorAll('.js-top').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault();
-      window.scrollTo({ top:0, behavior:'smooth' });
-    });
-  });
-
-  /* Placeholder links (href="#") do nothing (dropdown toggles handled above) */
-  document.querySelectorAll('a[href="#"]:not(.js-top)').forEach(function(el){
-    if (el.matches('.has-dropdown > a')) return;
-    el.addEventListener('click', function(e){ e.preventDefault(); });
-  });
+  /* Header behaviour lives in header.js */
 
   /* Back to top */
   var toTop = document.getElementById('toTop');
@@ -2461,5 +2402,6 @@ img{max-width:100%;display:block}
   }, { passive:true });
 })();
 </script>
+<script src="header.js"></script>
 </body>
 </html>

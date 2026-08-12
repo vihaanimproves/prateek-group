@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The history of Prateek Group — from a single spinning unit to three integrated yarn manufacturing facilities across India.">
+<title>History — Prateek Group</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================
+   PRATEEK GROUP — SHARED THEME (matches index.html)
+========================================================== */
+:root{
+  --font        : 'Manrope', 'Inter', -apple-system, 'Segoe UI', sans-serif;
+
+  --bg-dark     : #0b0b0c;
+  --bg-dark-2   : #0d0d0f;
+  --bg-card     : #121214;
+  --bg-light    : #f2f1ef;
+
+  --red         : #d22c2c;
+  --red-btn     : #c1252b;
+  --red-btn-h   : #a91d23;
+  --red-card    : #b23a34;
+
+  --white       : #ffffff;
+  --grey-on-dark: #b3b3b8;
+  --grey-soft   : #98989d;
+  --ink         : #161616;
+  --grey-on-lt  : #5c5c5c;
+  --line-dark   : rgba(255,255,255,.12);
+  --line-light  : rgba(0,0,0,.1);
+
+  --wave-h      : 74px;
+
+  /* --- bridge tokens: map the page's palette onto our theme --- */
+  --color-ink       : #161616;
+  --color-ink-2     : #121214;
+  --color-ink-3     : #0d0d0f;
+  --color-red       : #d22c2c;
+  --color-red-soft  : #f6e7e5;
+  --color-red-dark  : #a91d23;
+  --color-bg-soft   : #ffffff;
+  --color-border    : rgba(0,0,0,.10);
+  --color-border-soft: rgba(0,0,0,.06);
+  --color-muted     : #5c5c5c;
+  --color-muted-2   : #8a8a8a;
+  --color-text      : #333333;
+  --r-sm            : 6px;
+  --r-lg            : 12px;
+  --container-px    : clamp(20px, 4.5vw, 48px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg-light);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit}
+svg{display:block}
+img{max-width:100%;display:block}
+::selection{background:var(--red);color:#fff}
+
+/* Containers (content uses a padding model so the full-bleed video panel works) */
+.container       {width:100%;max-width:1336px;margin-inline:auto;padding-inline:var(--container-px)}
+.container--slim {width:min(100% - 96px, 1206px);margin-inline:auto}
+.container--wide {width:min(100% - 104px, 1336px);margin-inline:auto}
+
+.accent{color:var(--red)}
+.icon-arrow{width:15px;height:15px;flex:0 0 auto}
+
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  background:var(--red-btn);color:#fff;text-decoration:none;
+  font-weight:600;border:0;cursor:pointer;
+  transition:background .25s ease, transform .25s ease, color .25s ease, border-color .25s ease;
+}
+.btn:hover{background:var(--red-btn-h);transform:translateY(-1px)}
+.btn--pill {padding:12px 25px;border-radius:999px;font-size:12.5px;letter-spacing:.08em}
+
+/* Flowing sine-wave dividers between sections (same as index.html) */
+.wave-sep{position:relative;width:100%;height:var(--wave-h,74px);margin:0;line-height:0;font-size:0;z-index:1;pointer-events:none}
+.wave-sep svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+.section-light{background:var(--bg-light);color:var(--ink)}
+.section-dark {background:var(--bg-dark-2);color:var(--white)}
+
+/* ==========================================================
+   HEADER (shared)
+========================================================== */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 0;transition:background .35s ease, padding .35s ease, box-shadow .35s ease}
+.site-header.is-scrolled{background:rgba(10,10,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:13px 0;box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.site-header.is-scrolled .brand-name{color:#fff}
+.site-header.is-scrolled .brand-sub{color:#b8b8bd}
+.site-header.is-scrolled .nav > li > a{color:#cdcdd2}
+.site-header.is-scrolled .nav > li > a:hover,
+.site-header.is-scrolled .nav > li > a.active{color:#fff}
+.site-header.is-scrolled .nav-toggle span{background:#fff}
+
+.header-inner{display:flex;align-items:center;gap:30px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:36px;height:41px;flex:0 0 auto}
+.brand-name{font-size:19px;font-weight:800;letter-spacing:.07em;line-height:1;color:var(--ink)}
+.brand-sub{display:block;font-size:9.5px;font-weight:700;letter-spacing:.3em;color:#5c5c5c;margin-top:4px}
+
+.nav{display:flex;align-items:center;gap:24px;margin-inline:auto}
+.nav > li{position:relative}
+.nav > li > a{display:inline-flex;align-items:center;gap:6px;color:#4a4a4a;font-size:12px;font-weight:600;letter-spacing:.09em;text-decoration:none;position:relative;padding:8px 0;transition:color .25s;white-space:nowrap}
+.nav > li > a:hover, .nav > li > a.active{color:var(--ink)}
+.nav > li > a.active::after{content:"";position:absolute;left:0;bottom:-1px;width:24px;height:2px;background:var(--red)}
+.caret{font-size:9px;line-height:1;transform:translateY(1px);transition:transform .25s}
+.has-dropdown:hover .caret{transform:translateY(1px) rotate(180deg)}
+
+.dropdown{position:absolute;top:100%;left:50%;transform:translate(-50%, 8px);min-width:196px;padding:10px 0;background:#fff;border-radius:9px;box-shadow:0 22px 44px -16px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.05);opacity:0;visibility:hidden;transition:opacity .25s ease, transform .25s ease, visibility .25s;z-index:10}
+.has-dropdown:hover > .dropdown, .has-dropdown.open > .dropdown{opacity:1;visibility:visible;transform:translate(-50%, 2px)}
+.dropdown a{display:block;padding:9px 20px;text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#4a4a4a;text-decoration:none;transition:background .2s, color .2s}
+.dropdown a:hover{background:#f4f2ef;color:var(--ink)}
+
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);transition:.3s}
+.nav-open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.nav-open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ==========================================================
+   FOOTER (shared)
+========================================================== */
+.footer{position:relative;padding-top:96px;overflow:hidden;background:var(--bg-light);color:var(--ink)}
+.footer::before, .footer::after{content:"";position:absolute;border-radius:50%;pointer-events:none;border:1px solid rgba(0,0,0,.05)}
+.footer::before{width:920px;height:920px;left:-330px;bottom:-560px}
+.footer::after {width:1340px;height:1340px;left:-540px;bottom:-830px;border-color:rgba(0,0,0,.035)}
+.footer-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.45fr .85fr .85fr 1.05fr 1.05fr;gap:44px;padding-bottom:84px}
+.footer-about{margin-top:22px;color:#5c5c5c;font-size:13.5px;line-height:1.9;max-width:300px}
+.footer-heading{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);margin-bottom:21px}
+.footer-col li + li{margin-top:12px}
+.footer-col a{color:#5c5c5c;font-size:13.5px;text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--ink)}
+.footer-locations li, .footer-contact li{display:flex;align-items:flex-start;gap:9px;color:#5c5c5c;font-size:13.5px;line-height:1.55}
+.footer-icon{width:14px;height:14px;flex:0 0 auto;color:var(--red);margin-top:3px}
+.footer-bottom{position:relative;z-index:2;border-top:1px solid var(--line-light);padding:22px 0 26px}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:12.5px;color:#5c5c5c}
+.socials{display:flex;gap:12px}
+.socials a{width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .25s, color .25s, transform .25s}
+.socials a:hover{background:var(--red-btn);color:#fff;transform:translateY(-2px)}
+.socials svg{width:15px;height:15px}
+.footer-legal{display:flex;align-items:center;gap:12px}
+.footer-legal a{color:#5c5c5c;text-decoration:none;transition:color .2s}
+.footer-legal a:hover{color:var(--ink)}
+.footer-legal .sep{color:#bdbdbd}
+.to-top{position:absolute;right:54px;bottom:118px;z-index:3;width:52px;height:52px;border-radius:50%;border:1px solid #d5d1ca;background:#fff;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s, border-color .25s, transform .25s, color .25s}
+.to-top:hover{background:var(--red-btn);border-color:var(--red-btn);color:#fff;transform:translateY(-3px)}
+.to-top svg{width:17px;height:17px}
+
+@media (max-width:1200px){
+  .nav{position:fixed;top:0;left:0;right:0;z-index:-1;flex-direction:column;align-items:flex-start;gap:2px;padding:96px 32px 30px;margin:0;background:rgba(10,10,11,.97);border-bottom:1px solid rgba(255,255,255,.08);transform:translateY(-105%);transition:transform .4s ease;max-height:100vh;overflow-y:auto}
+  .nav > li{width:100%}
+  .nav > li > a{padding:11px 0;font-size:14px;color:#cdcdd2;letter-spacing:.06em}
+  .nav > li > a:hover, .nav > li > a.active{color:#fff}
+  .nav-open .nav{transform:none}
+  .nav-toggle{display:flex}
+  .header-inner{justify-content:space-between}
+  .header-inner .btn--pill{margin-left:auto;margin-right:6px}
+  .dropdown{position:static;transform:none;min-width:0;background:transparent;box-shadow:none;border-radius:0;padding:0 0 6px 16px;display:none;opacity:1;visibility:visible;transition:none}
+  .has-dropdown.open > .dropdown{display:block}
+  .dropdown a{text-align:left;padding:8px 0;color:#9a9aa0;font-size:12.5px}
+  .dropdown a:hover{background:none;color:#fff}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:44px}
+}
+@media (max-width:720px){
+  .container--slim, .container--wide{width:calc(100% - 44px)}
+  :root{--wave-h:46px}
+  .footer-grid{grid-template-columns:1fr;gap:40px}
+  .footer-bottom-inner{justify-content:center;text-align:center}
+  .to-top{right:22px;bottom:150px}
+}
+
+/* ==========================================================
+   PAGE-SPECIFIC STYLES — History
+========================================================== */
+:root{
+  /* easing used by the timeline split-from-centre reveal */
+  --ease-spring: cubic-bezier(0.16, 0.6, 0.3, 1);
+}
+
+/* ---------- Hero (mirrors the Group Companies hero) ---------- */
+.hist-hero{
+  position:relative;
+  background:var(--bg-dark-2);
+  overflow:hidden;
+  padding:clamp(140px,16vh,200px) 0 clamp(80px,9vh,120px);
+}
+.hist-hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(210,44,44,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(210,44,44,0.07) 0%, transparent 60%);
+}
+.hist-hero-grid-lines{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:64px 64px;
+}
+.hist-hero-content{position:relative;z-index:2}
+.hist-hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.hist-hero-eyebrow::before{content:"";width:32px;height:2px;background:var(--red);border-radius:2px}
+.hist-hero-title{
+  font-size:clamp(38px,5vw,72px);font-weight:800;
+  line-height:1.05;letter-spacing:-.03em;color:#fff;margin-bottom:24px;
+}
+.hist-hero-title .accent{color:var(--red)}
+.hist-hero-sub{
+  font-size:clamp(15px,1.3vw,18px);color:rgba(255,255,255,.55);
+  max-width:560px;line-height:1.65;
+}
+
+/* Era jump-chips under the hero */
+.hist-era-strip{
+  display:flex;flex-wrap:wrap;gap:12px;
+  margin-top:48px;padding-top:36px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.hist-era-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  font-size:13px;font-weight:500;color:rgba(255,255,255,.7);
+  cursor:pointer;text-decoration:none;transition:all .25s ease;
+}
+.hist-era-chip:hover,.hist-era-chip.active{
+  border-color:var(--red);color:#fff;background:rgba(210,44,44,.1);
+}
+.hist-era-chip .chip-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--red);
+  flex-shrink:0;box-shadow:0 0 0 3px rgba(210,44,44,.25);
+}
+
+/* ---------- Intro band ---------- */
+.hist-intro{padding:clamp(72px,8vw,104px) 0 clamp(40px,5vw,64px)}
+.hist-intro-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(40px,6vw,86px);align-items:start;
+}
+.hist-intro h2{
+  font-size:clamp(28px,3vw,42px);font-weight:700;
+  line-height:1.25;letter-spacing:-.02em;color:var(--ink);
+}
+.hist-intro .title-rule{display:block;width:56px;height:3px;background:var(--red);margin-top:22px;border-radius:2px}
+.hist-intro p{font-size:15px;line-height:1.9;color:var(--grey-on-lt)}
+.hist-intro p + p{margin-top:18px}
+
+/* ---------- Timeline (zigzag, split-from-centre animation) ---------- */
+.hist-timeline{padding:clamp(48px,6vw,80px) 0 clamp(80px,9vw,120px)}
+
+.tl-head{text-align:center;margin-bottom:clamp(36px,5vw,60px)}
+.tl-head h2{font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.25;margin-top:16px}
+.tl-head .title-rule{display:block;width:56px;height:3px;background:var(--red);margin:22px auto 0;border-radius:2px}
+
+/* Yarn spindle + unravelling thread down the centre.
+   The thread SVG is generated by JS (it needs the container's height),
+   and is revealed top-down via a clip rect as you scroll. The spindle
+   rides the leading edge of the thread, spinning as yarn pays out. */
+.tl-container{position:relative;margin-top:152px}
+.tl-thread{
+  position:absolute;left:50%;top:0;bottom:0;width:44px;
+  transform:translateX(-50%);
+  pointer-events:none;z-index:1;
+}
+.tl-thread svg{display:block;width:100%;height:100%;overflow:visible;shape-rendering:geometricPrecision}
+/* Yarn is built from stacked strokes so it reads as a round cord rather
+   than a flat line: soft halo, shaded far side, body, lit near side,
+   then the twist ridges and grooves on top. */
+.tl-thread-halo{
+  fill:none;stroke:#8f1a1f;stroke-width:9;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.14;
+}
+.tl-thread-shade{
+  fill:none;stroke:#7d1618;stroke-width:5.4;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.85;
+}
+.tl-thread-core{
+  fill:none;stroke:#c1252b;stroke-width:4.3;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.tl-thread-lit{
+  fill:none;stroke:#e2665c;stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.55;
+}
+.tl-thread-groove{
+  fill:none;stroke:#6f1214;stroke-width:1.05;
+  stroke-linecap:round;opacity:.30;
+}
+.tl-thread-twist{
+  fill:none;stroke:#ef8279;stroke-width:0.95;
+  stroke-linecap:round;opacity:.46;
+}
+.tl-thread-fuzz{
+  fill:none;stroke:#e2665c;stroke-width:0.5;
+  stroke-linecap:round;opacity:.42;
+}
+/* Ball of yarn: five stills stacked, swapped as you scroll (flipbook),
+   inside a wrapper that rolls with scroll distance. */
+.tl-spindle{
+  position:absolute;left:50%;top:0;
+  width:60px;height:60px;
+  margin-left:-30px;margin-top:-30px;   /* thread runs into the ball centre */
+  z-index:3;pointer-events:none;will-change:transform;
+  filter:drop-shadow(0 8px 14px rgba(60,10,10,.30));
+}
+.tl-spindle-roll{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform}
+.spindle-frame{position:absolute;inset:0;opacity:0}
+.spindle-frame.is-on{opacity:1}
+.spindle-svg{width:100%;height:100%;display:block}
+/* Each milestone row */
+.tl-item{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  align-items:center;position:relative;
+  padding-block:clamp(32px,4vw,52px);
+}
+.tl-item.odd  .media-side  {order:1;padding-right:clamp(24px,3.5vw,56px)}
+.tl-item.odd  .content-side{order:2;padding-left:clamp(24px,3.5vw,56px)}
+.tl-item.even .media-side  {order:2;padding-left:clamp(24px,3.5vw,56px)}
+.tl-item.even .content-side{order:1;padding-right:clamp(24px,3.5vw,56px)}
+
+.tl-media{width:100%;max-width:500px}
+.tl-item.odd  .tl-media{margin-left:auto;margin-right:0}
+.tl-item.even .tl-media{margin-left:0;margin-right:auto}
+
+/* Photo frame */
+.tl-photo{
+  position:relative;width:100%;padding-top:66%;
+  border-radius:12px;overflow:hidden;background:#dedcd7;
+  box-shadow:0 18px 38px -22px rgba(0,0,0,.4);
+  outline:1px solid rgba(0,0,0,.06);outline-offset:-1px;
+}
+.tl-photo img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(100%);
+  transition:transform .7s ease, filter .7s ease;
+}
+.tl-photo:hover img{transform:scale(1.045);filter:grayscale(55%)}
+.tl-photo::after{ /* subtle vignette so the year badge stays legible */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg, transparent 55%, rgba(0,0,0,.42) 100%);
+}
+.tl-year-badge{
+  position:absolute;left:16px;bottom:16px;z-index:2;
+  background:var(--red-btn);color:#fff;
+  font-size:12px;font-weight:800;letter-spacing:.12em;
+  padding:7px 15px;border-radius:999px;
+}
+
+/* Content side */
+.tl-era{font-size:11.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+.tl-title{
+  font-size:clamp(20px,2.2vw,29px);font-weight:800;
+  letter-spacing:-.02em;color:var(--ink);
+  margin:11px 0 14px;line-height:1.24;
+}
+.tl-desc{font-size:14.5px;line-height:1.85;color:var(--grey-on-lt);max-width:440px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tl-tag{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 13px;border-radius:999px;
+  background:rgba(210,44,44,.08);color:var(--red-btn);
+  border:1px solid rgba(210,44,44,.16);
+}
+
+/* --- Split-from-centre reveal: each side starts near the spine and
+       slides outward into place as the row scrolls in. The .side-wrap
+       element is injected by JS so overflow:hidden clips cleanly. --- */
+.tl-item .media-side,
+.tl-item .content-side{overflow:hidden}
+.tl-item.odd  .media-side   .side-wrap,
+.tl-item.even .content-side .side-wrap{
+  opacity:0;transform:translateX(220px);
+  transition:opacity .85s var(--ease-spring), transform .85s var(--ease-spring);
+}
+.tl-item.odd  .content-side .side-wrap,
+.tl-item.even .media-side   .side-wrap{
+  opacity:0;transform:translateX(-220px);
+  transition:opacity .85s var(--ease-spring), transform .85s var(--ease-spring);
+}
+.tl-item.zz-visible .media-side   .side-wrap,
+.tl-item.zz-visible .content-side .side-wrap{opacity:1;transform:translateX(0)}
+.tl-item.zz-visible .content-side{overflow:visible}
+
+/* Paragraph card: rounded, bordered box around each row's text,
+   with a red glow on hover. Sits inside .side-wrap so it inherits
+   the slide-in without fighting that element's own transition. */
+.tl-textbox{
+  background:#fff;
+  border:1px solid var(--line-light);
+  border-radius:18px;
+  padding:clamp(22px,2.6vw,32px) clamp(24px,2.8vw,34px);
+  box-shadow:0 14px 30px -20px rgba(0,0,0,.18);
+  transition:box-shadow .3s ease, border-color .3s ease;
+}
+.tl-textbox:hover{
+  border-color:rgba(210,44,44,.5);
+  box-shadow:0 0 0 1px rgba(210,44,44,.35), 0 0 28px 4px rgba(210,44,44,.38), 0 14px 30px -20px rgba(0,0,0,.18);
+}
+
+/* Closing marker at the end of the spine */
+.tl-end{position:relative;z-index:2;display:flex;justify-content:center;padding-top:14px}
+.tl-end span{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--bg-light);padding:0 18px;
+  font-size:11.5px;font-weight:800;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--red);
+}
+.tl-end span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red)}
+
+/* ---------- Needle: horizontal, sitting at the very top of the thread.
+   A few loops of yarn are shown wound around its shaft; they peel off
+   (unwind) as the page scrolls, feeding the vertical thread below. ---------- */
+.tl-needle{
+  position:absolute;left:50%;top:0;
+  transform:translate(-50%,-100%);
+  width:44px;height:120px;z-index:2;pointer-events:none;
+  filter:drop-shadow(0 5px 7px rgba(0,0,0,.22));
+}
+.tl-needle svg{display:block;width:100%;height:100%;overflow:visible}
+.tl-needle-outline{stroke:#5a6068;stroke-width:.45;opacity:.75}
+.tl-needle-spec{fill:none;stroke:#ffffff;stroke-width:1.05;stroke-linecap:round;opacity:.85}
+.tl-needle-edge{fill:none;stroke:#6f767f;stroke-width:.7;stroke-linecap:round;opacity:.55}
+.tl-needle-tip{fill:none;stroke-width:1.3;stroke-linecap:round;opacity:.9}
+.tl-needle-thread-back{
+  fill:none;stroke:#a81f24;stroke-width:1.9;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+/* three stacked strokes taper the thread out of the eye into full yarn */
+.tl-needle-feed-a,
+.tl-needle-feed-b,
+.tl-needle-feed-c{fill:none;stroke:#c1252b;stroke-linecap:round}
+.tl-needle-feed-a{stroke-width:2.1}
+.tl-needle-feed-b{stroke-width:3.2}
+.tl-needle-feed-c{stroke-width:4.3}
+/* match the cord's shaded silhouette so the junction is seamless */
+.tl-needle-feed-shade{fill:none;stroke:#7d1618;stroke-width:5.4;stroke-linecap:round}
+.tl-needle-feed-lit{fill:none;stroke:#e2665c;stroke-width:1.5;stroke-linecap:round;opacity:.55}
+.tl-item{position:relative}
+.media-side, .content-side{position:relative;z-index:1}
+
+/* ---------- Closing CTA ---------- */
+.hist-cta{position:relative;padding:clamp(80px,9vw,116px) 0;text-align:center;overflow:hidden;background:var(--red-card);color:#fff}
+.hist-cta::before,.hist-cta::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(255,255,255,.1);
+}
+.hist-cta::before{width:820px;height:820px;left:-300px;top:-430px}
+.hist-cta::after{width:1060px;height:1060px;right:-420px;bottom:-640px;border-color:rgba(255,255,255,.07)}
+.hist-cta-inner{position:relative;z-index:1}
+.hist-cta-title{font-size:clamp(28px,3vw,41px);font-weight:700;line-height:1.3}
+.hist-cta-title .accent{
+  color:#ffdcd6;text-decoration:underline;text-decoration-thickness:3px;
+  text-underline-offset:7px;text-decoration-color:rgba(255,255,255,.55);
+}
+.hist-cta-desc{max-width:520px;margin:21px auto 0;font-size:14.5px;color:rgba(255,255,255,.86);line-height:1.8}
+.hist-cta .btn{
+  margin-top:38px;padding:15px 26px;border-radius:5px;
+  font-size:13px;letter-spacing:.08em;background:#fff;color:var(--red-btn);
+}
+.hist-cta .btn:hover{background:#f6ebe9;color:var(--red-btn-h)}
+
+/* ---------- Scroll reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease var(--d,0s), transform .75s ease var(--d,0s)}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Page responsive ---------- */
+@media (max-width:900px){
+  .hist-intro-grid{grid-template-columns:1fr;gap:28px}
+}
+
+/* Timeline collapses to a single left-aligned rail on small screens */
+@media (max-width:767px){
+  .tl-thread{left:20px;transform:none}
+  /* cord centre on mobile is 20 + 44/2 = 42px; the ball is offset by its
+     own -30px margin, so it needs left:42px to sit on the same axis */
+  .tl-spindle{left:42px}
+  .tl-needle{left:20px;transform:translateY(-100%)}
+  .tl-container{margin-top:128px}
+  .tl-item{grid-template-columns:1fr;padding:26px 0 26px 46px}
+  .tl-item.odd  .media-side,
+  .tl-item.even .media-side{order:1;padding:0 0 20px 0}
+  .tl-item.odd  .content-side,
+  .tl-item.even .content-side{order:2;padding:0}
+  .tl-item.odd  .tl-media,
+  .tl-item.even .tl-media{margin:0;max-width:100%}
+  /* slide up instead of in from the sides */
+  .tl-item.odd  .media-side   .side-wrap,
+  .tl-item.even .content-side .side-wrap,
+  .tl-item.odd  .content-side .side-wrap,
+  .tl-item.even .media-side   .side-wrap{transform:translateY(24px)}
+  .tl-item.zz-visible .media-side   .side-wrap,
+  .tl-item.zz-visible .content-side .side-wrap{transform:translateY(0)}
+  .tl-end{justify-content:flex-start;padding-left:4px}
+}
+
+/* Respect reduced-motion: show everything, no sliding */
+@media (prefers-reduced-motion:reduce){
+  .tl-item .media-side   .side-wrap,
+  .tl-item .content-side .side-wrap{opacity:1 !important;transform:none !important;transition:none !important}
+  .tl-photo img{transition:none}
+  .tl-spindle{display:none}
+}
+
+/* ---- page-scoped theme fixes ---- */
+/* The header sits over the dark hero — keep its text light by default */
+.site-header .brand-name{color:#fff}
+.site-header .brand-sub{color:#b8b8bd}
+.site-header .nav > li > a{color:#cdcdd2}
+.site-header .nav > li > a:hover,
+.site-header .nav > li > a.active{color:#fff}
+.site-header .nav-toggle span{background:#fff}
+</style>
+<link rel="stylesheet" href="header.css">
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="logo.png" />
+</head>
+<body class="hero-dark">
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+
+    <a href="index.html" class="brand" aria-label="Prateek Group home">
+      <img src="logo.png" alt="Prateek Group" class="brand-mark" width="208" height="240" />
+      <span>
+        <span class="brand-name">PRATEEK</span>
+        <span class="brand-sub">GROUP</span>
+      </span>
+    </a>
+
+    <ul class="nav" id="siteNav" aria-label="Primary">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="history.html" class="active">HISTORY</a></li>
+
+      <li class="has-dropdown">
+        <a href="index.html#manufacturing" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="index.html#manufacturing">MANUFACTURING</a></li>
+          <li><a href="index.html#qualitycontrol">QUALITY CONTROL</a></li>
+          <li><a href="index.html#manufacturing">MACHINERY</a></li>
+          <li><a href="index.html#capacity">CAPACITY</a></li>
+          <li><a href="index.html#qualitycontrol">CERTIFICATIONS</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="index.html#products" aria-haspopup="true">PRODUCTS <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="pv-yarn.html">PV YARN</a></li>
+          <li><a href="dyed-yarn.html">DYED YARN</a></li>
+          <li><a href="fancy-yarn.html">FANCY YARN</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="group-companies.html" aria-haspopup="true">GROUP COMPANIES <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <ul class="dropdown">
+          <li><a href="prateek.html">PRATEEK YARN</a></li>
+          <li><a href="kk-spintex.html">KK SPINTEX</a></li>
+          <li><a href="gb-dyed-yarn.html">GB DYED YARN</a></li>
+        </ul>
+      </li>
+
+      <li><a href="group-companies.html#partners">OUR PARTNERS</a></li>
+      <li><a href="people.html">PEOPLE</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+
+    <a href="contact.html" class="btn btn--pill">
+      GET IN TOUCH
+      <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hist-hero">
+    <div class="hist-hero-bg" aria-hidden="true"></div>
+    <div class="hist-hero-grid-lines" aria-hidden="true"></div>
+
+    <div class="container hist-hero-content">
+      <span class="hist-hero-eyebrow">Our Journey</span>
+      <h1 class="hist-hero-title">One Group.<br>One <span class="accent">Thread.</span></h1>
+      <p class="hist-hero-sub">
+        From a single spinning unit to three integrated manufacturing facilities
+        across India &mdash; the story of how Prateek Group was built, year by year.
+      </p>
+
+      <div class="hist-era-strip">
+        <a href="#era-beginning" class="hist-era-chip active">
+          <span class="chip-dot" aria-hidden="true"></span>
+          The Beginning
+        </a>
+        <a href="#era-expansion" class="hist-era-chip">
+          <span class="chip-dot" aria-hidden="true"></span>
+          Expansion
+        </a>
+        <a href="#era-integration" class="hist-era-chip">
+          <span class="chip-dot" aria-hidden="true"></span>
+          Integration
+        </a>
+        <a href="#era-today" class="hist-era-chip">
+          <span class="chip-dot" aria-hidden="true"></span>
+          Today
+        </a>
+      </div>
+    </div>
+  </section>
+
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#0d0d0f"/>
+    <path fill="#f2f1ef" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+  <!-- ======================= INTRO ======================= -->
+  <section class="hist-intro section-light">
+    <div class="container hist-intro-grid">
+      <div class="reveal">
+        <h2>Built on Legacy.<br>Driven by <span class="accent">Innovation.</span></h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+      <div class="reveal" style="--d:.1s">
+        <p>
+          Every yarn we spin today carries the weight of years of decisions &mdash;
+          the first machine installed, the first export order, the first facility
+          built from the ground up.
+        </p>
+        <p>
+          What follows is that journey, told through the milestones that shaped
+          Prateek Group into the integrated manufacturing group it is today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       HISTORY / TIMELINE
+       ---------------------------------------------------------------------
+       Zigzag milestone rail. A vertical spine runs down the centre with a
+       node per milestone; as each row scrolls into view its two sides
+       split outward from the spine (photo one way, text the other).
+
+       NOTE: the years, titles and copy below are PLACEHOLDER content —
+       swap in the real milestones. Photos go in images/history/.
+  ====================================================================== -->
+  <section class="hist-timeline section-light" id="timeline">
+    <div class="container">
+
+      <div class="tl-head reveal">
+        <span class="eyebrow">Milestones</span>
+        <h2>The Road So Far</h2>
+        <span class="title-rule" aria-hidden="true"></span>
+      </div>
+
+      <div class="tl-container" role="list" aria-label="Company milestones">
+
+        <!-- Steel needle the yarn is threaded through. Tip up, eye at the
+             bottom so the thread leaves the eye and runs straight down the
+             rail. The shaft swells at the eye end (as a real needle does)
+             to leave metal either side of the hole, and the eye is a true
+             hole (fill-rule evenodd) so the thread behind shows through it. -->
+        <div class="tl-needle" aria-hidden="true">
+          <svg viewBox="0 0 44 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ndSteel" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#5f666f"/>
+                <stop offset="14%"  stop-color="#a9b0b9"/>
+                <stop offset="30%"  stop-color="#f4f6f9"/>
+                <stop offset="42%"  stop-color="#ffffff"/>
+                <stop offset="56%"  stop-color="#dde1e7"/>
+                <stop offset="76%"  stop-color="#9ba2ab"/>
+                <stop offset="100%" stop-color="#585f68"/>
+              </linearGradient>
+              <linearGradient id="ndTipFade" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   stop-color="#8d949d"/>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <!-- thread running through the eye (drawn under the needle, so
+                 only the part inside the hole is visible) -->
+            <path class="tl-needle-thread-back" d="M22 109 L22 88"/>
+
+            <path class="tl-needle-body" fill-rule="evenodd" fill="url(#ndSteel)"
+                  d="M22 2
+                     C 20.9 16, 20.2 38, 19.7 62
+                     C 19.4 72, 19.0 79, 18.5 86
+                     C 18.1 91, 17.9 96, 18.0 101
+                     C 18.2 108, 19.9 113.5, 22 115
+                     C 24.1 113.5, 25.8 108, 26.0 101
+                     C 26.1 96, 25.9 91, 25.5 86
+                     C 25.0 79, 24.6 72, 24.3 62
+                     C 23.8 38, 23.1 16, 22 2
+                     Z
+                     M22 90.5
+                     C 20.65 90.5, 19.95 93.9, 19.95 98.7
+                     C 19.95 103.5, 20.65 106.9, 22 106.9
+                     C 23.35 106.9, 24.05 103.5, 24.05 98.7
+                     C 24.05 93.9, 23.35 90.5, 22 90.5
+                     Z"/>
+
+            <path class="tl-needle-spec" d="M21.0 14 C 20.5 34, 20.1 56, 19.5 82"/>
+            <path class="tl-needle-edge" d="M24.0 20 C 24.4 44, 24.7 64, 25.1 84"/>
+            <path class="tl-needle-outline" fill="none" fill-rule="evenodd"
+                  d="M22 2
+                     C 20.9 16, 20.2 38, 19.7 62
+                     C 19.4 72, 19.0 79, 18.5 86
+                     C 18.1 91, 17.9 96, 18.0 101
+                     C 18.2 108, 19.9 113.5, 22 115
+                     C 24.1 113.5, 25.8 108, 26.0 101
+                     C 26.1 96, 25.9 91, 25.5 86
+                     C 25.0 79, 24.6 72, 24.3 62
+                     C 23.8 38, 23.1 16, 22 2
+                     Z
+                     M22 90.5
+                     C 20.65 90.5, 19.95 93.9, 19.95 98.7
+                     C 19.95 103.5, 20.65 106.9, 22 106.9
+                     C 23.35 106.9, 24.05 103.5, 24.05 98.7
+                     C 24.05 93.9, 23.35 90.5, 22 90.5
+                     Z"/>
+            <path class="tl-needle-tip" d="M22 3 C 21.5 10, 21.2 18, 21.1 26" stroke="url(#ndTipFade)"/>
+
+            <!-- thread leaving the eye, tapering out to full yarn thickness
+                 as it enters the rail below -->
+            <path class="tl-needle-feed-shade" d="M22 112 L22 121"/>
+            <path class="tl-needle-feed-a" d="M22 105.5 L22 111"/>
+            <path class="tl-needle-feed-b" d="M22 110 L22 116"/>
+            <path class="tl-needle-feed-c" id="tlNeedleFeed" d="M22 114 L22 121"/>
+            <path class="tl-needle-feed-lit" d="M20.95 109 L20.95 121"/>
+          </svg>
+        </div>
+
+        <!-- Unravelling yarn. Built by JS to match the container height and
+             revealed top-down by a clip rect tied to scroll position. Drawn
+             as a real 2-ply cord: soft halo, shaded body, lit side, then
+             slanted twist ridges and grooves, plus a little stray fibre. -->
+        <div class="tl-thread" aria-hidden="true">
+          <svg id="tlThreadSvg" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="tlReveal">
+                <rect id="tlRevealRect" x="-40" y="0" width="124" height="0"></rect>
+              </clipPath>
+              <filter id="tlBlur" x="-120%" y="-4%" width="340%" height="108%">
+                <feGaussianBlur stdDeviation="1.7"/>
+              </filter>
+            </defs>
+            <g clip-path="url(#tlReveal)">
+              <path id="tlHalo"   class="tl-thread-halo"   d="" filter="url(#tlBlur)"></path>
+              <path id="tlShade"  class="tl-thread-shade"  d=""></path>
+              <path id="tlCore"   class="tl-thread-core"   d=""></path>
+              <path id="tlLit"    class="tl-thread-lit"    d=""></path>
+              <path id="tlGroove" class="tl-thread-groove" d=""></path>
+              <path id="tlTwist"  class="tl-thread-twist"  d=""></path>
+              <path id="tlFuzz"   class="tl-thread-fuzz"   d=""></path>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Ball of yarn: five stills whose winding shifts between frames,
+             inside a wrapper that also rolls with scroll. Swap each <svg>
+             for <img src="images/spindle/frame-N.png"> to use real renders. -->
+        <div class="tl-spindle" id="tlSpindle" aria-hidden="true">
+          <div class="tl-spindle-roll" id="tlSpindleRoll">
+              <div class="spindle-frame is-on" data-frame="0">
+                <svg class="spindle-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+                  <defs>
+                    <radialGradient id="yb0" cx="0.34" cy="0.28" r="0.82">
+                      <stop offset="0"    stop-color="#e2685c"/>
+                      <stop offset="0.34" stop-color="#c1322c"/>
+                      <stop offset="0.68" stop-color="#93201d"/>
+                      <stop offset="0.90" stop-color="#63120f"/>
+                      <stop offset="1"    stop-color="#44090a"/>
+                    </radialGradient>
+                    <radialGradient id="yo0" cx="0.32" cy="0.26" r="0.80">
+                      <stop offset="0.45" stop-color="rgba(30,4,4,0)"/>
+                      <stop offset="1"    stop-color="rgba(30,4,4,0.55)"/>
+                    </radialGradient>
+                    <radialGradient id="ys0" cx="0.33" cy="0.26" r="0.30">
+                      <stop offset="0"   stop-color="rgba(255,226,220,0.42)"/>
+                      <stop offset="1"   stop-color="rgba(255,226,220,0)"/>
+                    </radialGradient>
+                    <clipPath id="yc0"><circle cx="30.0" cy="30.0" r="25.0"/></clipPath>
+                  </defs>
+                  <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yb0)"/>
+                  <g clip-path="url(#yc0)">
+                    <ellipse cx="30.0" cy="30.0" rx="23.24" ry="24.56" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.24" ry="24.56" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.24" ry="24.56" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.87" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.87" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.49" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.87" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.38" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.34" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.30" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.34" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.62" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.34" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.48" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.15" ry="24.91" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.15" ry="24.91" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.15" ry="24.91" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.00" ry="24.75" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.00" ry="24.75" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.59" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.00" ry="24.75" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.46" ry="24.94" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.46" ry="24.94" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.46" ry="24.94" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.78" ry="24.58" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.78" ry="24.58" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.60" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.78" ry="24.58" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.20" ry="24.62" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.20" ry="24.62" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.20" ry="24.62" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.54" ry="24.96" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.54" ry="24.96" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.54" ry="24.96" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.12" ry="24.44" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.12" ry="24.44" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.12" ry="24.44" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.49" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.49" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.55" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.49" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.87" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.87" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.87" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.72" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.72" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.99" ry="24.72" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.15" ry="24.98" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.15" ry="24.98" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.15" ry="24.98" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.43" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.99" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.29" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.29" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.29" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.14" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.14" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.14" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.45" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.45" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.99" ry="24.45" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.80" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.30" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.80" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.62" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.80" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.48" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.68" ry="24.95" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.68" ry="24.95" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.68" ry="24.95" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.16" ry="24.69" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.16" ry="24.69" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.16" ry="24.69" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.62" ry="24.79" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.62" ry="24.79" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.62" ry="24.79" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.21" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.21" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.21" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.48" ry="24.97" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.48" ry="24.97" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.48" ry="24.97" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.11" ry="24.84" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.11" ry="24.84" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.59" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.11" ry="24.84" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.32" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.32" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.32" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.35" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.30" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.35" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.62" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.35" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.48" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.81" ry="24.36" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.81" ry="24.36" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.81" ry="24.36" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.38" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.42" ry="24.54" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.42" ry="24.54" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.42" ry="24.54" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.43" ry="24.78" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.43" ry="24.78" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.43" ry="24.78" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.07" ry="24.50" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.07" ry="24.50" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.07" ry="24.50" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.19" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.19" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.19" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.14" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.14" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.14" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.43" ry="24.61" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.43" ry="24.61" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.60" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.43" ry="24.61" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.34" ry="24.42" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.30" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.34" ry="24.42" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.62" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.34" ry="24.42" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.48" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.56" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.56" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.56" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(67.5 30.0 30.0)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yo0)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#ys0)"/>
+                  </g>
+                  <circle cx="30.0" cy="30.0" r="24.5" fill="none" stroke="rgba(255,196,186,0.30)" stroke-width="1" stroke-dasharray="34 66" stroke-dashoffset="14"/>
+                  <circle cx="30.0" cy="30.0" r="24.7" fill="none" stroke="rgba(50,8,8,0.35)" stroke-width="0.8"/>
+                </svg>
+              </div>
+              <div class="spindle-frame" data-frame="1">
+                <svg class="spindle-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+                  <defs>
+                    <radialGradient id="yb1" cx="0.34" cy="0.28" r="0.82">
+                      <stop offset="0"    stop-color="#e2685c"/>
+                      <stop offset="0.34" stop-color="#c1322c"/>
+                      <stop offset="0.68" stop-color="#93201d"/>
+                      <stop offset="0.90" stop-color="#63120f"/>
+                      <stop offset="1"    stop-color="#44090a"/>
+                    </radialGradient>
+                    <radialGradient id="yo1" cx="0.32" cy="0.26" r="0.80">
+                      <stop offset="0.45" stop-color="rgba(30,4,4,0)"/>
+                      <stop offset="1"    stop-color="rgba(30,4,4,0.55)"/>
+                    </radialGradient>
+                    <radialGradient id="ys1" cx="0.33" cy="0.26" r="0.30">
+                      <stop offset="0"   stop-color="rgba(255,226,220,0.42)"/>
+                      <stop offset="1"   stop-color="rgba(255,226,220,0)"/>
+                    </radialGradient>
+                    <clipPath id="yc1"><circle cx="30.0" cy="30.0" r="25.0"/></clipPath>
+                  </defs>
+                  <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yb1)"/>
+                  <g clip-path="url(#yc1)">
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.56" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.99" ry="24.56" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.99" ry="24.56" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.43" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.33" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.54" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.54" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.60" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.54" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.91" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.91" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.91" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.46" ry="24.75" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.46" ry="24.75" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.55" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.46" ry="24.75" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.66" ry="24.94" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.66" ry="24.94" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.66" ry="24.94" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.56" ry="24.58" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.56" ry="24.58" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.56" ry="24.58" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.08" ry="24.62" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.08" ry="24.62" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.08" ry="24.62" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.62" ry="24.96" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.62" ry="24.96" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.62" ry="24.96" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.21" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.44" ry="24.44" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.44" ry="24.44" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.44" ry="24.44" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.64" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.64" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.64" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.42" ry="24.87" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.42" ry="24.87" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.42" ry="24.87" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.70" ry="24.72" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.70" ry="24.72" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.70" ry="24.72" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.45" ry="24.98" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.45" ry="24.98" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.45" ry="24.98" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.23" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.23" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.23" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.30" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.30" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.30" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.45" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.45" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.45" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.32" ry="24.45" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.32" ry="24.45" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.32" ry="24.45" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.94" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.94" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.60" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.94" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.29" ry="24.95" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.29" ry="24.95" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.29" ry="24.95" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.60" ry="24.69" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.60" ry="24.69" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.60" ry="24.69" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.17" ry="24.79" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.17" ry="24.79" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.17" ry="24.79" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.69" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.69" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.69" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.69" ry="24.97" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.69" ry="24.97" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.69" ry="24.97" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.55" ry="24.84" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.55" ry="24.84" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.55" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.55" ry="24.84" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.37" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.37" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.37" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.43" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.43" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.60" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.43" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.36" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.36" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.43" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.36" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.17" ry="24.54" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.17" ry="24.54" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.17" ry="24.54" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.62" ry="24.78" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.62" ry="24.78" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.62" ry="24.78" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.94" ry="24.50" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.94" ry="24.50" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.94" ry="24.50" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.66" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.66" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.66" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.57" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.57" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.57" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.04" ry="24.61" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.04" ry="24.61" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.04" ry="24.61" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.43" ry="24.42" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.29" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.43" ry="24.42" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.60" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.43" ry="24.42" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.46" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.14" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.14" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.14" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(67.5 30.0 30.0)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yo1)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#ys1)"/>
+                  </g>
+                  <circle cx="30.0" cy="30.0" r="24.5" fill="none" stroke="rgba(255,196,186,0.30)" stroke-width="1" stroke-dasharray="34 66" stroke-dashoffset="14"/>
+                  <circle cx="30.0" cy="30.0" r="24.7" fill="none" stroke="rgba(50,8,8,0.35)" stroke-width="0.8"/>
+                </svg>
+              </div>
+              <div class="spindle-frame" data-frame="2">
+                <svg class="spindle-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+                  <defs>
+                    <radialGradient id="yb2" cx="0.34" cy="0.28" r="0.82">
+                      <stop offset="0"    stop-color="#e2685c"/>
+                      <stop offset="0.34" stop-color="#c1322c"/>
+                      <stop offset="0.68" stop-color="#93201d"/>
+                      <stop offset="0.90" stop-color="#63120f"/>
+                      <stop offset="1"    stop-color="#44090a"/>
+                    </radialGradient>
+                    <radialGradient id="yo2" cx="0.32" cy="0.26" r="0.80">
+                      <stop offset="0.45" stop-color="rgba(30,4,4,0)"/>
+                      <stop offset="1"    stop-color="rgba(30,4,4,0.55)"/>
+                    </radialGradient>
+                    <radialGradient id="ys2" cx="0.33" cy="0.26" r="0.30">
+                      <stop offset="0"   stop-color="rgba(255,226,220,0.42)"/>
+                      <stop offset="1"   stop-color="rgba(255,226,220,0)"/>
+                    </radialGradient>
+                    <clipPath id="yc2"><circle cx="30.0" cy="30.0" r="25.0"/></clipPath>
+                  </defs>
+                  <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yb2)"/>
+                  <g clip-path="url(#yc2)">
+                    <ellipse cx="30.0" cy="30.0" rx="23.78" ry="24.56" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.78" ry="24.56" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.78" ry="24.56" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.13" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.13" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.13" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.37" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.37" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.37" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.44" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.85" ry="24.91" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.85" ry="24.91" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.39" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.85" ry="24.91" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.63" ry="24.75" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.63" ry="24.75" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.63" ry="24.75" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.48" ry="24.94" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.48" ry="24.94" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.48" ry="24.94" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.13" ry="24.58" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.13" ry="24.58" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.13" ry="24.58" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.51" ry="24.62" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.51" ry="24.62" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.51" ry="24.62" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="2.97" ry="24.96" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="2.97" ry="24.96" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="2.97" ry="24.96" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.44" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.44" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.44" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.07" ry="24.87" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.07" ry="24.87" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.07" ry="24.87" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.61" ry="24.72" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.61" ry="24.72" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.61" ry="24.72" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.63" ry="24.98" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.63" ry="24.98" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.63" ry="24.98" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.72" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.72" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.72" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.26" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.26" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.26" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.39" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.39" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.39" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.90" ry="24.45" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.90" ry="24.45" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.90" ry="24.45" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.68" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.68" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.68" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.34" ry="24.95" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.34" ry="24.95" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.34" ry="24.95" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.84" ry="24.69" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.84" ry="24.69" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.84" ry="24.69" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.79" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.79" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.79" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.95" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.95" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.95" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.51" ry="24.97" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.51" ry="24.97" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.51" ry="24.97" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.67" ry="24.84" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.67" ry="24.84" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.67" ry="24.84" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.22" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.22" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.22" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.04" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.04" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.04" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.20" ry="24.36" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.20" ry="24.36" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.20" ry="24.36" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.15" ry="24.54" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.15" ry="24.54" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.15" ry="24.54" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.44" ry="24.78" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.44" ry="24.78" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.44" ry="24.78" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.65" ry="24.50" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.65" ry="24.50" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.65" ry="24.50" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.92" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.92" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.92" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.81" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.81" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.81" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="24.61" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="24.61" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.40" ry="24.61" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.04" ry="24.42" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.27" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.04" ry="24.42" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.56" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.04" ry="24.42" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.43" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(67.5 30.0 30.0)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yo2)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#ys2)"/>
+                  </g>
+                  <circle cx="30.0" cy="30.0" r="24.5" fill="none" stroke="rgba(255,196,186,0.30)" stroke-width="1" stroke-dasharray="34 66" stroke-dashoffset="14"/>
+                  <circle cx="30.0" cy="30.0" r="24.7" fill="none" stroke="rgba(50,8,8,0.35)" stroke-width="0.8"/>
+                </svg>
+              </div>
+              <div class="spindle-frame" data-frame="3">
+                <svg class="spindle-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+                  <defs>
+                    <radialGradient id="yb3" cx="0.34" cy="0.28" r="0.82">
+                      <stop offset="0"    stop-color="#e2685c"/>
+                      <stop offset="0.34" stop-color="#c1322c"/>
+                      <stop offset="0.68" stop-color="#93201d"/>
+                      <stop offset="0.90" stop-color="#63120f"/>
+                      <stop offset="1"    stop-color="#44090a"/>
+                    </radialGradient>
+                    <radialGradient id="yo3" cx="0.32" cy="0.26" r="0.80">
+                      <stop offset="0.45" stop-color="rgba(30,4,4,0)"/>
+                      <stop offset="1"    stop-color="rgba(30,4,4,0.55)"/>
+                    </radialGradient>
+                    <radialGradient id="ys3" cx="0.33" cy="0.26" r="0.30">
+                      <stop offset="0"   stop-color="rgba(255,226,220,0.42)"/>
+                      <stop offset="1"   stop-color="rgba(255,226,220,0)"/>
+                    </radialGradient>
+                    <clipPath id="yc3"><circle cx="30.0" cy="30.0" r="25.0"/></clipPath>
+                  </defs>
+                  <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yb3)"/>
+                  <g clip-path="url(#yc3)">
+                    <ellipse cx="30.0" cy="30.0" rx="19.76" ry="24.56" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.76" ry="24.56" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.76" ry="24.56" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.26" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.56" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.56" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.56" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.03" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.03" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.03" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.40" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.90" ry="24.91" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.90" ry="24.91" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.90" ry="24.91" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.26" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.75" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.75" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.75" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.12" ry="24.94" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.12" ry="24.94" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.12" ry="24.94" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.58" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.58" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.58" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.58" ry="24.62" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.58" ry="24.62" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.58" ry="24.62" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.20" ry="24.96" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.20" ry="24.96" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.20" ry="24.96" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.60" ry="24.44" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.60" ry="24.44" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.60" ry="24.44" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.40" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.46" ry="24.87" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.46" ry="24.87" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.46" ry="24.87" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.20" ry="24.72" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.20" ry="24.72" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.20" ry="24.72" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.44" ry="24.98" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.44" ry="24.98" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.44" ry="24.98" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.00" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.00" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.00" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.65" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.65" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.65" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.75" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.75" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.75" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.26" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.24" ry="24.45" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.24" ry="24.45" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.24" ry="24.45" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.20" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.25" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.20" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.51" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.20" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.25" ry="24.95" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.25" ry="24.95" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.25" ry="24.95" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.68" ry="24.69" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.68" ry="24.69" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.68" ry="24.69" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.84" ry="24.79" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.84" ry="24.79" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.39" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.84" ry="24.79" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.81" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.81" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.81" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.08" ry="24.97" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.08" ry="24.97" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.08" ry="24.97" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.84" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.84" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.84" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.43" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.43" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.43" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.40" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.68" ry="24.36" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.68" ry="24.36" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.68" ry="24.36" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.58" ry="24.54" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.58" ry="24.54" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.58" ry="24.54" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.15" ry="24.78" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.15" ry="24.78" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.15" ry="24.78" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.70" ry="24.50" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="12.70" ry="24.50" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="12.70" ry="24.50" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.77" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.77" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.77" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.64" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.64" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.64" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.61" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.61" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.61" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="24.42" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.24" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.40" ry="24.42" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.50" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.40" ry="24.42" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.39" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.86" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.86" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.39" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.86" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(67.5 30.0 30.0)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yo3)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#ys3)"/>
+                  </g>
+                  <circle cx="30.0" cy="30.0" r="24.5" fill="none" stroke="rgba(255,196,186,0.30)" stroke-width="1" stroke-dasharray="34 66" stroke-dashoffset="14"/>
+                  <circle cx="30.0" cy="30.0" r="24.7" fill="none" stroke="rgba(50,8,8,0.35)" stroke-width="0.8"/>
+                </svg>
+              </div>
+              <div class="spindle-frame" data-frame="4">
+                <svg class="spindle-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+                  <defs>
+                    <radialGradient id="yb4" cx="0.34" cy="0.28" r="0.82">
+                      <stop offset="0"    stop-color="#e2685c"/>
+                      <stop offset="0.34" stop-color="#c1322c"/>
+                      <stop offset="0.68" stop-color="#93201d"/>
+                      <stop offset="0.90" stop-color="#63120f"/>
+                      <stop offset="1"    stop-color="#44090a"/>
+                    </radialGradient>
+                    <radialGradient id="yo4" cx="0.32" cy="0.26" r="0.80">
+                      <stop offset="0.45" stop-color="rgba(30,4,4,0)"/>
+                      <stop offset="1"    stop-color="rgba(30,4,4,0.55)"/>
+                    </radialGradient>
+                    <radialGradient id="ys4" cx="0.33" cy="0.26" r="0.30">
+                      <stop offset="0"   stop-color="rgba(255,226,220,0.42)"/>
+                      <stop offset="1"   stop-color="rgba(255,226,220,0)"/>
+                    </radialGradient>
+                    <clipPath id="yc4"><circle cx="30.0" cy="30.0" r="25.0"/></clipPath>
+                  </defs>
+                  <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yb4)"/>
+                  <g clip-path="url(#yc4)">
+                    <ellipse cx="30.0" cy="30.0" rx="13.41" ry="24.56" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.41" ry="24.56" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.41" ry="24.56" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(66.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.78" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.78" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.78" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.96" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.96" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.96" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(68.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.60" ry="24.91" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.60" ry="24.91" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.60" ry="24.91" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(154.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.41" ry="24.75" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.41" ry="24.75" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.41" ry="24.75" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(156.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.10" ry="24.94" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.10" ry="24.94" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.10" ry="24.94" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(27.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.87" ry="24.58" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.87" ry="24.58" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.39" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.87" ry="24.58" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(110.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.15" ry="24.62" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.15" ry="24.62" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.15" ry="24.62" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.11" ry="24.96" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.11" ry="24.96" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.11" ry="24.96" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.24" transform="rotate(154.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.41" ry="24.44" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.41" ry="24.44" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.41" ry="24.44" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.03" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.03" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.03" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(154.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.38" ry="24.87" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.38" ry="24.87" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.38" ry="24.87" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(110.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.23" ry="24.72" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="5.23" ry="24.72" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="5.23" ry="24.72" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(68.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.07" ry="24.98" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.07" ry="24.98" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.37" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.07" ry="24.98" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(109.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.86" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="3.86" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="3.86" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(28.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.73" ry="25.00" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.73" ry="25.00" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.73" ry="25.00" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(154.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.77" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.77" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.77" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(28.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.13" ry="24.45" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.13" ry="24.45" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.13" ry="24.45" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(156.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.22" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="24.98" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.45" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="24.98" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.35" transform="rotate(110.9 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.46" ry="24.95" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.46" ry="24.95" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.46" ry="24.95" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(109.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.91" ry="24.69" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.91" ry="24.69" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.91" ry="24.69" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(156.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.88" ry="24.79" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.88" ry="24.79" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.88" ry="24.79" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.26" transform="rotate(111.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.78" ry="24.68" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.78" ry="24.68" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.78" ry="24.68" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(109.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.07" ry="24.97" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.07" ry="24.97" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.07" ry="24.97" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(67.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.36" ry="24.84" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.36" ry="24.84" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.36" ry="24.84" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.29" transform="rotate(69.8 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.28" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.15" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="18.28" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.32" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="18.28" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(109.0 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(156.2 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.95" ry="24.36" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="11.95" ry="24.36" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.28" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="11.95" ry="24.36" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(27.3 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.69" ry="24.54" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.19" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.69" ry="24.54" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.69" ry="24.54" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(68.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.13" ry="24.78" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.14" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="13.13" ry="24.78" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.29" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="13.13" ry="24.78" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.22" transform="rotate(156.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.24" ry="24.50" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.24" ry="24.50" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.24" ry="24.50" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.25" transform="rotate(67.1 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.82" ry="24.63" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.82" ry="24.63" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.82" ry="24.63" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(68.6 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.95" ry="24.43" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.13" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="4.95" ry="24.43" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.26" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="4.95" ry="24.43" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.20" transform="rotate(27.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.64" ry="24.61" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.18" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="23.64" ry="24.61" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.38" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="23.64" ry="24.61" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.30" transform="rotate(28.7 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.42" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.21" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="25.00" ry="24.42" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.44" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="25.00" ry="24.42" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.34" transform="rotate(28.4 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.93" ry="24.92" fill="none" stroke="#5c0f0d" stroke-width="1.9" opacity="0.16" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="30.0" cy="30.0" rx="19.93" ry="24.92" fill="none" stroke="#b82722" stroke-width="1.15" opacity="0.33" transform="rotate(67.5 30.0 30.0)"/>
+                    <ellipse cx="29.58" cy="29.58" rx="19.93" ry="24.92" fill="none" stroke="#e9756a" stroke-width="0.45" opacity="0.26" transform="rotate(67.5 30.0 30.0)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#yo4)"/>
+                    <circle cx="30.0" cy="30.0" r="25.0" fill="url(#ys4)"/>
+                  </g>
+                  <circle cx="30.0" cy="30.0" r="24.5" fill="none" stroke="rgba(255,196,186,0.30)" stroke-width="1" stroke-dasharray="34 66" stroke-dashoffset="14"/>
+                  <circle cx="30.0" cy="30.0" r="24.7" fill="none" stroke="rgba(50,8,8,0.35)" stroke-width="0.8"/>
+                </svg>
+              </div>
+          </div>
+        </div>
+
+        <article class="tl-item odd" id="era-beginning" role="listitem" aria-label="2009 — A Single Spinning Unit in Bhiwandi">
+          <div class="media-side">
+            <div class="tl-media">
+              <figure class="tl-photo">
+                <img src="images/history/milestone-1.jpg" alt="A Single Spinning Unit in Bhiwandi, 2009" loading="lazy">
+                <figcaption class="tl-year-badge">2009</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="content-side">
+            <p class="tl-era">The Beginning</p>
+            <h3 class="tl-title">A Single Spinning Unit in Bhiwandi</h3>
+            <p class="tl-desc">Prateek Group began with one modest spinning floor in Bhiwandi, Maharashtra — a handful of machines, a small team, and a commitment to getting every count right the first time.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">Bhiwandi</span>
+              <span class="tl-tag">Spinning</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tl-item even" role="listitem" aria-label="2013 — Moving Beyond Commodity Yarn">
+          <div class="media-side">
+            <div class="tl-media">
+              <figure class="tl-photo">
+                <img src="images/history/milestone-2.jpg" alt="Moving Beyond Commodity Yarn, 2013" loading="lazy">
+                <figcaption class="tl-year-badge">2013</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="content-side">
+            <p class="tl-era">Craft</p>
+            <h3 class="tl-title">Moving Beyond Commodity Yarn</h3>
+            <p class="tl-desc">Rather than compete on volume alone, the focus shifted to fancy and value-added yarns — 2-ply and 3-ply constructions built for texture, character and finish that standard threads could not offer.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">Fancy Yarn</span>
+              <span class="tl-tag">300+ Variants</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tl-item odd" id="era-expansion" role="listitem" aria-label="2016 — KK Spintex Opens in Guntur">
+          <div class="media-side">
+            <div class="tl-media">
+              <figure class="tl-photo">
+                <img src="images/history/milestone-3.jpg" alt="KK Spintex Opens in Guntur, 2016" loading="lazy">
+                <figcaption class="tl-year-badge">2016</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="content-side">
+            <p class="tl-era">Expansion</p>
+            <h3 class="tl-title">KK Spintex Opens in Guntur</h3>
+            <p class="tl-desc">A second facility in Guntur, Andhra Pradesh brought large-scale polyester-viscose production in house, pairing polyester's durability with viscose's silk-like drape across custom blend ratios.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">Guntur</span>
+              <span class="tl-tag">PV Yarn</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tl-item even" id="era-integration" role="listitem" aria-label="2019 — GB Dyed Yarn Completes the Chain">
+          <div class="media-side">
+            <div class="tl-media">
+              <figure class="tl-photo">
+                <img src="images/history/milestone-4.jpg" alt="GB Dyed Yarn Completes the Chain, 2019" loading="lazy">
+                <figcaption class="tl-year-badge">2019</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="content-side">
+            <p class="tl-era">Integration</p>
+            <h3 class="tl-title">GB Dyed Yarn Completes the Chain</h3>
+            <p class="tl-desc">With the dyeing and texturizing unit at Palsana, Gujarat, the group closed the loop — from raw spinning through to finished, colour-fast dyed yarn, all under one roof.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">Palsana</span>
+              <span class="tl-tag">Dyeing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tl-item odd" role="listitem" aria-label="2022 — 38,000 Spindles and Counting">
+          <div class="media-side">
+            <div class="tl-media">
+              <figure class="tl-photo">
+                <img src="images/history/milestone-5.jpg" alt="38,000 Spindles and Counting, 2022" loading="lazy">
+                <figcaption class="tl-year-badge">2022</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="content-side">
+            <p class="tl-era">Scale</p>
+            <h3 class="tl-title">38,000 Spindles and Counting</h3>
+            <p class="tl-desc">Sustained investment in machinery and quality control pushed combined capacity past 900 metric tonnes a month, backed by in-house labs and a complaint-free record with long-standing customers.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">38,000+ Spindles</span>
+              <span class="tl-tag">900+ MT / Month</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tl-item even" id="era-today" role="listitem" aria-label="2024 — Three Facilities. One Integrated Group.">
+          <div class="media-side">
+            <div class="tl-media">
+              <figure class="tl-photo">
+                <img src="images/history/milestone-6.jpg" alt="Three Facilities. One Integrated Group., 2024" loading="lazy">
+                <figcaption class="tl-year-badge">2024</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="content-side">
+            <p class="tl-era">Today</p>
+            <h3 class="tl-title">Three Facilities. One Integrated Group.</h3>
+            <p class="tl-desc">Fifteen years on, Prateek Group operates three specialised plants across three states — serving shirting, suiting, dress material and home furnishing manufacturers throughout India.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">3 Facilities</span>
+              <span class="tl-tag">15+ Years</span>
+            </div>
+          </div>
+        </article>
+
+        <div class="tl-end" aria-hidden="true"><span>The Story Continues</span></div>
+      </div>
+
+    </div>
+  </section>
+
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#f2f1ef"/>
+    <path fill="#b23a34" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+  <!-- ======================= CLOSING CTA ======================= -->
+  <section class="hist-cta">
+    <div class="container hist-cta-inner reveal">
+      <h2 class="hist-cta-title">
+        The next chapter is <span class="accent">yours</span><br>
+        to build with us.
+      </h2>
+      <p class="hist-cta-desc">
+        Years of consistency, quality and trust &mdash; and a group
+        still growing. Let&rsquo;s talk about what we can make together.
+      </p>
+      <a href="contact.html" class="btn">
+        GET IN TOUCH
+        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+<div class="wave-sep" aria-hidden="true">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="100" fill="#b23a34"/>
+    <path fill="#f2f1ef" d="M 0.00,50.00 C 7.50,51.27 30.00,55.29 45.00,57.65 C 60.00,60.01 75.00,62.34 90.00,64.14 C 105.00,65.95 120.00,67.50 135.00,68.48 C 150.00,69.46 165.00,70.00 180.00,70.00 C 195.00,70.00 210.00,69.46 225.00,68.48 C 240.00,67.50 255.00,65.95 270.00,64.14 C 285.00,62.34 300.00,60.01 315.00,57.65 C 330.00,55.29 345.00,52.55 360.00,50.00 C 375.00,47.45 390.00,44.71 405.00,42.35 C 420.00,39.99 435.00,37.66 450.00,35.86 C 465.00,34.05 480.00,32.50 495.00,31.52 C 510.00,30.54 525.00,30.00 540.00,30.00 C 555.00,30.00 570.00,30.54 585.00,31.52 C 600.00,32.50 615.00,34.05 630.00,35.86 C 645.00,37.66 660.00,39.99 675.00,42.35 C 690.00,44.71 705.00,47.45 720.00,50.00 C 735.00,52.55 750.00,55.29 765.00,57.65 C 780.00,60.01 795.00,62.34 810.00,64.14 C 825.00,65.95 840.00,67.50 855.00,68.48 C 870.00,69.46 885.00,70.00 900.00,70.00 C 915.00,70.00 930.00,69.46 945.00,68.48 C 960.00,67.50 975.00,65.95 990.00,64.14 C 1005.00,62.34 1020.00,60.01 1035.00,57.65 C 1050.00,55.29 1065.00,52.55 1080.00,50.00 C 1095.00,47.45 1110.00,44.71 1125.00,42.35 C 1140.00,39.99 1155.00,37.66 1170.00,35.86 C 1185.00,34.05 1200.00,32.50 1215.00,31.52 C 1230.00,30.54 1245.00,30.00 1260.00,30.00 C 1275.00,30.00 1290.00,30.54 1305.00,31.52 C 1320.00,32.50 1335.00,34.05 1350.00,35.86 C 1365.00,37.66 1380.00,39.99 1395.00,42.35 C 1410.00,44.71 1432.50,48.73 1440.00,50.00 L 1440,100 L 0,100 Z"/>
+  </svg>
+</div>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer" id="contact">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand js-top" aria-label="Prateek Group home">
+        <img src="logo.png" alt="Prateek Group" class="brand-mark" width="208" height="240" />
+        <span>
+          <span class="brand-name">PRATEEK</span>
+          <span class="brand-sub">GROUP</span>
+        </span>
+      </a>
+      <p class="footer-about">
+        Integrated yarn manufacturing group with state-of-the-art facilities
+        across India. Committed to quality, consistency and customer satisfaction.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Group Companies</h5>
+      <ul><li><a href="prateek.html">Prateek</a></li><li><a href="kk-spintex.html">KK Spintex</a></li><li><a href="gb-dyed-yarn.html">GB Dyed Yarn</a></li></ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Quick Links</h5>
+      <ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="group-companies.html">Group Companies</a></li><li><a href="index.html#products">Products</a></li><li><a href="people.html">Our People</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Manufacturing Locations</h5>
+      <ul class="footer-locations">
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+          Bhiwandi, Maharashtra
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+          Guntur, Andhra Pradesh
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/></svg>
+          Palsana, Gujarat
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5 class="footer-heading">Contact Us</h5>
+      <ul class="footer-contact">
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.13.96.36 1.9.7 2.8a2 2 0 01-.45 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.45c.9.34 1.84.57 2.8.7a2 2 0 011.7 2.05z"/></svg>
+          +91 72734 44555
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+          info@prateekspunfab.com
+        </li>
+        <li>
+          <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2"/></svg>
+          Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="socials" aria-label="Social media">
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.6 4.78 6V21h-4v-5.3c0-1.27-.02-2.9-1.8-2.9-1.8 0-2.08 1.38-2.08 2.8V21H9z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 7.2a2.8 2.8 0 00-2-2C18.8 4.8 12 4.8 12 4.8s-6.8 0-8.5.4a2.8 2.8 0 00-2 2A29 29 0 001 12a29 29 0 00.5 4.8 2.8 2.8 0 002 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 002-2A29 29 0 0023 12a29 29 0 00-.5-4.8zM9.8 15.1V8.9L15.7 12z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2024 Prateek Spunfab Pvt. Ltd. All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+</footer>
+
+<!-- ======================= SCRIPTS ======================= -->
+<script>
+(function () {
+  'use strict';
+
+  /* Header behaviour lives in header.js */
+
+  /* Back to top */
+  var toTop = document.getElementById('toTop');
+  if (toTop) toTop.addEventListener('click', function(){ window.scrollTo({ top:0, behavior:'smooth' }); });
+
+  /* Scroll reveal — bidirectional: reveals on the way down, fades
+     back out on the way up once it leaves the screen. */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function(el){ obs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* Timeline: split-from-centre reveal.
+     Each side's children are wrapped in .side-wrap so the side's
+     overflow:hidden clips the sliding content cleanly, then every
+     row is observed and gets .zz-visible when it scrolls into the
+     top ~60% of the screen — and loses it again once it scrolls back
+     out (either direction), so the reveal replays each time. */
+  var tlItems = document.querySelectorAll('.tl-item');
+  if (tlItems.length) {
+    tlItems.forEach(function (item) {
+      item.querySelectorAll('.media-side, .content-side').forEach(function (side) {
+        var wrap = document.createElement('div');
+        wrap.className = 'side-wrap';
+        if (side.classList.contains('content-side')) {
+          var card = document.createElement('div');
+          card.className = 'tl-textbox';
+          while (side.firstChild) card.appendChild(side.firstChild);
+          wrap.appendChild(card);
+        } else {
+          while (side.firstChild) wrap.appendChild(side.firstChild);
+        }
+        side.appendChild(wrap);
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      var zzObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle('zz-visible', entry.isIntersecting);
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -40% 0px' });
+      tlItems.forEach(function (el) { zzObserver.observe(el); });
+    } else {
+      tlItems.forEach(function (el) { el.classList.add('zz-visible'); });
+    }
+  }
+
+  /* ---- Unravelling yarn down the timeline ----
+     The cord is generated to fit the container, then revealed top-down by a
+     clip rect tied to scroll position. It is drawn as a real 2-ply yarn:
+     a soft halo, a shaded body, a lit side, and slanted twist ridges and
+     grooves that give it a visible spin. The ball rides the leading edge,
+     follows the cord's sway, and rolls by the length of yarn paid out. */
+  (function yarnSpindle() {
+    var container = document.querySelector('.tl-container');
+    var svg       = document.getElementById('tlThreadSvg');
+    var clipRect  = document.getElementById('tlRevealRect');
+    var spindle   = document.getElementById('tlSpindle');
+    var roll      = document.getElementById('tlSpindleRoll');
+    if (!container || !svg || !clipRect || !spindle) return;
+
+    var P = {
+      halo:   document.getElementById('tlHalo'),
+      shade:  document.getElementById('tlShade'),
+      core:   document.getElementById('tlCore'),
+      lit:    document.getElementById('tlLit'),
+      groove: document.getElementById('tlGroove'),
+      twist:  document.getElementById('tlTwist'),
+      fuzz:   document.getElementById('tlFuzz')
+    };
+
+    var reduced = window.matchMedia &&
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var W = 44;              // svg width (matches .tl-thread)
+    var H = 0;               // container height
+    var cx = W / 2;
+    var LOCK = 0.50;         // ball locks to the middle of the viewport
+    var FRAME_PITCH = 46;    // px of yarn paid out per frame swap
+    var BALL_R = 25;         // ball radius, for the rolling maths
+    var frames = spindle.querySelectorAll('.spindle-frame');
+    var frameCount = frames.length || 1;
+    var curFrame = -1;
+    var ticking = false;
+
+    /* Gentle, continuous sway — long wavelengths only, no per-point
+       randomness (sharp jitter is what made the old line look ragged). */
+    function sway(y) {
+      return Math.sin(y / 118) * 3.1 +
+             Math.sin(y / 47 + 1.7) * 0.9 +
+             Math.sin(y / 331 + 0.4) * 1.7;
+    }
+
+    /* Catmull-Rom through the sample points -> smooth cubic Beziers. */
+    function pathFrom(offset) {
+      var step = 30, pts = [], y;
+      for (y = 0; y <= H; y += step) pts.push([cx + sway(y) + offset, y]);
+      if (pts[pts.length - 1][1] < H) pts.push([cx + sway(H) + offset, H]);
+
+      var A = [pts[0]].concat(pts, [pts[pts.length - 1]]);
+      var d = 'M ' + A[1][0].toFixed(2) + ' ' + A[1][1].toFixed(2);
+      for (var i = 1; i < A.length - 2; i++) {
+        var p0 = A[i - 1], p1 = A[i], p2 = A[i + 1], p3 = A[i + 2];
+        d += ' C ' + (p1[0] + (p2[0] - p0[0]) / 6).toFixed(2) + ' ' +
+                     (p1[1] + (p2[1] - p0[1]) / 6).toFixed(2) + ' ' +
+                     (p2[0] - (p3[0] - p1[0]) / 6).toFixed(2) + ' ' +
+                     (p2[1] - (p3[1] - p1[1]) / 6).toFixed(2) + ' ' +
+                     p2[0].toFixed(2) + ' ' + p2[1].toFixed(2);
+      }
+      return d;
+    }
+
+    /* Twist: short slanted strokes across the cord, one set bright (the
+       ridge catching the light) and one set dark (the groove between
+       plies), offset by half a pitch. This is what sells the spin. */
+    function twistPaths() {
+      var pitch = 8.2, half = 2.05, rise = 4.4;
+      var ridge = '', groove = '', fuzz = '', y, x;
+      /* deterministic per-ridge wobble so the twist reads as spun yarn
+         rather than a printed stripe */
+      function jig(v, k) { return Math.sin(v * 0.7 + k) * 0.5 + Math.sin(v * 0.23 + k * 2.1) * 0.3; }
+      for (y = 0; y <= H; y += pitch) {
+        x = cx + sway(y);
+        var hw = half + jig(y, 0.0) * 0.16;
+        var rs = rise + jig(y, 1.3) * 0.55;
+        ridge += 'M' + (x - hw).toFixed(2) + ' ' + y.toFixed(2) +
+                 ' L' + (x + hw).toFixed(2) + ' ' + (y + rs).toFixed(2);
+        var yg = y + pitch / 2, xg = cx + sway(yg);
+        var hg = half + jig(yg, 2.6) * 0.16;
+        groove += 'M' + (xg - hg).toFixed(2) + ' ' + yg.toFixed(2) +
+                  ' L' + (xg + hg).toFixed(2) + ' ' + (yg + rs).toFixed(2);
+      }
+      /* a few stray fibres so the silhouette isn't mathematically clean */
+      for (y = 12; y <= H; y += 37) {
+        x = cx + sway(y);
+        var side = (Math.sin(y * 12.9898) > 0) ? 1 : -1;
+        var len = 1.6 + Math.abs(Math.sin(y * 78.233)) * 2.6;
+        fuzz += 'M' + (x + side * 1.9).toFixed(2) + ' ' + y.toFixed(2) +
+                ' Q' + (x + side * (1.9 + len)).toFixed(2) + ' ' + (y + 1.4).toFixed(2) +
+                ' '  + (x + side * (1.4 + len)).toFixed(2) + ' ' + (y + 4.2).toFixed(2);
+      }
+      return [ridge, groove, fuzz];
+    }
+
+    function buildThread() {
+      H = container.offsetHeight;
+      if (!H) return;
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+      var main = pathFrom(0);
+      if (P.halo)  P.halo.setAttribute('d', main);
+      if (P.shade) P.shade.setAttribute('d', pathFrom(0.55));
+      if (P.core)  P.core.setAttribute('d', main);
+      if (P.lit)   P.lit.setAttribute('d', pathFrom(-1.05));
+
+      var t = twistPaths();
+      if (P.twist)  P.twist.setAttribute('d', t[0]);
+      if (P.groove) P.groove.setAttribute('d', t[1]);
+      if (P.fuzz)   P.fuzz.setAttribute('d', t[2]);
+
+      clipRect.setAttribute('height', reduced ? H : 0);
+      update();
+    }
+
+    function progress() {
+      var rect = container.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      return Math.max(0, Math.min(1, (vh * LOCK - rect.top) / rect.height));
+    }
+
+    function setFrame(i) {
+      if (i === curFrame || !frames.length) return;
+      if (frames[curFrame]) frames[curFrame].classList.remove('is-on');
+      frames[i].classList.add('is-on');
+      curFrame = i;
+    }
+
+    function update() {
+      if (!H) return;
+      if (reduced) { clipRect.setAttribute('height', H); return; }
+
+      var p = progress();
+      var y = p * H;
+
+      clipRect.setAttribute('height', y.toFixed(1));
+      /* the ball follows the cord's sway instead of hanging off it */
+      spindle.style.transform =
+        'translate3d(' + sway(y).toFixed(2) + 'px,' + y.toFixed(1) + 'px,0)';
+
+      /* one turn per circumference of yarn paid out, plus a slight wobble
+         so it never looks mechanically perfect */
+      if (roll) {
+        var deg = (y / (2 * Math.PI * BALL_R)) * 360 + Math.sin(y / 90) * 6;
+        roll.style.transform = 'rotate(' + deg.toFixed(1) + 'deg)';
+      }
+
+      var idx = Math.floor(y / FRAME_PITCH) % frameCount;
+      if (idx < 0) idx += frameCount;
+      setFrame(idx);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { update(); ticking = false; });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    var rzt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rzt);
+      rzt = setTimeout(buildThread, 150);
+    });
+
+    window.addEventListener('load', buildThread);
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(function () { buildThread(); }).observe(container);
+    }
+
+    buildThread();
+  })();
+
+  /* Era chips: highlight the clicked one (jump targets wire up once the
+     timeline sections exist) */
+  var chips = document.querySelectorAll('.hist-era-chip');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+    });
+  });
+})();
+</script>
+<script src="header.js"></script>
+</body>
+</html>
