@@ -365,18 +365,6 @@ img{max-width:100%;display:block}
 .btn-card:hover{background:none;transform:none;gap:15px}
 .btn-card .icon-arrow{color:var(--red)}
 
-.slider-btn{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
-  width:52px;height:52px;border-radius:50%;
-  border:1px solid #3b3b40;background:rgba(18,18,20,.55);
-  color:var(--red);cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .25s, border-color .25s;
-}
-.slider-btn:hover{background:var(--red-btn);border-color:var(--red-btn);color:#fff}
-.slider-btn svg{width:17px;height:17px}
-.slider-btn--prev{left:-74px}
-.slider-btn--next{right:-74px}
 
 /* ==========================================================
    5. STATS BAR  (light)
@@ -464,48 +452,177 @@ img{max-width:100%;display:block}
 .products-head .h2{font-size:clamp(28px, 2.7vw, 38px);margin-top:17px}
 .products-sub{max-width:520px;margin:18px auto 0;font-size:14.5px;color:#5c5c5c;line-height:1.8}
 
-.product-carousel{position:relative;margin-top:64px;height:512px}
+/* Products carousel — cards sit in real 3D depth, like packages angled on
+   a creel. Advancing turns the set toward you rather than sliding it
+   sideways. Side cards are clickable (they replace the old arrows). */
+.product-carousel{
+  position:relative;margin-top:64px;height:512px;
+  perspective:1500px;perspective-origin:50% 42%;
+  /* deliberately NOT preserve-3d: with it, cards pushed back on Z sit behind
+     this element's own plane, so it swallows their hover and clicks.
+     Perspective alone gives the same look and keeps them interactive. */
+  cursor:grab;
+  touch-action:pan-y;          /* we own horizontal, page keeps vertical */
+  outline:none;
+}
+.product-carousel:focus-visible{
+  outline:2px solid var(--red);outline-offset:14px;border-radius:16px;
+}
+.product-carousel.is-dragging{cursor:grabbing}
+.product-carousel.is-dragging .product-slide{transition:none;--nudge:0px}
 .product-slide{
   position:absolute;top:0;left:50%;
   width:min(420px, 84%);
-  background:#fff;border-radius:12px;overflow:hidden;
-  box-shadow:0 30px 60px -28px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.05);
-  transform:translateX(calc(-50% + var(--offset, 0) * var(--shift, 470px))) scale(.86);
-  opacity:.45;
-  transition:transform .55s cubic-bezier(.25,.7,.3,1), opacity .55s ease;
+  background:#fff;border-radius:14px;overflow:hidden;
+  transform-origin:50% 62%;
+  cursor:inherit;
+  transform:
+    translateX(calc(-50% + var(--offset, 0) * var(--shift, 500px) + var(--drag, 0px) + var(--nudge, 0px)))
+    translateZ(-175px)
+    rotateY(calc(var(--offset, 0) * -25deg))
+    scale(.96);
+  opacity:.52;
+  box-shadow:0 18px 40px -26px rgba(0,0,0,.4);
+  transition:
+    transform .8s cubic-bezier(.2,.85,.25,1),
+    opacity .6s ease,
+    box-shadow .7s ease,
+    filter .7s ease;
   display:flex;flex-direction:column;
+  filter:saturate(.72);
 }
 .product-slide.is-active{
-  transform:translateX(calc(-50% + var(--offset, 0) * var(--shift, 470px))) scale(1);
-  opacity:1;z-index:2;
+  transform:translateX(calc(-50% + var(--drag, 0px))) translateZ(0) rotateY(0deg) scale(1);
+  opacity:1;z-index:3;
+  box-shadow:0 42px 80px -34px rgba(0,0,0,.42), 0 0 0 1px rgba(0,0,0,.05);
+  filter:none;
 }
-.product-slide-image{height:252px;overflow:hidden;background:#dedcd7}
-.product-slide-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
+/* a parked card leans toward the front on hover, so it reads as "click me" */
+.product-slide:not(.is-active):hover{
+  opacity:.9;
+  filter:saturate(1);
+  --nudge:calc(var(--offset, 0) * -26px);
+}
+/* card mid-wrap: repositioned instantly while invisible */
+.product-slide.is-warping{transition:none;opacity:0}
+
+.product-slide-image{position:relative;height:252px;overflow:hidden;background:#dedcd7}
+.product-slide-image img{
+  width:100%;height:100%;object-fit:cover;filter:grayscale(100%);
+  transform:scale(1.09);
+  transition:transform 1.1s cubic-bezier(.2,.85,.25,1);
+}
+.product-slide.is-active .product-slide-image img{transform:scale(1)}
+
+/* a single warp thread travelling across the image as the card comes
+   forward — the shuttle passing through the weave */
+.product-slide-image::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg,
+    transparent 42%,
+    rgba(230,48,39,0) 47%,
+    rgba(230,48,39,.65) 50%,
+    rgba(255,255,255,.35) 51%,
+    rgba(230,48,39,0) 54%,
+    transparent 59%);
+  transform:translateX(-110%);
+  opacity:0;
+}
+.product-slide.is-active .product-slide-image::after{animation:warpPass 1s ease .12s 1}
+@keyframes warpPass{
+  0%{transform:translateX(-110%);opacity:0}
+  18%{opacity:1}
+  82%{opacity:1}
+  100%{transform:translateX(110%);opacity:0}
+}
+
+/* card text rises as the card settles into focus */
+.product-slide-name,
+.product-slide-desc,
+.product-slide-link{
+  transform:translateY(9px);
+  transition:transform .75s cubic-bezier(.2,.85,.25,1);
+}
+.product-slide.is-active .product-slide-name{transform:none;transition-delay:.14s}
+.product-slide.is-active .product-slide-desc{transform:none;transition-delay:.21s}
+.product-slide.is-active .product-slide-link{transform:none;transition-delay:.28s}
+
 .product-slide-name{font-size:18.5px;font-weight:800;margin:22px 26px 9px}
 .product-slide-desc{font-size:13.5px;color:#5c5c5c;line-height:1.75;margin:0 26px}
 .product-slide-link{
   display:inline-flex;align-items:center;gap:11px;
   margin:19px 26px 27px;
   color:var(--ink);font-size:12.5px;font-weight:700;letter-spacing:.06em;
-  text-decoration:none;transition:gap .25s ease;
+  text-decoration:none;
 }
-.product-slide-link:hover{gap:15px}
+.product-slide-link{cursor:pointer}
+.product-slide-link:hover{gap:15px;transition:gap .25s ease}
 .product-slide-link .icon-arrow{color:var(--red)}
 
-.slider-btn--light{
-  border-color:#cfccc6;background:rgba(255,255,255,.75);
+/* Indicator: thread being laid along a rail, one segment per product */
+.carousel-dots{
+  position:relative;display:flex;justify-content:center;gap:0;
+  width:min(320px,72%);margin:40px auto 0;height:24px;align-items:center;
 }
-.slider-btn--light:hover{background:var(--red-btn);border-color:var(--red-btn);color:#fff}
-.carousel-nav-prev{left:calc(50% - 560px)}
-.carousel-nav-next{right:calc(50% - 560px)}
-
-.carousel-dots{display:flex;justify-content:center;gap:9px;margin-top:30px}
+.carousel-dots::before{
+  content:"";position:absolute;left:0;right:0;top:50%;height:1px;
+  background:linear-gradient(90deg,transparent,#cfccc6 14%,#cfccc6 86%,transparent);
+}
 .carousel-dot{
-  width:8px;height:8px;border-radius:50%;
-  border:0;background:#cfccc6;cursor:pointer;
-  transition:background .25s, transform .25s;
+  position:relative;flex:1 1 0;height:24px;
+  background:none;border:0;padding:0;cursor:pointer;
 }
-.carousel-dot.is-active{background:var(--red);transform:scale(1.25)}
+.carousel-dot::after{
+  content:"";position:absolute;left:14%;right:14%;top:50%;height:2px;
+  background:var(--red);border-radius:2px;
+  transform:translateY(-50%) scaleX(0);transform-origin:left center;
+  transition:transform .7s cubic-bezier(.2,.85,.25,1);
+}
+.carousel-dot.is-active::after{transform:translateY(-50%) scaleX(1)}
+.carousel-dot::before{
+  content:"";position:absolute;right:14%;top:50%;
+  width:7px;height:7px;border-radius:50%;background:var(--red);
+  transform:translate(50%,-50%) scale(0);
+  transition:transform .28s cubic-bezier(.2,.85,.25,1);
+}
+/* the delay only applies on the way IN, so the marker leaves the old
+   segment immediately instead of lingering while the next one fills */
+.carousel-dot.is-active::before{
+  transform:translate(50%,-50%) scale(1);
+  transition:transform .4s cubic-bezier(.2,.85,.25,1) .38s;
+}
+.carousel-dot:hover::after{transform:translateY(-50%) scaleX(.35)}
+
+/* one-time nudge telling people the deck is draggable */
+.carousel-hint{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin:18px auto 0;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:#a09b95;
+  transition:opacity .55s ease;
+}
+.carousel-hint.is-gone{opacity:0;pointer-events:none}
+.carousel-hint svg{
+  width:26px;height:10px;fill:none;stroke:var(--red);stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round;
+  animation:hintNudge 2.4s ease-in-out infinite;
+}
+@keyframes hintNudge{
+  0%,100%{transform:translateX(-3px)}
+  50%{transform:translateX(3px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .carousel-hint svg{animation:none}
+}
+.carousel-dot.is-active:hover::after{transform:translateY(-50%) scaleX(1)}
+
+@media (prefers-reduced-motion: reduce){
+  .product-slide,
+  .product-slide-image img,
+  .product-slide-name,
+  .product-slide-desc,
+  .product-slide-link{transition:none}
+  .product-slide.is-active .product-slide-image::after{animation:none}
+}
 
 /* ==========================================================
    8. WHY CHOOSE US  (dark)
@@ -691,10 +808,6 @@ img{max-width:100%;display:block}
    13. RESPONSIVE
 ========================================================== */
 @media (max-width:1380px){
-  .slider-btn--prev{left:-14px}
-  .slider-btn--next{right:-14px}
-  .carousel-nav-prev{left:2%}
-  .carousel-nav-next{right:2%}
 }
 @media (max-width:1200px){
   .nav{
@@ -737,7 +850,7 @@ img{max-width:100%;display:block}
 @media (max-width:900px){
   .why-grid{grid-template-columns:1fr 1fr}
   .numbers-grid{grid-template-columns:1fr 1fr}
-  .product-slide{--shift:300px}
+  .product-slide{--shift:380px}
 }
 @media (max-width:720px){
   .container, .container--slim{width:calc(100% - 44px)}
@@ -750,8 +863,6 @@ img{max-width:100%;display:block}
 
   .companies{padding:96px 0 110px}
   .company-card{flex-basis:86%}
-  .slider-btn--prev{left:-8px}
-  .slider-btn--next{right:-8px}
 
   .stats{padding:88px 0 100px}
   .stats-grid{grid-template-columns:1fr 1fr}
@@ -806,13 +917,13 @@ img{max-width:100%;display:block}
       <li><a href="history.html">HISTORY</a></li>
 
       <li class="has-dropdown">
-        <a href="index.html#manufacturing" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
+        <a href="infrastructure.html" aria-haspopup="true">INFRASTRUCTURE <span class="caret" aria-hidden="true">&#9662;</span></a>
         <ul class="dropdown">
-          <li><a href="index.html#manufacturing">MANUFACTURING</a></li>
-          <li><a href="index.html#qualitycontrol">QUALITY CONTROL</a></li>
-          <li><a href="index.html#manufacturing">MACHINERY</a></li>
-          <li><a href="index.html#capacity">CAPACITY</a></li>
-          <li><a href="index.html#qualitycontrol">CERTIFICATIONS</a></li>
+          <li><a href="infrastructure.html#manufacturing">MANUFACTURING</a></li>
+          <li><a href="infrastructure.html#machinery">MACHINERY</a></li>
+          <li><a href="infrastructure.html#qualitycontrol">QUALITY CONTROL</a></li>
+          <li><a href="infrastructure.html#capacity">CAPACITY</a></li>
+          <li><a href="infrastructure.html#certifications">CERTIFICATIONS</a></li>
         </ul>
       </li>
 
@@ -834,7 +945,7 @@ img{max-width:100%;display:block}
         </ul>
       </li>
 
-      <li><a href="group-companies.html#partners">OUR PARTNERS</a></li>
+      <li><a href="partners.html">OUR PARTNERS</a></li>
       <li><a href="people.html">PEOPLE</a></li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
@@ -986,12 +1097,6 @@ img{max-width:100%;display:block}
 
       </div>
 
-      <button class="slider-btn slider-btn--prev" id="prevBtn" aria-label="Previous company">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="slider-btn slider-btn--next" id="nextBtn" aria-label="Next company">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
     </div>
   </div>
 </section>
@@ -1149,7 +1254,8 @@ img{max-width:100%;display:block}
       </p>
     </div>
 
-    <div class="product-carousel reveal" id="productCarousel" style="--d:.1s">
+    <div class="product-carousel reveal" id="productCarousel" style="--d:.1s"
+         tabindex="0" role="group" aria-roledescription="carousel" aria-label="Our products">
       <article class="product-slide" data-index="0">
         <div class="product-slide-image">
           <img src="images/stock photo 1.jpg" alt="PV Yarn" loading="lazy">
@@ -1195,15 +1301,13 @@ img{max-width:100%;display:block}
         </a>
       </article>
 
-      <button class="slider-btn slider-btn--light carousel-nav-prev" id="carouselPrev" aria-label="Previous product">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="slider-btn slider-btn--light carousel-nav-next" id="carouselNext" aria-label="Next product">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
     </div>
 
     <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Product slides"></div>
+    <p class="carousel-hint" id="carouselHint">
+      <svg viewBox="0 0 26 10" aria-hidden="true"><path d="M4 5h18M7 2L4 5l3 3M19 2l3 3-3 3"/></svg>
+      Drag to explore
+    </p>
   </div>
 </section>
 
@@ -1459,7 +1563,7 @@ img{max-width:100%;display:block}
 
     <div class="footer-col">
       <h5 class="footer-heading">Quick Links</h5>
-      <ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="group-companies.html">Group Companies</a></li><li><a href="index.html#products">Products</a></li><li><a href="people.html">Our People</a></li><li><a href="contact.html">Contact</a></li></ul>
+      <ul><li><a href="index.html">Home</a></li><li><a href="history.html">History</a></li><li><a href="infrastructure.html">Infrastructure</a></li><li><a href="group-companies.html">Group Companies</a></li><li><a href="partners.html">Our Partners</a></li><li><a href="people.html">Our People</a></li><li><a href="contact.html">Contact</a></li></ul>
     </div>
 
     <div class="footer-col">
@@ -1536,19 +1640,6 @@ img{max-width:100%;display:block}
   /* ---------- Back to top ---------- */
   document.getElementById('toTop').addEventListener('click', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  /* ---------- Companies slider arrows ---------- */
-  var track = document.getElementById('companiesTrack');
-  function step() {
-    var card = track.querySelector('.company-card');
-    return card ? card.getBoundingClientRect().width + 22 : 320;
-  }
-  document.getElementById('prevBtn').addEventListener('click', function () {
-    track.scrollBy({ left: -step(), behavior: 'smooth' });
-  });
-  document.getElementById('nextBtn').addEventListener('click', function () {
-    track.scrollBy({ left: step(), behavior: 'smooth' });
   });
 
   /* ---------- Scroll reveal ---------- */
@@ -1637,9 +1728,15 @@ img{max-width:100%;display:block}
   (function carousel() {
     var carousel = document.getElementById('productCarousel');
     var dotsWrap = document.getElementById('carouselDots');
-    var prevBtn = document.getElementById('carouselPrev');
-    var nextBtn = document.getElementById('carouselNext');
     if (!carousel || !dotsWrap) return;
+
+    var hint = document.getElementById('carouselHint');
+    var hintGone = false;
+    function hideHint() {
+      if (!hint || hintGone) return;
+      hintGone = true;
+      hint.classList.add('is-gone');
+    }
 
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('.product-slide'));
     var count = slides.length;
@@ -1656,7 +1753,7 @@ img{max-width:100%;display:block}
       dot.className = 'carousel-dot';
       dot.setAttribute('role', 'tab');
       dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-      dot.addEventListener('click', function () { goTo(i, true); });
+      dot.addEventListener('click', function () { goTo(i, true); hideHint(); });
       dotsWrap.appendChild(dot);
     });
     var dots = Array.prototype.slice.call(dotsWrap.children);
@@ -1666,9 +1763,29 @@ img{max-width:100%;display:block}
         var offset = i - index;
         if (offset >  count / 2) offset -= count;
         if (offset < -count / 2) offset += count;
-        slide.style.setProperty('--offset', offset);
+
+        /* With three cards, one of them wraps from one side to the other on
+           every step. Animated, it sweeps straight through the middle of the
+           stage as a ghost. So when the jump is bigger than one position,
+           hide it, move it instantly, and fade it back in on the far side. */
+        var prev = slide._off;
+        var wraps = prev !== undefined && Math.abs(offset - prev) > 1;
+        if (wraps) {
+          slide.classList.add('is-warping');
+          slide.style.setProperty('--offset', offset);
+          void slide.offsetWidth;                 // force the jump to apply untweened
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () { slide.classList.remove('is-warping'); });
+          });
+        } else {
+          slide.style.setProperty('--offset', offset);
+        }
+        slide._off = offset;
+
         slide.classList.toggle('is-active', offset === 0);
         slide.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+        var link = slide.querySelector('.product-slide-link');
+        if (link) link.tabIndex = offset === 0 ? 0 : -1;
       });
       dots.forEach(function (d, i) {
         d.classList.toggle('is-active', i === index);
@@ -1694,26 +1811,97 @@ img{max-width:100%;display:block}
     }
     function restartAuto() { stopAuto(); startAuto(); }
 
-    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restartAuto(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { next(); restartAuto(); });
+    /* With the arrows gone, the side cards are the control: click one to
+       bring it forward. Keyboard users get the same via the indicator. */
+    slides.forEach(function (slide, i) {
+      slide.addEventListener('click', function (e) {
+        if (i === index) return;              // active card: let links work
+        if (e.target.closest('a')) return;    // never swallow a real link
+        e.preventDefault();
+        goTo(i, true);
+        hideHint();
+      });
+    });
 
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
     carousel.addEventListener('focusin', stopAuto);
     carousel.addEventListener('focusout', startAuto);
 
-    /* basic swipe support */
-    var touchStartX = 0;
-    carousel.addEventListener('touchstart', function (e) {
-      touchStartX = e.touches[0].clientX;
+    /* ---- Drag to slide ----
+       Pointer events cover mouse, touch and pen in one path. The whole deck
+       follows the pointer live; let go past the threshold and it advances,
+       otherwise it springs back. This is the primary way to move between
+       products — the indicator and the side cards are secondary. */
+    var THRESHOLD = 55;
+    var DAMP = 0.85;
+    var CAP = 250;
+    var dragging = false, pid = null, axis = null;
+    var startX = 0, startY = 0, dx = 0, moved = false;
+
+    function setDrag(px) {
+      carousel.style.setProperty('--drag', px.toFixed(1) + 'px');
+    }
+
+    carousel.addEventListener('pointerdown', function (e) {
+      if (e.button) return;                 // primary button / touch only
+      dragging = true; moved = false; axis = null;
+      pid = e.pointerId; startX = e.clientX; startY = e.clientY; dx = 0;
       stopAuto();
-    }, { passive: true });
-    carousel.addEventListener('touchend', function (e) {
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      if (dx > 40) prev();
-      else if (dx < -40) next();
+      hideHint();
+    });
+
+    carousel.addEventListener('pointermove', function (e) {
+      if (!dragging || e.pointerId !== pid) return;
+      var mx = e.clientX - startX, my = e.clientY - startY;
+
+      /* decide once whether this gesture is a horizontal drag or the user
+         scrolling the page vertically, then stick with it */
+      if (axis === null) {
+        if (Math.abs(mx) < 6 && Math.abs(my) < 6) return;
+        axis = Math.abs(mx) > Math.abs(my) ? 'x' : 'y';
+        if (axis === 'x') {
+          carousel.classList.add('is-dragging');
+          try { carousel.setPointerCapture(pid); } catch (err) {}
+        }
+      }
+      if (axis !== 'x') return;
+
+      moved = true;
+      dx = mx * DAMP;
+      if (dx >  CAP) dx =  CAP + (dx - CAP) * 0.22;   // rubber-band past the cap
+      if (dx < -CAP) dx = -CAP + (dx + CAP) * 0.22;
+      setDrag(dx);
+    });
+
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      carousel.classList.remove('is-dragging');
+      try { carousel.releasePointerCapture(pid); } catch (err) {}
+      setDrag(0);
+      if (axis === 'x' && Math.abs(dx) > THRESHOLD) {
+        if (dx < 0) next(); else prev();
+      }
+      dx = 0; axis = null;
       startAuto();
-    }, { passive: true });
+    }
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+
+    /* a drag that ends over a card must not also count as a click on it */
+    carousel.addEventListener('click', function (e) {
+      if (!moved) return;
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }, true);
+
+    /* ---- Keyboard ---- */
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); next(); restartAuto(); hideHint(); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); restartAuto(); hideHint(); }
+    });
 
     render();
     startAuto();
